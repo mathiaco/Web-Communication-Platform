@@ -1,1 +1,2 @@
-# soen341group3
+#SOEN 341 - Group 3
+
