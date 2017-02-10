@@ -1,7 +1,0 @@
-This is a test file to practice your git skills
-
-ivan: 123 44444
-
-aghi: change
-
-saishan: change
