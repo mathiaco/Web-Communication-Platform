@@ -1,0 +1,12 @@
+
+.chatbox{
+  background-color: #d4d4d4;
+  width: 20%;
+}
+.textarea{
+  overflow-x: auto;
+  height: 200px;
+}
+.chatText{
+  width: 100%;
+}
