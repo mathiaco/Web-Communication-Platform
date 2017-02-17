@@ -1,0 +1,145 @@
+//Access user info: searh username 
+// https://api.github.com/users/'username'
+
+ {
+  "login": "mathiaco",
+  "id": 25252955,
+  "avatar_url": "https://avatars.githubusercontent.com/u/25252955?v=3",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/mathiaco",
+  "html_url": "https://github.com/mathiaco",
+  "followers_url": "https://api.github.com/users/mathiaco/followers",
+  "following_url": "https://api.github.com/users/mathiaco/following{/other_user}",
+  "gists_url": "https://api.github.com/users/mathiaco/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/mathiaco/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/mathiaco/subscriptions",
+  "organizations_url": "https://api.github.com/users/mathiaco/orgs",
+  "repos_url": "https://api.github.com/users/mathiaco/repos",
+  "events_url": "https://api.github.com/users/mathiaco/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/mathiaco/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": null,
+  "company": null,
+  "blog": null,
+  "location": null,
+  "email": null,
+  "hireable": null,
+  "bio": null,
+  "public_repos": 1,
+  "public_gists": 0,
+  "followers": 0,
+  "following": 0,
+  "created_at": "2017-01-20T18:34:20Z",
+  "updated_at": "2017-02-12T11:09:51Z"
+}
+
+ //display info
+        var fullname   = json.name;
+        var username   = json.login;
+        var aviurl     = json.avatar_url;
+        var profileurl = json.html_url;
+        var location   = json.location;
+        var followersnum = json.followers;
+        var followingnum = json.following;
+        var reposnum     = json.public_repos;
+
+//Acess the repos 
+// Json.parse "repos_url": 
+//https://api.github.com/users/'username'/repos
+
+
+//Acess commits
+//Json.parse "it_commits_url": 
+//https://api.github.com/repos/username/name/git/commits{/sha},
+
+ {
+    "id": 38386797,
+    "name": "COMP248",
+    "full_name": "abhandal/COMP248",
+    "owner": {
+      "login": "abhandal",
+      "id": 9330334,
+      "avatar_url": "https://avatars.githubusercontent.com/u/9330334?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/abhandal",
+      "html_url": "https://github.com/abhandal",
+      "followers_url": "https://api.github.com/users/abhandal/followers",
+      "following_url": "https://api.github.com/users/abhandal/following{/other_user}",
+      "gists_url": "https://api.github.com/users/abhandal/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/abhandal/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/abhandal/subscriptions",
+      "organizations_url": "https://api.github.com/users/abhandal/orgs",
+      "repos_url": "https://api.github.com/users/abhandal/repos",
+      "events_url": "https://api.github.com/users/abhandal/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/abhandal/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "private": false,
+    "html_url": "https://github.com/abhandal/COMP248",
+    "description": "Assignments from COMP 248 ",
+    "fork": false,
+    "url": "https://api.github.com/repos/abhandal/COMP248",
+    "forks_url": "https://api.github.com/repos/abhandal/COMP248/forks",
+    "keys_url": "https://api.github.com/repos/abhandal/COMP248/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/abhandal/COMP248/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/abhandal/COMP248/teams",
+    "hooks_url": "https://api.github.com/repos/abhandal/COMP248/hooks",
+    "issue_events_url": "https://api.github.com/repos/abhandal/COMP248/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/abhandal/COMP248/events",
+    "assignees_url": "https://api.github.com/repos/abhandal/COMP248/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/abhandal/COMP248/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/abhandal/COMP248/tags",
+    "blobs_url": "https://api.github.com/repos/abhandal/COMP248/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/abhandal/COMP248/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/abhandal/COMP248/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/abhandal/COMP248/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/abhandal/COMP248/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/abhandal/COMP248/languages",
+    "stargazers_url": "https://api.github.com/repos/abhandal/COMP248/stargazers",
+    "contributors_url": "https://api.github.com/repos/abhandal/COMP248/contributors",
+    "subscribers_url": "https://api.github.com/repos/abhandal/COMP248/subscribers",
+    "subscription_url": "https://api.github.com/repos/abhandal/COMP248/subscription",
+    "commits_url": "https://api.github.com/repos/abhandal/COMP248/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/abhandal/COMP248/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/abhandal/COMP248/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/abhandal/COMP248/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/abhandal/COMP248/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/abhandal/COMP248/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/abhandal/COMP248/merges",
+    "archive_url": "https://api.github.com/repos/abhandal/COMP248/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/abhandal/COMP248/downloads",
+    "issues_url": "https://api.github.com/repos/abhandal/COMP248/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/abhandal/COMP248/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/abhandal/COMP248/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/abhandal/COMP248/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/abhandal/COMP248/labels{/name}",
+    "releases_url": "https://api.github.com/repos/abhandal/COMP248/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/abhandal/COMP248/deployments",
+    "created_at": "2015-07-01T18:07:43Z",
+    "updated_at": "2015-07-01T18:16:47Z",
+    "pushed_at": "2015-07-01T18:27:06Z",
+    "git_url": "git://github.com/abhandal/COMP248.git",
+    "ssh_url": "git@github.com:abhandal/COMP248.git",
+    "clone_url": "https://github.com/abhandal/COMP248.git",
+    "svn_url": "https://github.com/abhandal/COMP248",
+    "homepage": null,
+    "size": 120,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "Java",
+    "has_issues": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "open_issues_count": 0,
+    "forks": 0,
+    "open_issues": 0,
+    "watchers": 0,
+    "default_branch": "master"
+  },
+
+
