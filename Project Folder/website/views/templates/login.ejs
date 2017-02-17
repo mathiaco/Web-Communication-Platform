@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='stylesheets/style.css' />
+</head>
+<body>
+<h1>My Website</h1>
+<% include templates/header.ejs %>
+<div id=contents>
+    <div>
+            <div class="container">
+                <label><b>Username</b></label><br>
+                <input class="input-txt" type="text" placeholder="Enter Username" name="uname" required><br>
+
+                <label><b>Password</b></label><br>
+                <input class="input-txt" type="password" placeholder="Enter Password" name="psw" required><br><br>
+                <button type="submit">Login</button>
+                <button id="ghbutton" type="button" onclick="location.href='/auth/github'">Login with GitHub</button>
+                <a href="/signup">Don't have an account?</a><br>
+            </div>
+    </div>
+</div>
+</body>
+</html>

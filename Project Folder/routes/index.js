@@ -3,18 +3,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {
-    title: 'My Website'
-  });
+  //TODO: Adjust index page
+  //IF LOGGED IN -> render INDEX
+  if(false) {
+    res.render('index.ejs', {});
+  }
+  //IF NOT LOGGED IN -> render Login page
+  else {
+    res.render('login.ejs', {});
+  }
+
 });
-
-router.get('/login', function(req, res) {
-  res.render('login', {
-    title: 'My Website'
-  });
-});
-
-
 
 
 module.exports = router;
