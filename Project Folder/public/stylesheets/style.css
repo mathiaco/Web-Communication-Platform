@@ -1,0 +1,100 @@
+html{
+    margin: auto;
+    display: block;
+    position: relative;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+}
+body{
+    background-color: #3d4e68;
+    color: white;
+}
+#menu{
+     border-bottom: thick black solid;
+    border-top: thick black solid;
+     height: 10%;
+     width: 96%;
+     padding: 0 0.5% 0 0.5%;
+     margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    text-align: center;
+    display: block;
+ }
+
+#contents {
+   /* border: thick darkgreen solid; */
+    margin: 0.5%;
+    padding: 1%;
+    height: 70%;
+    width: 90%;
+    float: left;
+}
+.clearfix{
+    overflow: auto;
+}
+#signupb1{
+    margin-top: 1%;
+}
+/* Buttons */
+button {
+    background-color: #008CBA;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5% 2% 0.5% 2%;
+    border: none;
+    max-height: 32px;
+}
+#ghbutton{
+    background-color: black;
+
+}
+.signupbtn{
+    margin: 1% 0 2% 0;
+}
+.menubutton{
+     padding: 0.5% 3% 0.5% 3%;
+     margin: 0.5% 0.5% 0.5% 0.5%;
+ }
+
+
+.container{
+    padding: 0.5%;
+    text-align: left;
+    font-size: small;
+}
+.input-txt{
+    width: 30%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    background-color: #3d4e68;
+    color: white;
+}
+a{
+    color: white;
+}
+h1{
+    padding: 0 2% 0 2%;
+    margin: 3% 0 2% 0;
+    font-size: 40px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+@media screen and (max-width: 720px){
+    .menubutton{
+        float:left;
+        margin: 5px;
+    }
+    #menu{
+        display: inline-block;
+    }
+    button{
+        min-width: 150px;
+        min-height: 40px;
+    }
+    .input-txt{
+        width: 90%;
+    }
+}

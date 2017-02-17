@@ -1,0 +1,38 @@
+This is a description of the OAuth2 flow from 3rd party web sites.
+For more details visit: https://developer.github.com/v3/oauth/#1-redirect-users-to-request-github-access 
+
+
+1. Redirect users to request GitHub access
+
+	GET https://github.com/login/oauth/authorize
+
+	provide in the url query:
+		- client_id
+		- redirect_uri
+		- score
+		- state
+		
+		*note: the state used in the project is static (not randomly generate) so it's just there for show.
+		
+2. GitHub redirects back to your site
+
+	GitHub will provide a temporary "code" parameter in the redirected url.
+	Exchange the "code" for an access token
+	
+	POST https://github.com/login/oauth/access_token
+	
+	Parameters:
+		- client_id	
+		- client_secret
+		- code
+		- redirect_uri
+		- state
+	
+	The Response will be provided as:
+	
+	access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&scope=user%2Cgist&token_type=bearer
+	
+3. The access token can be used to access the GitHub API
+
+	Include the token in the authorization header
+	Authorization: token OAUTH-TOKEN
