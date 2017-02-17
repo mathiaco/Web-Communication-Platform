@@ -1,0 +1,51 @@
+
+#app{
+  position: absolute;
+  bottom: 0px;
+}
+.chatButton{
+  float: left;
+  width: 20%;
+}
+.chatbox{
+  position: absolute;
+  bottom: 20%;
+  left: 21%;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px #888888;
+  width: 20%;
+}
+.textarea{
+  overflow-x: auto;
+  height: 200px;
+}
+.chatText{
+  width: 100%;
+}
+
+.peopleList{
+  padding: 10px;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 20%;
+}
+
+.peopleList ul{
+  border: 2px solid grey;
+  background-color: #d3d3d3;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  list-style: none;
+}
+
+.peopleList ul li{
+  padding: 10px;
+}
+
+.peopleList ul li:hover{
+  background-color: #A1A1A1;
+  border: 1px solid grey;
+  cursor: pointer;
+}

@@ -12,9 +12,7 @@ router.post('/signup',function(req,res){
 });
 
 router.get('/signup', function(req, res) {
-    res.render('signup', {
-        title: 'My Website'
-    });
+    res.render('signup.ejs', {});
 });
 
 module.exports = router;

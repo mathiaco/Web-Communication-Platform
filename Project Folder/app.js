@@ -31,7 +31,7 @@ var app = express();
 app.locals.count = 0;
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'website/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -57,10 +57,14 @@ app.use(passport.session());
 app.use('/', index);
 app.get('/signup',signup);
 app.post('/signup', signup);
+app.get('/login', login);
 app.post('/login',login);
 app.get('/auth/callback', callback);
 app.post('/auth/callback', callback);
 app.get('/auth/github', gitauth);
+
+//How it renders the pages simplified
+//app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));
 
 //Password initialization (Session stuff)
 passport.use(new BearerStrategy(
