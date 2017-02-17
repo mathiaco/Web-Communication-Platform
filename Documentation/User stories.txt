@@ -19,8 +19,8 @@
 	Chat Interface
 		-> As a student I want to message other users so that I can easily communicate with my TA or my classmates [5 points]
 		-> As a user I want to message groups of users [5 points]
-		+ Notifications
-		+ List of contacts
+		+ Notifications[3 points]
+		+ List of contacts [2 points]
 	
 
 Backend: 
