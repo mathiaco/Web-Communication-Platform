@@ -53,17 +53,25 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//Sending off to different routes
+/*
+  Handling GET and POST requests by the using the appropriate routes.
+ */
+
+//The index route handles most of the simple routing.
 app.use('/', index);
-app.get('/signup',signup);
-app.post('/signup', signup);
 app.get('/login', login);
 app.post('/login',login);
 app.get('/auth/callback', callback);
 app.post('/auth/callback', callback);
 app.get('/auth/github', gitauth);
 
-//How it renders the pages simplified
+/*
+  Old pages
+app.get('/signup',signup);
+app.post('/signup', signup);
+*/
+
+//How it renders the pages simplified:
 //app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));
 
 //Password initialization (Session stuff)
