@@ -14,8 +14,13 @@ router.get('/', function(req, res) {
   }
 });
 
+/*
+  Handle the routing for the rest of the pages
+ */
 
+//When a GET request is sent to /dashboard
 router.get('/dashboard', function(req, res) {
+  //render the "dashboad.ejs" view
   res.render('dashboard.ejs', {});
 });
 router.get('/groups', function(req, res) {
