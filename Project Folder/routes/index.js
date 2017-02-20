@@ -12,8 +12,25 @@ router.get('/', function(req, res) {
   else {
     res.render('login.ejs', {});
   }
-
 });
 
+
+router.get('/dashboard', function(req, res) {
+  res.render('dashboard.ejs', {});
+});
+router.get('/groups', function(req, res) {
+  res.render('groups.ejs', {});
+});
+router.get('/grouppage', function(req, res) {
+  res.render('grouppage.ejs', {});
+});
+
+router.get('/classes', function(req, res) {
+  res.render('classes.ejs', {});
+});
+
+router.get('/classpage', function(req, res) {
+  res.render('classpage.ejs', {});
+});
 
 module.exports = router;

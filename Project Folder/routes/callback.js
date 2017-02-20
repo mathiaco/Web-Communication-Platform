@@ -44,7 +44,8 @@ router.get('/auth/callback', function(req, res) {
             if (!error && res1.statusCode == 200) {
                 ACCESS_TOKEN = JSON.parse(body).access_token;
                 console.log('access_token: ' + ACCESS_TOKEN);
-                res.send("Logged in");
+                console.log("Logged in");
+                res.redirect('/dashboard');
             } else {
                 console.error(error);
             }
