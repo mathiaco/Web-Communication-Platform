@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+/*
+    Signup page is no longer in use
+ */
 //Handles POST requests sent to signup
 router.post('/signup',function(req,res){
     if(req.body.psw == req.body.psw2) {

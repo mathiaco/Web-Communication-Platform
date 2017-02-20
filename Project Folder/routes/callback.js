@@ -24,6 +24,7 @@ router.get('/auth/callback', function(req, res) {
     //checks if state matches
     if(req.query.state == testAuth['state']) {
         var session_code = req.query.code;
+        //options for the post request
         var options = {
             url: "https://github.com/login/oauth/access_token",
             method: 'POST',
@@ -44,7 +45,9 @@ router.get('/auth/callback', function(req, res) {
             if (!error && res1.statusCode == 200) {
                 ACCESS_TOKEN = JSON.parse(body).access_token;
                 console.log('access_token: ' + ACCESS_TOKEN);
-                res.send("Logged in");
+                console.log("Logged in");
+                //Redirects the user to the dashboard page after a successful login
+                res.redirect('/dashboard');
             } else {
                 console.error(error);
             }
