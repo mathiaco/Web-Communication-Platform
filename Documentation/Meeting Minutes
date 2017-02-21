@@ -1,0 +1,26 @@
+Meetings
+
+Date and Time What was discussed?
+
+Friday 27/01 10->12:55 Discuss ideas 
+
+Friday 03/02 10->12:55 User stories
+
+Friday 10/02 11->12:55 task assigmnent 
+
+Friday 17/02 11->12:55 Review commits
+
+Saturday 18/02 8 -> 9:00 Review progress
+
+Tuesday 21/02 1 -> 2:00 Review progress on user stories, and set goals for Saturday [25th February 2017] on user stories 
+        Updates and Planning:
+                -> Ariles: Continues to learn React, will have React JS for issue #22 complete by Tuesday 28th February
+                -> Jeff and Nadia: Will have React JS for issue #38 complete by Tuesday 28th February
+                -> Yousef: Continues to learn ALL the languages and frameworks, will be able to elaborate on goals for Saturday by Tuesday
+                -> Ivan: Has done a shit load of work, has set up: Open Travis CI, and Heroku app, and has organized the entire folder structure. Has functionality on Issue #14, #16, #17. Needs to set up DB.
+                -> Mathiaco: Is working on React JS for the issues that Ivan has functionality for
+                -> Mateuse and Nathan: Have functionality for issues #18, #19, #31. Need to hook it up to the DB.
+        General Decisions:
+                -> Google Firebase used instead of MongoDB. Nadia and Jeff to meet tomorrow to map out general structure
+                -> Jeff has a SCRUM board in the projects section of the GitHub. Issues are in appropriate columns
+                -> Next Meeting: @ Saturday 8PM online. 
