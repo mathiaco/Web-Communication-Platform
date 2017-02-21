@@ -1,7 +1,13 @@
-//Access user info: searh username 
-// https://api.github.com/users/'username'
+//Access user info: search username 
 
- {
+
+var username; 
+var requestLogin = {
+        url: "https://api.github.com/users/" + username,
+        method: 'GET'
+    };
+
+var textLogin = {
   "login": "mathiaco",
   "id": 25252955,
   "avatar_url": "https://avatars.githubusercontent.com/u/25252955?v=3",
@@ -34,23 +40,64 @@
   "updated_at": "2017-02-12T11:09:51Z"
 }
 
- //display info
-        var fullname   = json.name;
-        var username   = json.login;
-        var aviurl     = json.avatar_url;
-        var profileurl = json.html_url;
-        var location   = json.location;
-        var followersnum = json.followers;
-        var followingnum = json.following;
-        var reposnum     = json.public_repos;
+//To get the necessary profile infos: 
 
-//Acess the repos 
-// Json.parse "repos_url": 
-//https://api.github.com/users/'username'/repos
+//**id**
+var linkID; 
+
+JSON.parse(textLogin, function(k,v){
+  if (k === 'id') {
+    linkID = v;
+  }
+  return v; 
+});
+
+//**nb_repos**
+var nb_repos; 
+
+JSON.parse(textLogin, function(k,v){
+  if (k === 'public_repos') {
+    nb_repos = v;
+  }
+  return v; 
+});
+
+//**nb_repos**
+var nb_repos; 
+
+JSON.parse(textLogin, function(k,v){
+  if (k === 'public_repos') {
+    nb_repos = v;
+  }
+  return v; 
+});
+
+// To get the link for the user's repos
+var reposLink; 
+
+JSON.parse(textLogin, function(k,v){
+  if (k === 'repos_url') {
+    reposLink = v;
+  }
+  return v; 
+});
+
+//Access Repos
+var requestRepos= {
+        url: reposLink,
+        method: 'GET'
+    };
+
+var textRepos...
+// Take repos name and info 
+
+//Each repo take "collaborators_url" "assignees" "commits"
 
 
-//Acess commits
-//Json.parse "it_commits_url": 
+ //display info // var fullname // var followersnum // varfollowersLink //varfollowersLogin
+        
+
+
 //https://api.github.com/repos/username/name/git/commits{/sha},
 
  {
@@ -141,5 +188,3 @@
     "watchers": 0,
     "default_branch": "master"
   },
-
-
