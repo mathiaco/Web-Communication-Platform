@@ -1,28 +1,11 @@
 
 #SOEN 341 - Group 3
 
-
-
-              Meetings
-Date and Time      What was discussed?
-
-Friday 27/01   10->12:55   Discuss ideas 
-Friday 03/02   10->12:55   User stories
-Friday 10/02   11->12:55   task assigmnent 
-Friday 17/02   11->12:55   Review commits
-
-
-
-
-
-
-
                   Facebook communication
 VEN 16:32
 
 Jeff Buonamici
-Jeff
-I separated all our user stories into individual issues and labelled them as user stories
+Jeff I separated all our user stories into individual issues and labelled them as user stories
 Diyaan Athar
 Diyaan
 Jeff Buonamici
@@ -393,3 +376,295 @@ Diyaan Athar
 Diyaan
 Vu par Diyaan Athar à 11:21Vu par Nathan Shummoogum à 11:21Vu par Emanuel Mateus à 11:22Vu par Jeff Buonamici à 11:26Vu par Yousef Shaker à 11:27Vu par Ariles Jazilan à 11:27
 
+Meeting chat records [21/2/2017]
+Hi!
+Jeff
+Hello
+:D
+Mathiaco-lee
+Hi
+Emanuel
+hi
+Jeff, what has your progress been since Saturday?
+And what are you hoping to get done by Saturday?
+Jeff
+I've watched all the nodejs videos Ivan gave me, and today I'm working posts
+Ariles
+Where are u ?!!
+Where are you hoping to be at with this by the upcoming Saturday ?
+Online...
+Jeff
+Tomorrow I want to see if we can create the database, and hopefully added the post to the database when the submit button is clicked
+Ariles
+Is not a person meeting?!
+Jeff
+I think Ariles is at school
+Yousef
+Am at school
+Ariles
+Yeahh i am at school
+Okay, you and I can confer on this tomorrow!
+Nathan how about you?
+Emanuel
+speaking of the database i've been doing some research and it looks like firebase is better suited to what we need, since it is better when real-time updates to the clients are required
+Are you working on a particular user story?
+Does anybody else know about firebase?
+Jeff
+I agree with firebase!
+And I know how to use firebase 🙂
+Emanuel
+nice
+Jeff
+thank god
+one less thing to learn
+And google has some nice SHORT tutorial videos about it
+Is there are consensus on this?
+Mathiaco-lee
+Good for me
+Nathan?
+Yousef?
+Yousef
+I guess everybody agrees on it
+Arriles?
+Yousef
+Honestly I don't know what  firebase is
+Do you know what Mongo DB is, or are they same for you?
+Jeff
+Firebase is just an online database made by google
+Yousef, are you working on a particular story line?
+Sorry I mean user story!
+Yousef
+Yeah the group pages
+Okay, so where are you at with that?
+Not trying to be mean 😕
+Yousef
+Almost done finishing the languages
+I need
+Jeff
+I suggest everyone use the "Project" tab on github
+I created a SCRUM board there to help keep track of what everyone is doing
+Yousef, when do think you will be able to hav the React components done for the group page?
+Jeff
+You can drag and drop your User Story by clicking "Add Cards" and then drag and drop it
+Cool! Thanks Jeff 🙂
+Yousef
+I should be able to let u know by after tom
+Ariles
+I dont know firebase !!
+But you do know Mongo DB?
+Ariles
+Neither
+But its fine
+Jeff
+:P
+So is it the same for for you to use them Ariles?
+Ariles
+Use what?!
+Database ?!
+Firebase verses MongoDB
+As in does it make a difference?
+Ariles
+Ohh yeahh in either case i need to learn one
+Okay, whoever said they had a video tutorial can you please post it to the chat?
+Ariles
+You can use this website slant.io
+To compare which one is the best
+Slant.co
+Mathiaco-lee, are you working on a user story?
+Mathiaco-lee
+On the github profile info and activities
+Jeff
+https://www.youtube.com/watch?v=k1D0_wFlXgo&t
+Mathiaco-lee
+I've started coding
+What part are you coding? Do you have the React JS part up and running?
+Mathiaco-lee
+Not yet
+Jeff
+https://www.youtube.com/watch?v=mwNATxfUsgI&t
+Do you think you will have that by Saturday?
+Jeff
+Actually I'll post these in the group.
+THey'll get lost in the chat
+Mathiaco-lee
+I'll try my best
+Thanks Mathiaco-lee! and also thanks Jeff!
+Ariles, are you working on a user story?
+Sorry y'all harassment will be over soon
+Mathiaco-lee
+Jeff these are the firebase videos ?
+Hey Emanuel, are you working on a user story?
+Emanuel
+working on the user stories that allow real time chat between people
+Jeff
+Ok so I posted to useful videos about Firebase in the group page
+There's plenty more on youtube that you can find
+Emanuel
+Nathan and I were able to get a basic functional chat down
+and now we would need to connect to a database and find the best way to save chat files
+Mathiaco-lee
+Thanks
+Do you think you will have that down by Saturday or you think that you will need more time?
+Emanuel
+Probably need a bit more time
+Okay, so as an estimate, I will put down next Tuesday as a hope to get finished time. Is that okay?
+Emanuel
+sure
+Ariles, where are you?
+Mathiaco-lee
+Does anyone have an idea of what is needed for Sprint 3 other than progress ?
+Nope, just checking the site rn.
+Nothing there on sprint 3 as of yet!
+Okay, I think we are done, I gonna just transfer this to the meeting notes. Does anybody else have anything else they need to follow up on?
+Emanuel
+nope
+Mathiaco-lee
+Guess we will catch up on Saturday at 8 PM
+Mathiaco-lee
+Oh Yousef are you still doing the Burndown chart ?
+Jeff, where to we do this dragging. I am super confused?
+Jeff
+Go to github
+Click the Project tab
+Then click "SCRUM Board"
+The top right there's a button that says "Add Cards"
+Cool, I can see it!
+What does icebox mean?
+Do all our user stories start ther?
+Jeff
+Technically every User Story we plan on doing should be in there
+It's User stories that are waiting to be worked on
+Okay got it! I will transfer them over
+Nathan I think Emanuel gave us an update on the user story him and you are working on
+Did you want to add anything?
+Nathan
+ya im reading srry im late
+Np, it happens
+Ivan I see you there 😛
+Thanks for organizing the project folders
+Which user stories precisely are you working on?
+Ivan
+Hey im back
+Me?
+Yup, you
+Ivan
+Working on the github stuff
+You mean log-in with Mathiaco?
+Ivan
+Yeah
+The login and creating a profile for the user
+Jeff
+Ivan I think the login isn't working anymore
+Ivan
+It works, sign out of github and u'll see
+What will you have done by Saturday?
+Jeff
+oh yeah wow
+cool
+Did you change it?
+Ivan
+Sessions + profile page creation
+Jeff
+It doesn't show in the revoke page
+Ivan
+And I'll try to get the database stuff working
+Jeff
+We're using Firebase now I think
+Ivan
+I think its because it only asks for ur public info
+Jeff
+instead of MongoDB
+Ah ok
+Ivan
+Ok
+Does anyone want to setup the database stuff or should I do it?
+Jeff
+As in creating the database?
+Ivan
+Yeah
+One thing I am really confused about is don't we need one database?
+Jeff
+Yeah
+Ivan
+Yeah
+Correct
+Jeff is that something you and I want to work on tomorrow since you already know how it works?
+....just a suggestions...
+Jeff
+Sure
+Okay, so how about once Jeff and I have met tomorrow we send everyone an update on what is going on with that?
+I am guessing it is going to be pertinent to what you and Emanuel are doing also Nathan?
+Nathan
+yeah, well we havent really looked at any of the database stuff yet.
+but thats what we are missing
+Ivan
+Database is very pertinent to all the aspects of the site
+Okay, so Jeff and I will give y'all an update once we have met?
+Ivan
+Ok
+Jeff
+People need a Google account in order for me to add them to the database as Admins
+as in a @gmail.com email
+Ivan
+Ivan.bogdev@gmail.com
+Mathiaco-lee
+mathiaco2@gmail.com
+Nathan
+nathanshumm@gmail.com
+Yousef
+yousefaboelfoul@gmail.com
+nadia.nanasheikh@gmail.com
+Jeff
+Also, are we coming up with a name for our website? 😛
+Emanuel
+emateus71@gmail.com
+Ariles
+E-learning.com
+Computer Skills and IC3 E-learning Courses
+Provider of online computer skills training and certification courses for teens and adults.
+e-learning.com
+Swoupss
+Hey Ariles, I don't really know what user story you are working on?
+Ariles
+Wanted to suggest a name
+#22
+On the icebox
+Btw what icebox?!
+Not in progres, Ima move yours over
+Ariles
+swimming4life36@gmail.com
+Ok good
+Where are you at with #22 and what do you think you will have done by Saturday?
+Sorry (just doing my job as official harraser)
+Ariles
+No worry its ok i finished learning react i mean almost !! I am working on it !!
+Jeff
+Ariles I need your email
+Ariles
+I putted swimming4life36@gmail.com
+Jeff
+oops
+sorry i didn't see
+Do you think by Saturday you might have the React components done (or if not Saturday, then next Tuesday)
+Or if neither of those, then what date is realistic?
+Ariles
+Ariles
+Yeahhh it will be done !!
+Perfect, thanks 🙂
+Jeff
+Ok so everyone should be able to see the database at https://console.firebase.google.com/
+Firebase Console
+Firebase is a mobile platform that helps you quickly develop high-quality apps, grow your user base, and earn more money.
+accounts.google.com
+Just look at it when you have the time
+Ariles
+Sorry, is there a way to down load the chat file, just want to update documentation
+Or did we just copy-paste last time?
+I mean from facebook, sorry if that was confusing?
+Mathiaco-lee
+oh yeah
+Nathan
+lol was slightly confused
+Mathiaco-lee
+copu paste
+Thanks!
