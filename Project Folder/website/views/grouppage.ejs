@@ -36,6 +36,21 @@
 </head>
 
 <body>
+	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
+			authDomain: "group3db-f028e.firebaseapp.com",
+			databaseURL: "https://group3db-f028e.firebaseio.com",
+			storageBucket: "group3db-f028e.appspot.com",
+			messagingSenderId: "164875081133"
+		};
+		firebase.initializeApp(config);
+		
+		var postBtn = getElementById('postBtn');
+		
+	</script>
 
     <div id="wrapper">
 
@@ -564,7 +579,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-success">Post</button>
+                                                <button type="button" id="postBtn" class="btn btn-success">Post</button>
                                             </div>
                                         </div>
                                     </div>
