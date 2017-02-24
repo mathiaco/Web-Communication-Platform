@@ -3,7 +3,7 @@
     "password": "",
     "client_id": "c92be8586ec53ff861be",
     "client_secret": "ce6b2fd9306f30daa92cf99d8c6476c25604826d",
-    "token": "928d90acdf7f34aaa31bbf79405e85a16e22f173",
-    "redirect_uri": "http://127.0.0.1:3000/auth/callback",
+    "token": "",
+    "redirect_uri": "https://soen341group3.herokuapp.com/auth/callback",
     "state": "412y1872hf12f47812hf471"
 }
