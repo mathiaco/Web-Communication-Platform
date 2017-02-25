@@ -7,15 +7,21 @@ var bodyParser = require('body-parser');
 
 //Session stuff
 var passport = require('passport');
-var BearerStrategy = require('passport-http-bearer').Strategy;
 var session = require('express-session');
 
 //Json file
 var testAuth = require('./json/test.json');
 
 // Database
-var MongoClient = require('mongodb').MongoClient;
+//Firebase
+var firebase = require('firebase-admin');
+var serviceAccount = require("./json/serviceAccountKey.json");
 
+firebase.initializeApp({
+  credential: firebase.credential.cert(serviceAccount),
+  databaseURL: "https://soen341-f7882.firebaseio.com"
+});
+var db = firebase.database();
 //Routes
 var index = require('./routes/index.js');
 var signup = require('./routes/signup.js');
@@ -65,27 +71,9 @@ app.get('/auth/callback', callback);
 app.post('/auth/callback', callback);
 app.get('/auth/github', gitauth);
 
-/*
-  Old pages
-app.get('/signup',signup);
-app.post('/signup', signup);
-*/
-
 //How it renders the pages simplified:
 //app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));
 
-//Password initialization (Session stuff)
-passport.use(new BearerStrategy(
-    function(token, done)
-    {
-      User.findOne({ token: token }, function (err, user)
-      {
-        if (err) { return done(err); }
-        if (!user) { return done(null, false); }
-        return done(null, user, { scope: 'read' });
-      });
-    }
-));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
