@@ -34,7 +34,7 @@ class Form extends Component {
           <p>
             <input
               className="name"
-              type="text"
+              type="hidden"
               placeholder="some_login_here_please"
               value={this.state.name}
               onChange={this.updateName}

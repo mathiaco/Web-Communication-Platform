@@ -9,13 +9,13 @@ import './App.css';
 const messages = [
   {
     id: 1,
-    text: 'hi',
+    text: 'this is hardcoded',
     author: 'Nathan',
     channel_id: 1
   },
   {
     id: 2,
-    text: 'hey',
+    text: 'hello',
     author: 'Emanuel',
     channel_id: 1
   },
@@ -34,9 +34,9 @@ const messages = [
 ];
 
 const channels = [
-  { id: 1, name: 'General room' },
-  { id: 2, name: 'Birthday celebration' },
-  { id: 3, name: 'Watercooler conversation' },
+  { id: 1, name: 'Room 1' },
+  { id: 2, name: 'Room 2' },
+  { id: 3, name: 'Room 3' },
 ];
 
 
