@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<% include templates/header.ejs %>
+<h1>Soen 341 Group3 Github API</h1>
+<label><b>Username</b></label><br>
+<form id="form">
+  <input class="input-txt" id="username" type="text" placeholder="Enter Username" name="username" required><br>
+  <input type="submit" onclick="location.href='/profile'" />
+</form>
+
+
+</body>
+</html>

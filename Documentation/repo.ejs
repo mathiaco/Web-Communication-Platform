@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<% include header.ejs %>
+
+<h3> <%=user%>'s repositories </h3>
+<p> These are the list of repo</p>
+<ul>
+    <%title.forEach(function(item) { %>
+       <li> <a href="/repoInfo">  <%= item.name%> </a>
+         <ul>
+           <li> Created: <%= item.created_at %> </li>
+           <li> Description: <%= item.description%> </li>
+           <li> Private: <%= item.private%> </li>
+           <li> Size: <%= item.size%> </li>
+           <li> Language(s): <%= item.language%> </li>
+           <li> Contributors(s): <a href="https://api.github.com/repos/<%=user%>/<%=item.name%>/contributors"> link </a> </li>
+         </ul>
+       </li>
+  <%  }); %>
+</ul>
+</body>
+</html>

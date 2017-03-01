@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<% include header.ejs %>
+
+<h3> <%= title.login%> profile page</h3>
+<p> This is the profile page</p>
+<ul>
+    <li>id: <%=title.id %> </li>
+    <li>nb_repo: <%=title.public_repos %> </li>
+    <li>followers: <%=title.followers %>  </li>
+    <li>following: <%=title.following %> </li>
+    <li>bio: <%=title.bio %>  </li>
+    <li> <a href="/repo"> repos</a>  </li>
+</ul>
+</body>
+</html>
