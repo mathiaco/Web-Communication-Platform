@@ -9,11 +9,11 @@
 <% include templates/header.ejs %>
 <h1>Soen 341 Group3 Github API</h1>
 <label><b>Username</b></label><br>
-<form id="form">
-  <input class="input-txt" id="username" type="text" placeholder="Enter Username" name="username" required><br>
-  <input type="submit" onclick="location.href='/profile'" />
-</form>
 
+<form id="form" action="/username" method="post">
+  <input class="input-txt" id="username" type="text" placeholder="Enter Username" name="username" required><br>
+  <input type="submit" >
+</form>
 
 </body>
 </html>
