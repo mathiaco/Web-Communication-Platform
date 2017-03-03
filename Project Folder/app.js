@@ -20,7 +20,6 @@ var serviceAccount = require("./json/serviceAccountKey.json");
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
   databaseURL: "https://group3db-f028e.firebaseio.com"
-"
 });
 var db = firebase.database();
 //Routes
