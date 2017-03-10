@@ -1,8 +1,12 @@
-function writePostData(userId, name, title, content) {
-  firebase.database().ref(userId).set({
-    username: name,
-    title: title,
-    content: content
+
+var postsRef;
+
+function writePostData(posts, name, title, content) {
+  var newPostRef = postsRef.push();
+  newPostRef.set({
+      username: name,
+      title: title,
+      content: content
   });
 }
 
@@ -17,9 +21,21 @@ function initializeFirebase() {
   firebase.initializeApp(config);
 }
 
-
-
 initializeFirebase();
+postsRef = firebase.database().ref("posts/");
+
 $("#postBtn").click( function() {
-  writePostData("123", "Jeff", $("#title-text").val(), $("#message-text").val())
-  });
+  writePostData("posts/", "Jeff", $("#title-text").val(), $("#message-text").val())
+});
+
+postsRef.on("child_added", function(snapshot, prevChildKey) {
+  var newPost = snapshot.val();
+  $("#postList").append(
+    "<a href='#' class='list-group-item'>" + 
+      newPost.title +
+      "<span class='pull-right text-muted small'><em>4 minutes ago</em>" +
+      "</span>" +
+    "</a>"
+  )
+});
+
