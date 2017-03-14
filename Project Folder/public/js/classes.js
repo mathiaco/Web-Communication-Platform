@@ -1,5 +1,5 @@
 var classesRef;
-var rowCount = 0;
+var colCount = 1;
 function writePostData(name, title, content) {
   var newPostRef = classesRef.push();
   newPostRef.set({
@@ -31,9 +31,22 @@ $("#createClassBtn").click( function() {
 
 classesRef.on("child_added", function(snapshot, prevChildKey) {
   var newClass = snapshot.val();
+  var color;
+    if (colCount == 1) {
+        color = "purple";
+        colCount++;
+    }
+    else if (colCount == 2) {
+        color = "pink";
+        colCount++;
+    }
+    else if (colCount == 3) {
+        color = "orange";
+        colCount = 1;
+    }
     $("#classRow").append(
         "<div class='col-lg-4'>" +
-        "<div class='panel panel-purple'>" +
+        "<div class='panel panel-" + color + "'>" +
         "<div class='panel-heading'>" +
         newClass.title +
         "</div>" +
