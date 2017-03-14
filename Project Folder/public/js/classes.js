@@ -54,7 +54,7 @@ classesRef.on("child_added", function(snapshot, prevChildKey) {
         "<p>" + newClass.description + "</p>" +
         "</div>" +
         "<div class='panel-footer'>" +
-        "<a href='/classpage' class='btn btn-default btn-default btn-block'>View</a>" +
+        "<a href='/classpage?c=" + snapshot.getKey() + "' class='btn btn-default btn-default btn-block'>View</a>" +
         "</div>" +
         "</div>"
     )
