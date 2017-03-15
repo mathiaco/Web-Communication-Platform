@@ -1,0 +1,114 @@
+Database Structure
+
+users
+	-user1
+		-username:
+		-created_at:
+		-classes:
+			-class1: true
+				-post_count:
+			-class2: true
+				-post_count:
+		-groups:
+			-group1: true
+			-group2: true
+		-student_id:
+		-first_name:
+		-last_name:
+		-last_login:
+		-github_token: 
+	-user2
+		-username:
+		-created_at:
+		-classes:
+			-class1: true
+				-post_count:
+				-chat_count:
+			-class2: true
+				-post_count:
+				-chat_count:
+		-groups:
+			-group1: true
+			-group2: true
+		-student_id:
+		-first_name:
+		-last_name:
+		-last_login:
+		-github_token: 
+		
+		
+classes
+	-class1
+		-name:
+		-description:
+		-created_at:
+		-ta:
+			-user1: true
+		-users:
+			-user1: true
+			-user2: true
+		-groups:
+			-group1: true
+			-group2: true
+		-chats:
+			chat2: true
+
+
+groups
+	-group1
+		-name:
+		-created_at:
+		-users:
+			-user1: true
+			-user2: true
+		-chats:
+			-chat1: true
+
+
+posts
+	-post1
+		-title:
+		-author: 
+			-user1: true
+		-content:
+		-created_at:
+		-comments:
+			-comment1: true
+			-comment2: true
+	-post2
+		-title:
+		-author: 
+			-user1: true
+		-content:
+		-created_at:
+		-comments:
+			-comment3 true
+			-comment4: true
+			
+			
+comments
+	-comment1
+		-author:
+			-user1: true
+		content:
+		created_at:
+	-comment2
+		-author:
+			-user1: true
+		content:
+		created_at:
+
+
+chats
+	-chat1
+		-file_path: something/file.txt
+		-group:
+			-group1: true
+		-class:
+			-null
+	-chat2
+		-file_path: something/file2.txt
+		-group:
+			-null
+		class:
+			-class1: true
