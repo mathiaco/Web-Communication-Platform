@@ -10,6 +10,25 @@ function initializeFirebase() {
   firebase.initializeApp(config);
 }
 
+function initializePage() {
+  firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
+    $("#classTitle").text(snapshot.val().title);
+    var refClassUsers = firebase.database().ref("classes/" + classID + "/users/").orderByValue();
+    refClassUsers.once("value").then(function (childSnapshot) {
+      childSnapshot.forEach(function (childChildSnapshot) {
+        memberCount++;
+        $("#classMembers").append(
+          "<a href='#' class='list-group-item'>" +
+          childChildSnapshot.val() +
+          "</a>"
+        )
+      })
+      $("#memberCount").text(memberCount);
+    })
+  })
+  
+}
+
 function getClassID() {
   var pageURL = window.location.search.substring(1);
   pageURL = pageURL.split("=");
@@ -17,21 +36,11 @@ function getClassID() {
 }
 
 var classID;
+var memberCount = 0;
 getClassID();
 
 initializeFirebase();
+initializePage();
 
-firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
-  $("#classTitle").text(snapshot.val().title);
-  var refClassUsers = firebase.database().ref("classes/" + classID + "/users/").orderByValue();
-  refClassUsers.once("value").then(function (childSnapshot) {
-    childSnapshot.forEach(function (childChildSnapshot) {
-      $("#classMembers").append(
-        "<a href='#' class='list-group-item'>" +
-        childChildSnapshot.val() +
-        "</a>"
-      )
-    })
-  })
-})
+
 
