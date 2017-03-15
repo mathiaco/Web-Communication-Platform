@@ -1,0 +1,14 @@
+
+.container{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.buttonDiv{
+  width: 50%;
+  margin-top: 20px
+}
