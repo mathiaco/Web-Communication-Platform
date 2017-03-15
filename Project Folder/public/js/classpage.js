@@ -10,26 +10,28 @@ function initializeFirebase() {
   firebase.initializeApp(config);
 }
 
-function getClassID()
-{
-    var pageURL = window.location.search.substring(1);
-    pageURL = pageURL.split("=");
-    classID = pageURL[1]
+function getClassID() {
+  var pageURL = window.location.search.substring(1);
+  pageURL = pageURL.split("=");
+  classID = pageURL[1]
 }
 
 var classID;
 getClassID();
 
 initializeFirebase();
-firebase.database().ref("classes/" + classID).once("value").then(function(snapshot) {
-    $("#classTitle").text(snapshot.val().title);
-    alert(snapshot.val().child("users"));
-    /**$("#classMembers").append(
-    "<a href='#' class='list-group-item'>" + 
-      snapshot.val().child("users") +
-      "<span class='pull-right text-muted small'><em>4 minutes ago</em>" +
-      "</span>" +
-    "</a>"
-  )**/
+
+firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
+  $("#classTitle").text(snapshot.val().title);
+  var refClassUsers = firebase.database().ref("classes/" + classID + "/users/").orderByValue();
+  refClassUsers.once("value").then(function (childSnapshot) {
+    childSnapshot.forEach(function (childChildSnapshot) {
+      $("#classMembers").append(
+        "<a href='#' class='list-group-item'>" +
+        childChildSnapshot.val() +
+        "</a>"
+      )
+    })
+  })
 })
 
