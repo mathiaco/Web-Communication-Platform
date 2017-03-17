@@ -4,11 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require('request');
+var fs = require('fs');
 
 var index = require('./routes/index');
-var profile = require('./routes/profile');
-var repo = require('./routes/repo');
-var repoInfo = require('./routes/repoInfo');
 
 var app = express();
 
@@ -20,14 +19,14 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index);
-app.use('/profile', profile);
-app.use('/repo', repo);
-app.use('/repoInfo', repoInfo);
+app.use('/profile', index);
+app.use('/repo', index);
+//app.use('/repoInfo', repoInfo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,6 +34,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
