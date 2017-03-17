@@ -60,9 +60,10 @@ classesRef.on("child_added", function (snapshot, prevChildKey) {
     )
 });
 
-/* Don't Delete this.Ability to search for classes
-$("#searchClassBtn").click(function () {
-    var className = $("#searchClassInput").val();
+/* Don't Delete this.Ability to search for classes*/
+$("#classSearchBtn").click(function () {
+    
+    var className = $("#classSearchInput").val();
     ref = firebase.database().ref("classes/");
     ref.orderByChild("title").equalTo(className).once("value").then(function (snapshot) {
         snapshot.forEach(function (classSearched) {
@@ -76,11 +77,10 @@ $("#searchClassBtn").click(function () {
                 "<p>" + classSearched.val().description + "</p>" +
                 "</div>" +
                 "<div class='panel-footer'>" +
-                "<a href='/classpage?c=" + classSearched.key + "' class='btn btn-default btn-default btn-block'>View</a>" +
+                "<button type='button' class='btn btn-success btn-default btn-block'>Join</button>" +
                 "</div>" +
                 "</div>"
             )
         });
     });
 });
-*/
