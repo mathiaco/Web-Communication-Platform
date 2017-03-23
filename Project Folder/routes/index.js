@@ -39,4 +39,10 @@ router.get('/classpage',connectEnsureLogin.ensureLoggedIn(), function(req, res) 
   res.render('classpage.ejs', {});
 });
 
+router.get('/chat',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+  res.render('chat.ejs', {
+    userId: req.user
+  });
+});
+
 module.exports = router;
