@@ -10,6 +10,15 @@ function initializeFirebase() {
   firebase.initializeApp(config);
 }
 
+function writePostData(posts, name, title, content) {
+  var newPostRef = postsRef.push();
+  newPostRef.set({
+    username: name,
+    title: title,
+    content: content
+  });
+}
+
 function initializePage() {
   refClassUsers = firebase.database().ref("classes/" + classID + "/users/");
 
@@ -174,6 +183,21 @@ function initializePage() {
   });
 
   $("#memberCount").text(memberCount);
+
+  $("#postBtn").click(function () {
+    writePostData("posts/", "Jeff", $("#title-text").val(), $("#message-text").val())
+  });
+
+  postsRef.on("child_added", function (snapshot, prevChildKey) {
+    var newPost = snapshot.val();
+    $("#postList").append(
+      "<a href='/postpage?c=" + classID + "&p=" + snapshot.getKey() + "' class='list-group-item'>" +
+      newPost.title +
+      "<span class='pull-right text-muted small'><em>4 minutes ago</em>" +
+      "</span>" +
+      "</a>"
+    )
+  });
 }
 
 // Change this later to check if person is actually a TA
@@ -189,11 +213,15 @@ function getClassID() {
 
 var refClassUsers
 var classID;
+var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
+
+
 getClassID();
 
 initializeFirebase();
+var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 initializePage();
 
 

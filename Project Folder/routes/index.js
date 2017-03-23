@@ -3,10 +3,10 @@ var router = express.Router();
 var connectEnsureLogin = require('connect-ensure-login');
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   //TODO: Adjust index page
   //IF LOGGED IN -> render INDEX
-  if(req.user) {
+  if (req.user) {
     res.render('dashboard.ejs', {});
   }
   //IF NOT LOGGED IN -> render Login page
@@ -20,23 +20,30 @@ router.get('/', function(req, res) {
  */
 
 //When a GET request is sent to /dashboard
-router.get('/dashboard',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   //render the "dashboad.ejs" view
   res.render('dashboard.ejs', {});
 });
-router.get('/groups',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.get('/groups', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('groups.ejs', {});
 });
-router.get('/grouppage',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('grouppage.ejs', {});
 });
 
-router.get('/classes',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('classes.ejs', {});
 });
 
-router.get('/classpage',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+router.get('/classpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('classpage.ejs', {});
+});
+
+router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  // send userID to postpage.ejs
+  res.render('postpage.ejs', {
+    userID: req.user
+  });
 });
 
 module.exports = router;
