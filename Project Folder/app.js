@@ -159,6 +159,20 @@ app.get('/profile',
         });
     });
 
+app.get('/profile/:id',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        getGitProfileByID(req.params.id, function(res1) {
+            var profile = res1;
+
+            res.render('profile', {
+                id: req.params.id,
+                profile: profile
+            });
+        });
+    });
+
 //How it renders the pages simplified:
 //app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));
 
