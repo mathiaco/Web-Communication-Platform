@@ -41,7 +41,7 @@ router.get('/classpage',connectEnsureLogin.ensureLoggedIn(), function(req, res) 
 
 router.get('/chat',connectEnsureLogin.ensureLoggedIn(), function(req, res) {
   res.render('chat.ejs', {
-    userId: req.user
+    userID: req.user
   });
 });
 
