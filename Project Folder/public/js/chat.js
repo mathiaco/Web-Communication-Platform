@@ -1,7 +1,9 @@
-//Needs to add function to determine the current user
-//add function to add channels and add people to the channel
-//next sprint
+//TODO: Needs to add function to determine the current user
+//TODO: add function to add channels and add people to the channel
+//TODO: next sprint
 
+//TODO: currently logged in userID
+var userID;
 var currentUser = '';
 // Initialize Firebase
 var config = {
@@ -12,8 +14,17 @@ var config = {
   messagingSenderId: "164875081133"
 };
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
+if(document.getElementById('userID').value){
+  userID = document.getElementById('userID').value;
+  console.log(userID);
+}
+
+//Retrieves the user's full name from the database using the userID
+firebase.database().ref('users/'+ userID).once('value').then(function(snap){
+    currentUser = snap.val().displayName;
+});
 
 //reads channel from database and displays it
 function readChannel(){
@@ -52,7 +63,7 @@ $('#send-Message').submit(function (e){
     ref.push({
       message: message,
       user: currentUser
-    })
+    });
 
     document.getElementById('messageBox').value = '';
   }
@@ -118,4 +129,4 @@ function updateScroll(){
 window.onload = function(){
   readChannel();
   displayMessages();
-}
+};
