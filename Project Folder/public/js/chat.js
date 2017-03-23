@@ -3,8 +3,10 @@
 //TODO: next sprint
 
 //TODO: currently logged in userID
-var userID;
+var currentUserID;
 var currentUser = '';
+
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
@@ -16,14 +18,12 @@ var config = {
 
 firebase.initializeApp(config);
 
-if(document.getElementById('userID').value){
-  userID = document.getElementById('userID').value;
-  console.log(userID);
-}
-
 //Retrieves the user's full name from the database using the userID
-firebase.database().ref('users/'+ userID).once('value').then(function(snap){
+firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
     currentUser = snap.val().displayName;
+
+    //TODO: take this statement out later
+    console.log(currentUser);
 });
 
 //reads channel from database and displays it
