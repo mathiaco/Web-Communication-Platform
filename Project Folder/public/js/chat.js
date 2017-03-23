@@ -16,6 +16,11 @@ var config = {
 
 firebase.initializeApp(config);
 
+if(document.getElementById('userID').value){
+  userID = document.getElementById('userID').value;
+  console.log(userID);
+}
+
 //Retrieves the user's full name from the database using the userID
 firebase.database().ref('users/'+ userID).once('value').then(function(snap){
     currentUser = snap.val().displayName;
