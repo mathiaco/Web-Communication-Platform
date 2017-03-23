@@ -45,5 +45,10 @@ router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res)
     userID: req.user
   });
 });
+router.get('/chat', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  res.render('chat.ejs', {
+    userID: req.user
+  });
+});
 
 module.exports = router;
