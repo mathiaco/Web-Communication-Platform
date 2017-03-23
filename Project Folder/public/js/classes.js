@@ -1,40 +1,40 @@
 var classesRef;
 var colCount = 1;
 function writePostData(name, title, content) {
-  var newPostRef = classesRef.push();
-  newPostRef.set({
-      ta: name,
-      title: title,
-      description: content
-  });
+
+    var newPostRef = classesRef.push();
+    newPostRef.set({
+        ta: name,
+        title: title,
+        description: content
+    });
 }
 
 function initializeFirebase() {
-  var config = {
-    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
-    authDomain: "group3db-f028e.firebaseapp.com",
-    databaseURL: "https://group3db-f028e.firebaseio.com",
-    storageBucket: "group3db-f028e.appspot.com",
-    messagingSenderId: "164875081133"
-  };
-  firebase.initializeApp(config);
+    var config = {
+        apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
+        authDomain: "group3db-f028e.firebaseapp.com",
+        databaseURL: "https://group3db-f028e.firebaseio.com",
+        storageBucket: "group3db-f028e.appspot.com",
+        messagingSenderId: "164875081133"
+    };
+    firebase.initializeApp(config);
+
 }
 
 initializeFirebase();
 classesRef = firebase.database().ref("classes/");
 
 
-
-$("#createClassBtn").click( function() {
-  writePostData("Jeff", $("#class-title").val(), $("#description-text").val())
+$("#createClassBtn").click(function () {
+    writePostData("Jeff", $("#class-title").val(), $("#description-text").val())
 });
 
 
-var box =0;
 
-classesRef.on("child_added", function(snapshot, prevChildKey) {
-  var newClass = snapshot.val();
-  var color;
+classesRef.on("child_added", function (snapshot, prevChildKey) {
+    var newClass = snapshot.val();
+    var color;
     if (colCount == 1) {
         color = "purple";
         colCount++;
@@ -47,6 +47,7 @@ classesRef.on("child_added", function(snapshot, prevChildKey) {
         color = "orange";
         colCount = 1;
     }
+
     
 
     // append a new class with a specific key
@@ -72,3 +73,30 @@ function deleteBox(id) {
   var idOfBox = id;
   $("div").remove("#" + idOfBox);
 };
+
+
+/* Don't Delete this.Ability to search for classes*/
+$("#classSearchBtn").click(function () {
+    
+    var className = $("#classSearchInput").val();
+    ref = firebase.database().ref("classes/");
+    ref.orderByChild("title").equalTo(className).once("value").then(function (snapshot) {
+        snapshot.forEach(function (classSearched) {
+            $("#searchedClassesRow").append(
+                "<div class='col-lg-4'>" +
+                "<div class='panel panel-default'>" +
+                "<div class='panel-heading'>" +
+                classSearched.val().title +
+                "</div>" +
+                "<div class='panel-body'>" +
+                "<p>" + classSearched.val().description + "</p>" +
+                "</div>" +
+                "<div class='panel-footer'>" +
+                "<button type='button' class='btn btn-success btn-default btn-block'>Join</button>" +
+                "</div>" +
+                "</div>"
+            )
+        });
+    });
+});
+

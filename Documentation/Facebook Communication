@@ -2,6 +2,1539 @@
 #SOEN 341 - Group 3
 
                   Facebook communication
+
+Hi!
+Jeff Buonamici
+Jeff
+Hello
+:D
+Mathiaco-lee
+Hi
+Emanuel Mateus
+Emanuel
+hi
+Diyaan Athar
+Diyaan
+Jeff, what has your progress been since Saturday?
+And what are you hoping to get done by Saturday?
+Jeff Buonamici
+Jeff
+I've watched all the nodejs videos Ivan gave me, and today I'm working posts
+Ariles Jazilan
+Ariles
+Where are u ?!!
+Diyaan Athar
+Diyaan
+Where are you hoping to be at with this by the upcoming Saturday ?
+Online...
+Jeff Buonamici
+Jeff
+Tomorrow I want to see if we can create the database, and hopefully added the post to the database when the submit button is clicked
+Ariles Jazilan
+Ariles
+Is not a person meeting?!
+Jeff Buonamici
+Jeff
+I think Ariles is at school
+Yousef Shaker
+Yousef
+Am at school
+Ariles Jazilan
+Ariles
+Yeahh i am at school
+Diyaan Athar
+Diyaan
+Okay, you and I can confer on this tomorrow!
+Nathan how about you?
+Emanuel Mateus
+Emanuel
+speaking of the database i've been doing some research and it looks like firebase is better suited to what we need, since it is better when real-time updates to the clients are required
+Diyaan Athar
+Diyaan
+Are you working on a particular user story?
+Does anybody else know about firebase?
+Jeff Buonamici
+Jeff
+I agree with firebase!
+And I know how to use firebase 🙂
+Emanuel Mateus
+Emanuel
+nice
+Jeff Buonamici
+Jeff
+thank god
+one less thing to learn
+And google has some nice SHORT tutorial videos about it
+Diyaan Athar
+Diyaan
+Is there are consensus on this?
+Mathiaco-lee
+Good for me
+Diyaan Athar
+Diyaan
+Nathan?
+Yousef?
+Yousef Shaker
+Yousef
+I guess everybody agrees on it
+Diyaan Athar
+Diyaan
+Arriles?
+Yousef Shaker
+Yousef
+Honestly I don't know what  firebase is
+Diyaan Athar
+Diyaan
+Do you know what Mongo DB is, or are they same for you?
+Jeff Buonamici
+Jeff
+Firebase is just an online database made by google
+Diyaan Athar
+Diyaan
+Yousef, are you working on a particular story line?
+Sorry I mean user story!
+Yousef Shaker
+Yousef
+Yeah the group pages
+Diyaan Athar
+Diyaan
+Okay, so where are you at with that?
+Not trying to be mean 😕
+Yousef Shaker
+Yousef
+Almost done finishing the languages
+I need
+Jeff Buonamici
+Jeff
+I suggest everyone use the "Project" tab on github
+I created a SCRUM board there to help keep track of what everyone is doing
+Diyaan Athar
+Diyaan
+Yousef, when do think you will be able to hav the React components done for the group page?
+Jeff Buonamici
+Jeff
+You can drag and drop your User Story by clicking "Add Cards" and then drag and drop it
+Diyaan Athar
+Diyaan
+Cool! Thanks Jeff 🙂
+Yousef Shaker
+Yousef
+I should be able to let u know by after tom
+Ariles Jazilan
+Ariles
+I dont know firebase !!
+Diyaan Athar
+Diyaan
+But you do know Mongo DB?
+Ariles Jazilan
+Ariles
+Neither
+But its fine
+Jeff Buonamici
+Jeff
+:P
+Diyaan Athar
+Diyaan
+So is it the same for for you to use them Ariles?
+Ariles Jazilan
+Ariles
+Use what?!
+Database ?!
+Diyaan Athar
+Diyaan
+Firebase verses MongoDB
+As in does it make a difference?
+Ariles Jazilan
+Ariles
+Ohh yeahh in either case i need to learn one
+Diyaan Athar
+Diyaan
+Okay, whoever said they had a video tutorial can you please post it to the chat?
+Ariles Jazilan
+Ariles
+You can use this website slant.io
+To compare which one is the best
+Slant.co
+Diyaan Athar
+Diyaan
+Mathiaco-lee, are you working on a user story?
+Mathiaco-lee
+On the github profile info and activities
+Jeff Buonamici
+Jeff
+https://www.youtube.com/watch?v=k1D0_wFlXgo&t
+Mathiaco-lee
+I've started coding
+Diyaan Athar
+Diyaan
+What part are you coding? Do you have the React JS part up and running?
+Mathiaco-lee
+Not yet
+Jeff Buonamici
+Jeff
+https://www.youtube.com/watch?v=mwNATxfUsgI&t
+Diyaan Athar
+Diyaan
+Do you think you will have that by Saturday?
+Jeff Buonamici
+Jeff
+Actually I'll post these in the group.
+THey'll get lost in the chat
+Mathiaco-lee
+I'll try my best
+Diyaan Athar
+Diyaan
+Thanks Mathiaco-lee! and also thanks Jeff!
+Ariles, are you working on a user story?
+Sorry y'all harassment will be over soon
+Mathiaco-lee
+Jeff these are the firebase videos ?
+Diyaan Athar
+Diyaan
+Hey Emanuel, are you working on a user story?
+Emanuel Mateus
+Emanuel
+working on the user stories that allow real time chat between people
+Jeff Buonamici
+Jeff
+Ok so I posted to useful videos about Firebase in the group page
+There's plenty more on youtube that you can find
+Emanuel Mateus
+Emanuel
+Nathan and I were able to get a basic functional chat down
+and now we would need to connect to a database and find the best way to save chat files
+Mathiaco-lee
+Thanks
+Diyaan Athar
+Diyaan
+Do you think you will have that down by Saturday or you think that you will need more time?
+Emanuel Mateus
+Emanuel
+Probably need a bit more time
+Diyaan Athar
+Diyaan
+Okay, so as an estimate, I will put down next Tuesday as a hope to get finished time. Is that okay?
+Emanuel Mateus
+Emanuel
+sure
+Diyaan Athar
+Diyaan
+Ariles, where are you?
+Mathiaco-lee
+Does anyone have an idea of what is needed for Sprint 3 other than progress ?
+Diyaan Athar
+Diyaan
+Nope, just checking the site rn.
+Nothing there on sprint 3 as of yet!
+Okay, I think we are done, I gonna just transfer this to the meeting notes. Does anybody else have anything else they need to follow up on?
+Emanuel Mateus
+Emanuel
+nope
+Mathiaco-lee
+Diyaan Athar
+Diyaan
+Guess we will catch up on Saturday at 8 PM
+Mathiaco-lee
+Oh Yousef are you still doing the Burndown chart ?
+Diyaan Athar
+Diyaan
+Jeff, where to we do this dragging. I am super confused?
+Jeff Buonamici
+Jeff
+Go to github
+Click the Project tab
+Then click "SCRUM Board"
+The top right there's a button that says "Add Cards"
+Diyaan Athar
+Diyaan
+Cool, I can see it!
+What does icebox mean?
+Do all our user stories start ther?
+Jeff Buonamici
+Jeff
+Technically every User Story we plan on doing should be in there
+It's User stories that are waiting to be worked on
+Diyaan Athar
+Diyaan
+Okay got it! I will transfer them over
+Nathan I think Emanuel gave us an update on the user story him and you are working on
+Did you want to add anything?
+Nathan Shummoogum
+Nathan
+ya im reading srry im late
+Diyaan Athar
+Diyaan
+Np, it happens
+Ivan I see you there 😛
+Thanks for organizing the project folders
+Which user stories precisely are you working on?
+Ivan Bogdev
+Ivan
+Hey im back
+Me?
+Diyaan Athar
+Diyaan
+Yup, you
+Ivan Bogdev
+Ivan
+Working on the github stuff
+Diyaan Athar
+Diyaan
+You mean log-in with Mathiaco?
+Ivan Bogdev
+Ivan
+Yeah
+The login and creating a profile for the user
+Jeff Buonamici
+Jeff
+Ivan I think the login isn't working anymore
+Ivan Bogdev
+Ivan
+It works, sign out of github and u'll see
+Diyaan Athar
+Diyaan
+What will you have done by Saturday?
+Jeff Buonamici
+Jeff
+oh yeah wow
+cool
+Did you change it?
+Ivan Bogdev
+Ivan
+Sessions + profile page creation
+Jeff Buonamici
+Jeff
+It doesn't show in the revoke page
+Ivan Bogdev
+Ivan
+And I'll try to get the database stuff working
+Jeff Buonamici
+Jeff
+We're using Firebase now I think
+Ivan Bogdev
+Ivan
+I think its because it only asks for ur public info
+Jeff Buonamici
+Jeff
+instead of MongoDB
+Ah ok
+Ivan Bogdev
+Ivan
+Ok
+Does anyone want to setup the database stuff or should I do it?
+Jeff Buonamici
+Jeff
+As in creating the database?
+Ivan Bogdev
+Ivan
+Yeah
+Diyaan Athar
+Diyaan
+One thing I am really confused about is don't we need one database?
+Jeff Buonamici
+Jeff
+Yeah
+Ivan Bogdev
+Ivan
+Yeah
+Correct
+Diyaan Athar
+Diyaan
+Jeff is that something you and I want to work on tomorrow since you already know how it works?
+....just a suggestions...
+Jeff Buonamici
+Jeff
+Sure
+Diyaan Athar
+Diyaan
+Okay, so how about once Jeff and I have met tomorrow we send everyone an update on what is going on with that?
+I am guessing it is going to be pertinent to what you and Emanuel are doing also Nathan?
+Nathan Shummoogum
+Nathan
+yeah, well we havent really looked at any of the database stuff yet.
+but thats what we are missing
+Ivan Bogdev
+Ivan
+Database is very pertinent to all the aspects of the site
+Diyaan Athar
+Diyaan
+Okay, so Jeff and I will give y'all an update once we have met?
+Ivan Bogdev
+Ivan
+Ok
+Jeff Buonamici
+Jeff
+People need a Google account in order for me to add them to the database as Admins
+as in a @gmail.com email
+Ivan Bogdev
+Ivan
+Ivan.bogdev@gmail.com
+Mathiaco-lee
+mathiaco2@gmail.com
+Nathan Shummoogum
+Nathan
+nathanshumm@gmail.com
+Yousef Shaker
+Yousef
+yousefaboelfoul@gmail.com
+Diyaan Athar
+Diyaan
+nadia.nanasheikh@gmail.com
+Jeff Buonamici
+Jeff
+Also, are we coming up with a name for our website? 😛
+Emanuel Mateus
+Emanuel
+emateus71@gmail.com
+Ariles Jazilan
+Ariles
+E-learning.com
+Computer Skills and IC3 E-learning Courses
+Provider of online computer skills training and certification courses for teens and adults.
+e-learning.com
+Swoupss
+Diyaan Athar
+Diyaan
+Hey Ariles, I don't really know what user story you are working on?
+Ariles Jazilan
+Ariles
+Wanted to suggest a name
+#22
+On the icebox
+Btw what icebox?!
+Diyaan Athar
+Diyaan
+Not in progres, Ima move yours over
+Ariles Jazilan
+Ariles
+swimming4life36@gmail.com
+Ok good
+Diyaan Athar
+Diyaan
+Where are you at with #22 and what do you think you will have done by Saturday?
+Sorry (just doing my job as official harraser)
+Ariles Jazilan
+Ariles
+No worry its ok i finished learning react i mean almost !! I am working on it !!
+Jeff Buonamici
+Jeff
+Ariles I need your email
+Ariles Jazilan
+Ariles
+I putted swimming4life36@gmail.com
+Jeff Buonamici
+Jeff
+oops
+sorry i didn't see
+Diyaan Athar
+Diyaan
+Do you think by Saturday you might have the React components done (or if not Saturday, then next Tuesday)
+Or if neither of those, then what date is realistic?
+Ariles Jazilan
+Ariles
+Ariles Jazilan
+Ariles
+Yeahhh it will be done !!
+Diyaan Athar
+Diyaan
+Perfect, thanks 🙂
+Jeff Buonamici
+Jeff
+Ok so everyone should be able to see the database at https://console.firebase.google.com/
+Firebase Console
+Firebase is a mobile platform that helps you quickly develop high-quality apps, grow your user base, and earn more money.
+accounts.google.com
+Just look at it when you have the time
+Ariles Jazilan
+Ariles
+Diyaan Athar
+Diyaan
+Sorry, is there a way to down load the chat file, just want to update documentation
+Or did we just copy-paste last time?
+I mean from facebook, sorry if that was confusing?
+Mathiaco-lee
+oh yeah
+Nathan Shummoogum
+Nathan
+lol was slightly confused
+Mathiaco-lee
+copu paste
+Diyaan Athar
+Diyaan
+Thanks!
+You can apparently also just drag it into a word doucment, it formats nicely!
+Mathiaco-lee
+Oh nice
+Diyaan Athar
+Diyaan
+Kinda lame but if any of you want a meeting summary here it is: https://github.com/ivanb7/soen341group3/blob/master/Documentation/Meeting%20Minutes
+ivanb7/soen341group3
+soen341group3 - Group project for Soen 341 - Software Process
+github.com
+21 FÉVRIER 23:38
+
+Jeff Buonamici
+Jeff
+Can someone accept my pull request
+thanks
+Diyaan Athar
+Diyaan
+Good?
+Jeff Buonamici
+Jeff
+22 FÉVRIER 09:40
+
+Jeff Buonamici
+Jeff
+I'm on my way to school
+Diyaan Athar
+Diyaan
+Great! You and I are meeting at 11 right?
+Jeff Buonamici
+Jeff
+Yup
+Diyaan Athar
+Diyaan
+22 FÉVRIER 10:44
+
+Diyaan Athar
+Diyaan
+Ugh, sorry jeff I am running late. It might be 11:30 by the time I get there. Sorry 😞
+Jeff Buonamici
+Jeff
+Ok
+Diyaan Athar
+Diyaan
+Where are you?
+Sorry, jeff, where are you?
+Jeff Buonamici
+Jeff
+In the lab
+Diyaan Athar
+Diyaan
+H823?
+Jeff Buonamici
+Jeff
+Yup
+Ivan can you deploy the news updates
+Ivan Bogdev
+Ivan
+I'll do it when I get the chance
+Diyaan Athar
+Diyaan
+Jeff: https://www.airpair.com/firebase/posts/structuring-your-firebase-data\\
+Structuring your Firebase Data correctly for a Complex App
+Learn how to structure your data in Firebase as opposed to a relational DBMS system. A perfect guide to maintain relations in a NoSQL database.
+airpair.com
+Diyaan Athar
+Diyaan
+Ivan is the token you receive from gitHub stored in a cookie?
+Ivan Bogdev
+Ivan
+Right now its not stored anywhere
+Diyaan Athar
+Diyaan
+Then how does it know if we are logged in or not
+Ivan Bogdev
+Ivan
+It doesn't xD
+You can get in without logging in
+There's no sessions or cookies or verifications
+But it gets an access token from github
+Right now the access token is just written to the console and it disappears
+Diyaan Athar
+Diyaan
+But technically the access token could be stored and reused?
+Do we get  a different access token every time we login?
+Nathan & Emanuel, do you get a chance to integrate your chat with the overall website. If not, could you please do this by Saturday at the very latest as it would be great to see it and how it fits in with the rest of the site.
+Diyaan Athar
+Diyaan
+Please carefully read the post I made on the group page as it details what you need to do by our Saturday meeting. Please come prepared.
+Diyaan Athar
+Diyaan
+I am going through the user stories, and some of you still have not fixed up your user stories. Each user story needs to have a description, and an accurate task breakdown besides it.
+Ivan & Mathiaco: You have been assigned to user stories #14, #16, #17. Your user stories have not been touched so could you please make sure that they meet all the criteria above by Saturday 8 PM.
+Jeff Buonamici
+Jeff
+I'll look at it when I get home
+I didn't touch any of mine either I think
+Diyaan Athar
+Diyaan
+Perfect, thanks Jeff!
+Matuese and Nathan: you guys are set 🙂
+Ariles, you are assigned to User Story#22. Your user story has also not been touched. Please make sure that it meets all the criteria I mentioned above by Saturday 8 PM.
+Yousef: You have no user stories in the In Progress part of the SCRUM board
+The link to the SCRUM Board is here: https://goo.gl/QTfEQZ
+ivanb7/soen341group3
+soen341group3 - Group project for Soen 341 - Software Process
+github.com
+Please move the user story you are working on from the Icebox to the In Progress section. Also please make sure your user story has: a description, and actual task breakdown.
+Yousef Shaker
+Yousef
+Okay
+Diyaan Athar
+Diyaan
+Thanks Yousef!
+Diyaan Athar
+Diyaan
+Hi y'all, since I am in full harassment mode, I uploaded a task list to our Facebook page based on our conversations. Please make sure you come to our Saturday meeting prepared.
+Ivan Bogdev
+Ivan
+Awesome job!
+22 FÉVRIER 22:43
+
+Diyaan Athar
+Diyaan
+I was taking a look at our overall sprints, and the sprint we have coming up is focussed on features so I think we should really be pushing ourselves to get the site functional over the next week and a half.
+Jeff Buonamici
+Jeff
+Ok
+24 FÉVRIER 17:04
+
+Ivan Bogdev
+Ivan
+Hey did anyone have any success with Firebase? I can't figure it out
+Jeff Buonamici
+Jeff
+What's confusing you
+Ivan Bogdev
+Ivan
+I can't get it to put anything in the database
+I've been messing around with it for a few hours today and yesterday
+Jeff Buonamici
+Jeff
+Have you watched tutorials?
+Ivan Bogdev
+Ivan
+yeah
+Jeff Buonamici
+Jeff
+You added the code that connects it to the db?
+Jeff Buonamici
+Jeff
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
+    authDomain: "group3db-f028e.firebaseapp.com",
+    databaseURL: "https://group3db-f028e.firebaseio.com",
+    storageBucket: "group3db-f028e.appspot.com",
+    messagingSenderId: "164875081133"
+  };
+  firebase.initializeApp(config);
+</script>
+www.gstatic.com
+/*! @license Firebase v3.6.10 Build: 3.6.10-rc.1 Terms: https://firebase.google.com/terms/ --- typedarray.js Copyright (c) 2010, Linden Research, Inc. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to...
+gstatic.com
+Ivan Bogdev
+Ivan
+yeah
+Diyaan Athar
+Diyaan
+Do you get errors when you try to store data?
+Ivan Bogdev
+Ivan
+got it to work 😀
+Jeff Buonamici
+Jeff
+What was wrong
+Ivan Bogdev
+Ivan
+It was giving me initializatiogn errors
+either my code was initializing twice
+or it was trying to run withotu initializing
+I kinda quickfixed it
+but it worked 😀
+Diyaan Athar
+Diyaan
+How?
+Yousef Shaker
+Yousef
+Yaw guys i want to update my branch but whenever i switch to another branch to make a pull request it trlls me aborting
+Diyaan Athar
+Diyaan
+I think someone else needs to pull
+Ivan Bogdev
+Ivan
+aborting?
+what does it say exactly
+Yousef Shaker
+Yousef
+When I switch from master to my branch it shows me this
+
+Ivan Bogdev
+Ivan
+try git stash
+then switch
+> git stash
+> git checkout your-branch
+Yousef Shaker
+Yousef
+
+This appeared when u stash
+Ivan Bogdev
+Ivan
+I have no idea
+lol
+Yousef Shaker
+Yousef
+Omg
+Ivan Bogdev
+Ivan
+do u have any changes on ur branch u need?
+Yousef Shaker
+Yousef
+I want to update my branch
+Ivan Bogdev
+Ivan
+you want your branch to be synced with master?
+Yousef Shaker
+Yousef
+Yeah
+Just a sec i think i figured it
+Ivan Bogdev
+Ivan
+git checkout master
+git pull
+git checkout <YOUR-BRANCH>
+git merge master
+Yousef Shaker
+Yousef
+Will am trying to do that
+But i cant switch
+Ivan Bogdev
+Ivan
+you can't git checkout master?
+Yousef Shaker
+Yousef
+Yeah
+Ivan Bogdev
+Ivan
+thats wierd
+google it
+it shouldnt be a problem
+if anythign you can always make a new branch
+Jeff Buonamici
+Jeff
+You can use the GUI version of git if you want
+I find it easier
+Yousef Shaker
+Yousef
+Will i am learning
+But i think i found the problem
+Since this is concordia's computer it has limited disk
+So i deleted the files
+And it worked fine
+But i still can t switch due to
+Memory consumption
+I did a pull request
+Ivan Bogdev
+Ivan
+lol
+Yousef Shaker
+Yousef
+Ivan if i want to change my file
+Ivan Bogdev
+Ivan
+dude
+Yousef Shaker
+Yousef
+Sorry
+I know
+Ivan Bogdev
+Ivan
+we can't merge because you're changing a file taht is long gone
+Yousef Shaker
+Yousef
+Its supposed
+So should i delete
+Ivan Bogdev
+Ivan
+just delete yeah
+and clone the repo again
+and start a new branch
+Yousef Shaker
+Yousef
+Done
+24 FÉVRIER 20:30
+
+Yousef Shaker
+Yousef
+Guys we scored 3.9
+On the second sprint
+Jeff Buonamici
+Jeff
+Yeah
+Pretty shitty
+Yousef Shaker
+Yousef
+
+Disney Gif
+Yousef Shaker
+Yousef
+Yup pretty much
+Diyaan Athar
+Diyaan
+Thus my task lists on FB. Please make sure you have your stuff done by tomorrows meeting
+Not just yousef, everyone!
+25 FÉVRIER 20:01
+
+Diyaan Athar
+Diyaan
+Is anyone around?
+Mathiaco-lee
+yuup
+Ivan Bogdev
+Ivan
+Yeah
+Diyaan Athar
+Diyaan
+Okay, we will wait a couple of minutes before getting started I guess?
+Okay so Mathiaco-lee are you working with Ivan?
+I saw your name on the same user stories as Ivan so I am wondering if you are working with him or independently?
+Mathiaco-lee
+I've been working on some stuff but we'll merge it
+there's some stuff i want done first
+but I am not done yet
+Diyaan Athar
+Diyaan
+Could you tell me exactly what you are working on?
+Mathiaco-lee
+so Ivan is that alright with you
+?
+the profile info and activities taken from github
+Diyaan Athar
+Diyaan
+But you haven't talked to Ivan about what he is doing?
+What is you both are doubling up on work?
+*if?
+And what exactly have you done for these user stories?
+Mathiaco-lee
+we both said what we would do
+here
+and it seemed different
+Diyaan Athar
+Diyaan
+So what exactly have you done and Ivan what exactly have you done?
+Yousef Shaker
+Yousef
+am here
+Diyaan Athar
+Diyaan
+Hi Yousef, just doing check-ins with everyone 🙂
+Yousef Shaker
+Yousef
+well basically i finished html and css
+and now i have an idea
+Diyaan Athar
+Diyaan
+Just one sec Yousef
+Yousef Shaker
+Yousef
+kk
+Diyaan Athar
+Diyaan
+I think Mathiaco-Lee and Ivan were giving updates on their user stories
+Mathiaco, what exactly have you done? [i.e. React, HTML, CSS, Firebase]
+And for which pages?
+Mathiaco-lee
+the user story that is saying i want my github activity available on profile
+node.js and then firebase
+Diyaan Athar
+Diyaan
+Okay, so not the log-in page. I think you are working on that right Ivan?
+Mathiaco-lee
+yes he did it
+Diyaan Athar
+Diyaan
+Perfect. So what is remaining on that user story and when will have you that code-base ready to merge with the rest of the teams?
+I am asking as I am pretty sure in our next sprint we will need to demonstrate features of our site.
+Mathiaco-lee
+I updated the user stories last time with description and task list
+next meeting is on Tuesday
+i think I'll be good
+Diyaan Athar
+Diyaan
+So you will have it ready to merge by Tuesday?
+Mathiaco-lee
+yes
+Diyaan Athar
+Diyaan
+:)
+Awesome, I will right you down for that.
+Sorry Ivan you are up next, where are you at?
+*write
+Nathan is Emanuel around?
+Sorry who is around?
+Yousef Shaker
+Yousef
+am here
+Diyaan Athar
+Diyaan
+Okay Yousef, which user story are you working on?
+Yousef Shaker
+Yousef
+am working on the group page
+Diyaan Athar
+Diyaan
+What part of the group page?
+Yousef Shaker
+Yousef
+joining groups
+Diyaan Athar
+Diyaan
+And I guess creating groups?
+Yousef Shaker
+Yousef
+yeah
+Diyaan Athar
+Diyaan
+And where are you at?
+Yousef Shaker
+Yousef
+well for me i finished 46 tutorials on html and css
+Diyaan Athar
+Diyaan
+:0
+Yousef Shaker
+Yousef
+i have an idea on how to do them now
+but i ll be a little rusty
+Diyaan Athar
+Diyaan
+Are you working with someone else on this, or on your own?
+Yousef Shaker
+Yousef
+since its my first time
+doing web programming
+my own
+Diyaan Athar
+Diyaan
+Totally understandable, are you working with someone else?
+Yousef Shaker
+Yousef
+alone
+I have a question
+Diyaan Athar
+Diyaan
+Eeeeek! I am a little worried, because time is kind of short and I don't know if you are going to get it done by the next sprint
+Sure
+Yousef Shaker
+Yousef
+no worries
+i can get it done niw
+now
+if i want to
+Diyaan Athar
+Diyaan
+Okay, so do you think by next Saturday you might have something to show us?
+Yousef Shaker
+Yousef
+withing the couple of days coming i should be good
+Within
+like on monday
+or by our meeting on tuesday
+Diyaan Athar
+Diyaan
+Did you get a chance to fix up the user stories?
+Yousef Shaker
+Yousef
+??
+what do u mean
+Diyaan Athar
+Diyaan
+Did you see the Task List on our facebook page?
+Yousef Shaker
+Yousef
+yeah
+ah
+okay
+so its really realtive with web  being done
+Diyaan Athar
+Diyaan
+Huh?
+What do you mean?
+Yousef Shaker
+Yousef
+i can add it up while doing the website
+since i ll have a view
+a more concise view
+Diyaan Athar
+Diyaan
+Could you please do it asap because we keep loosing marks for stuff like not having our documentation in order and it sucks balls
+Yousef Shaker
+Yousef
+Its already done
+but am saying
+it will get updated
+Diyaan Athar
+Diyaan
+Okay, cool. Also did you get a chance to look at Firebase stuff yet or no?
+Yousef Shaker
+Yousef
+not really
+I guess it would be counterproductive for me to deal with it
+because i still have to learn it
+too
+Diyaan Athar
+Diyaan
+Okay, so you would like someone else to work with the DB part of your user story?
+Yousef Shaker
+Yousef
+I prefer alone
+I am lone wolf
+Diyaan Athar
+Diyaan
+Okay, but just to let you know, those two user stories need to be done by the next sprint so if you feel like you are running out of time, let any of us know and we can help out
+:)
+Yousef Shaker
+Yousef
+yeah
+when is our next sprint
+Diyaan Athar
+Diyaan
+Arilles, I know you sent me a message, where are you at with your user story?
+It is not this Friday but the Friday after I believe
+Yousef Shaker
+Yousef
+okay
+Diyaan Athar
+Diyaan
+So maybe by next Saturday you can let us know if you need someone to work with you?
+Ariles Jazilan
+Ariles
+Set up  react app with boostrap !! Watch the video with firebase but didnt set up yet
+Write two components
+Diyaan Athar
+Diyaan
+Cool!
+What user story are you working on?
+Ariles Jazilan
+Ariles
+#22 creating a class
+Diyaan Athar
+Diyaan
+When do you think you will have something to show us?
+Mathiaco-lee
+I thought it was March 3rd ?
+Which is this friday
+Diyaan Athar
+Diyaan
+Is it? Oh no, I didn't realize
+Where did you get that date?
+Ariles Jazilan
+Ariles
+I dont know when ?!
+The sprint its on 7 or
+8 i thinks
+Mathiaco-lee
+It's the week after
+You are write
+The 3rd is for another Project of line
+Mine* sorry
+Diyaan Athar
+Diyaan
+I think it is our quiz this week no?
+no problem
+Mathiaco-lee
+Right*
+Ariles Jazilan
+Ariles
+There is a quizz no way?!!
+Emanuel Mateus
+Emanuel
+hi guys sorry im late
+Diyaan Athar
+Diyaan
+So Ariles when do you think you will have your part done?
+Emanuel, what's the progress with your and Nathan's user story?
+Emanuel Mateus
+Emanuel
+we will still need to implement the chat to the main site didnt have time to do it yet, we have been really busy but itll easily be done before next meeting
+Diyaan Athar
+Diyaan
+Did you get a chance to look at the database?
+Emanuel Mateus
+Emanuel
+no not yet plan on looking through the stuff tomorrow
+Diyaan Athar
+Diyaan
+Could you and Nathan please all the stuff in the task list (on our Facebook Page) by Tuesday, our grade for last sprint sucked balls and I don't want us to continue sucking. I am pretty sure in our next sprint we will have to show features. I am pretty stress.
+*stressed
+Emanuel Mateus
+Emanuel
+the next sprint is in two weeks
+Diyaan Athar
+Diyaan
+yeah, that is not much time
+at least not in my opinion, if we get done early, all the better for us but i don't think we have a good record on that
+Emanuel Mateus
+Emanuel
+i mean we are basically done what we have to do, just some fine tuning and adding it to the site
+Diyaan Athar
+Diyaan
+you integrated it with the db?
+Emanuel Mateus
+Emanuel
+the site/database
+thats simple enough to do
+Diyaan Athar
+Diyaan
+Great, so you will have it done by Tuesday?
+Emanuel Mateus
+Emanuel
+most probably
+which is when i orignally said i would have it done
+Diyaan Athar
+Diyaan
+Great!
+Ivan or Nathan or Jeff are any of you around?
+Emanuel Mateus
+Emanuel
+Nathan is trying to get home has no data
+Diyaan Athar
+Diyaan
+Okay, no problem. You gave an update of where you both are with the user story anyway. Does anyone have the contact for Ivan or Jeff?
+Mathiaco-lee
+I don't
+Ariles Jazilan
+Ariles
+Neither !
+Diyaan Athar
+Diyaan
+Guess nobody does. I will try to follow up with them and post updates.
+Does anybody have any concerns they wanna bring up?
+If not, I guess our next meeting is in person on Tuesday
+@ 1 PM
+Mathiaco-lee
+Okay
+Jeff Buonamici
+Jeff
+Hey sorry. I'm up north at the cottage and the basement flooded a bit and then we tried to pump out the water but the pipe was frozen 😑 so I've been dealing with that
+Diyaan Athar
+Diyaan
+No problem, can you just send us an update re: to do list and our user story, I am working on the React for it.
+Jeff Buonamici
+Jeff
+My to do list is adding posts to the database when they're created by the user
+26 FÉVRIER 18:13
+
+Yousef Shaker
+Yousef
+Yaw guys just to see if am on the right side
+Am working on the part of the website  on the group.html
+Yousef Shaker
+Yousef
+
+Am doing something like this
+Ariles Jazilan
+Ariles
+Look at the code of group.html it gives u the box!
+Yousef Shaker
+Yousef
+I did
+The files no longer contain the
+Template
+Ariles Jazilan
+Ariles
+Hmm
+Jeff Buonamici
+Jeff
+The template is on github
+I created the group page layout basically
+27 FÉVRIER 13:15
+
+Yousef Shaker
+Yousef
+okay ill go with that
+27 FÉVRIER 23:16
+
+Jeff Buonamici
+Jeff
+Are we meeting in person tomorrow, or are we meeting up online
+Diyaan Athar
+Diyaan
+I am okay with either
+Jeff Buonamici
+Jeff
+I would rather do online, I have a project due on Thursday that I need to work on.
+Yousef Shaker
+Yousef
+No i dont agree
+We said we re gonna meet in person
+I dont like changing our  thoughts from one time to another
+If any of us cant make then they re excused
+28 FÉVRIER 01:27
+
+Ivan Bogdev
+Ivan
+im in school anyways
+28 FÉVRIER 10:49
+
+Diyaan Athar
+Diyaan
+I am guessing we are meeting in person then?
+28 FÉVRIER 11:49
+
+Yousef Shaker
+Yousef
+Yeah
+Diyaan Athar
+Diyaan
+Okay I will be there, h823?
+Yousef Shaker
+Yousef
+Yeah i guess
+Yousef Shaker
+Yousef
+Ok
+Mathiaco-lee
+Sorry but I won't make it
+Ivan Bogdev
+Ivan
+Im omw
+Diyaan Athar
+Diyaan
+Mathiaco-lee, could you please send an update. I think you had said you would merge your section by today.
+Emanuel Mateus
+Emanuel
+I missed my bus so I'll probably be there around 20 minutes later
+Diyaan Athar
+Diyaan
+I will be there in 5
+Ivan Bogdev
+Ivan
+ok
+Nathan Shummoogum
+Nathan
+I wont be there in person unfortunately, but ill be here online if you have any questions
+Diyaan Athar
+Diyaan
+Did you integrate your chat with our system?
+Nathan Shummoogum
+Nathan
+We tried and were having issues
+Ivan Bogdev
+Ivan
+we have to wrok on those
+Diyaan Athar
+Diyaan
+I am not surprised
+Nathan Shummoogum
+Nathan
+it ended up messing up what was already there
+Diyaan Athar
+Diyaan
+Could you figure it out by saturday. We need functionality in our site by the next sprint.
+Nathan Shummoogum
+Nathan
+We think its because the site isnt in react
+Diyaan Athar
+Diyaan
+What do you mean?
+Nathan Shummoogum
+Nathan
+is emanuel there yet?
+The site is written in html/css and not react
+Ivan Bogdev
+Ivan
+Im in h-823
+Diyaan Athar
+Diyaan
+No
+Yousef Shaker
+Yousef
+Btw do we have a quiz tom
+Diyaan Athar
+Diyaan
+Hi all, I am feeling really frustrated by our lack of progress and feeling really nervous about the fact that we have a sprint coming up. We did really poorly (compared to other teams) on our last sprint and I don't want to repeat this.
+I completely understand that everyone is busy, and honestly I am not trying to be mean, I would just like to do reasonably well.
+Do any of you have any suggestions for how we can progress?
+Yousef Shaker
+Yousef
+Yeah i do
+First we dont need to be fancy with our website
+We need it to work properly
+Diyaan Athar
+Diyaan
+Agreed
+Yousef Shaker
+Yousef
+Thats why we need the people who voted for the languages to do their parts
+Honestly am trying my best to learn as much as i can
+So that i can work on the website
+And i have started
+For me am doing the best i can do
+Diyaan Athar
+Diyaan
+Can we schedule a joint work sessions so that we can share our knowledge with each other and to allow for integration?
+I don't mind scheduling two alternative times, and just making it mandatory to attend one if it is hard to make both sessions.
+Diyaan Athar
+Diyaan
+Also Ivan, there is a slight change you might need to make. Our site is supposed to allow the TA to access github information right? Regardless of whether the user is signed in or not. Does the token expire? If the token expires we are going to need to store information from the github in our db so that it can be accessed later when the TA needs to see it. Does it make sense?
+Diyaan Athar
+Diyaan
+Also, can everyone please answer my question re: joint work session?
+Emanuel Mateus
+Emanuel
+you see the problem isn't that the people who suggested the languages aren't doing anything
+we are actively trying to get the site tonwork
+nothing fancy about it
+it's the people that have taken over a month to learn the languages that need to start implementing their stuff
+or else we are going to end up falling behind even further
+we had to learn the languages the same just as everybody else
+Yousef Shaker
+Yousef
+Why did u guys agree on languages u dont know then
+Emanuel Mateus
+Emanuel
+because it's not that hard to learn languages and according to the research we did it's the best way to integrate the site
+Yousef Shaker
+Yousef
+Well if its not hard then we is most o f us slagging off and not even showing up to the meeting we re supposed to have
+Only 4 of us show up
+Emanuel Mateus
+Emanuel
+that has nothing to do with learning the languages
+that has to do with project execution
+Yousef Shaker
+Yousef
+Brah r u for real
+Jeff Buonamici
+Jeff
+Guys, when is our quiz?
+Jeff Buonamici
+Jeff
+I don't see anything on Moodle about a quiz
+Ariles Jazilan
+Ariles
+normally the teacher is supposed to send an email one week before the test
+thats what he did
+for quizz 1
+1 MARS 15:30
+
+Diyaan Athar
+Diyaan
+Ariles and Yousef, y'all okay?
+Just wanted to check in cause of evacuations and all.
+Yousef Shaker
+Yousef
+Yeah we are good thx for asking
+Ariles Jazilan
+Ariles
+yeahh I am good 🙂 thanks for asking!!
+3 MARS 10:04
+
+Ivan Bogdev
+Ivan
+Hey we're meeting the ta today right?
+Jeff Buonamici
+Jeff
+Yup
+3 MARS 11:42
+
+Jeff Buonamici
+Jeff
+Where are you guys
+Yousef Shaker
+Yousef
+I came to the room and found nobody
+Ivan Bogdev
+Ivan
+I just went in
+H-823
+Where are you?
+Jeff Buonamici
+Jeff
+Coming
+Mathiaco-lee
+Omw
+DIM 17:11
+
+Mathiaco-lee
+Did you note the feedback from the TA ?
+Jeff Buonamici
+Jeff
+We need to complete what we didn't do last sprint
+And make things more defined
+Mathiaco-lee
+Yeah like the description on the user stories that were missing
+DIM 22:41
+
+Yousef Shaker
+Yousef
+I ll  get on that tom
+And see if we re missing any other documents
+Jeff Buonamici
+Jeff
+Oh
+Nadia we're meeting tomorrow at 11Vu par Diyaan Athar à Dimanche 22:49
+MER 11:23
+
+Yousef Shaker
+Yousef
+Whatsp guys
+So i ve read what we need for sprint 3
+So we need to do the architecture
+For the code
+And we need to update our user stories
+Which i ll work on today
+Mathiaco-lee
+You working on the architecture ?
+Or user stories ?
+Yousef Shaker
+Yousef
+Both
+MER 14:14
+
+Yousef Shaker
+Yousef
+So guys i m half way through the user stories description
+Yousef Shaker
+Yousef
+Will somebody at least say hello
+Ivan Bogdev
+Ivan
+hello?
+Yousef Shaker
+Yousef
+Thank god
+Ivan Bogdev
+Ivan
+😅
+Yousef Shaker
+Yousef
+Where our harrasser we need
+U
+Ivan Bogdev
+Ivan
+I'm working on another paper that's why I'm not talking much
+Yousef Shaker
+Yousef
+Our sprint is in two days
+Yousef Shaker
+Yousef
+So guys am done with the user stories description
+Now every single user story has a description
+Can somebody double check with me
+Where our burn down chart
+Anybody willing to share ideas about risks associated with
+Our user stories
+Yousef Shaker
+Yousef
+So i ve worked on the risks still have maybe like 5. To do but am going to focus on the architecture and
+Burndown chart
+MER 19:41
+
+Mathiaco-lee
+I think Nadia uploaded a burdown chart
+You can check that
+As for the risks I don't have any idea
+JEU 12:42
+
+Yousef Shaker
+Yousef
+Yaw guys
+Our sprint is TOMORROW
+anybody willing to update
+Us
+Yousef Shaker
+Yousef
+Guys if u r busy just say so
+No need to leave me without answering
+Ivan Bogdev
+Ivan
+What do you need?
+Yousef Shaker
+Yousef
+Did u guys deal with the integration
+And am learning firebase
+So that i can help u out
+Ivan Bogdev
+Ivan
+As far as I know, no
+Yousef Shaker
+Yousef
+Can we get working
+On it
+Ivan Bogdev
+Ivan
+Nathan and emanuel did a bunch of commits, I dont know what thwy added
+Yousef Shaker
+Yousef
+I am ready to meet with anybody
+So we can do the integration
+Yousef Shaker
+Yousef
+Yousef Shaker
+Yousef
+Good job good job
+Emanuel Mateus
+Emanuel
+before you guys do anything else make sure that all your commits are referenced before he bitches about it again
+Nathan Shummoogum
+Nathan
+We made the uml diagram and referenced some commits
+Yousef Shaker
+Yousef
+I made the architecture
+JEU 21:42
+
+Mathiaco-lee
+Are we missing anything else ?
+Yousef Shaker
+Yousef
+We re only missing the integration
+Can somebody look at the architecture
+JEU 23:13
+
+Mathiaco-lee
+seems good to me
+11:03
+
+Yousef Shaker
+Yousef
+Anybody willing to meet
+Jeff Buonamici
+Jeff
+Yup
+I'm almost at school
+Yousef Shaker
+Yousef
+Ok
+Jeff Buonamici
+Jeff
+1 more metro stop
+Yousef Shaker
+Yousef
+Are we good for this srint
+Sprint
+Jeff Buonamici
+Jeff
+No idea
+Yousef Shaker
+Yousef
+Ok
+I did what i can
+I did description risks and architecture
+I tried to do the travis
+Ivan Bogdev
+Ivan
+Travis is okay
+Yousef Shaker
+Yousef
+Then we re good
+Ivan Bogdev
+Ivan
+We just dont have much progress in terms of the actual website
+But the requirements should be met
+Yousef Shaker
+Yousef
+Yeah we re fineVu par Yousef Shaker à 11:07Vu par Ariles Jazilan à 11:10
+Jeff Buonamici
+Jeff
+
 VEN 16:32
 
 Jeff Buonamici

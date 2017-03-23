@@ -1,0 +1,21 @@
+
+<div>
+    ID number: <%= id %><br/>
+    <div>
+        <img src = <%- profile.avatar_url %> >
+    </div>
+    <div>
+        <%- profile.name %>
+    </div>
+    <%- profile.email %>
+    <div>
+        <%- profile.bio %>
+    </div>
+    <div>
+        <a href = <%= profile.html_url%>> View Github profile </a>
+    </div>
+    <div>
+        <a href = <%- profile.url %>> View Profile JSON data </a>
+    </div>
+
+</div>
