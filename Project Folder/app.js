@@ -6,19 +6,34 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-//
+//Firebase & Sessions
 var firebase = require('firebase-admin');
 var serviceAccount = require('./config/serviceAccountKey.json');
 var passport = require('passport');
 var Strategy = require('passport-github').Strategy;
-var config = require('./config/config.js');
+var config = require('./config/config');
 var connectEnsureLogin = require('connect-ensure-login');
+
 
 firebase.initializeApp({
     credential: firebase.credential.cert(serviceAccount),
     databaseURL: config.firebase.databaseURL
 });
 var db = firebase.database();
+
+
+//GITHUB
+var githubAPI = require('github');
+var github = new githubAPI({
+    protocol: "https",
+    host: "api.github.com", // should be api.github.com for GitHub
+    headers: {
+        "user-agent": "Soen341Group3" // GitHub is happy with a unique user agent
+    },
+    Promise: require('bluebird'),
+    followRedirects: true, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
+    timeout: 5000
+});
 
 //Routes
 var index = require('./routes/index.js');
@@ -89,6 +104,11 @@ var app = express();
 
 //Global Vars should be initialized like this
 app.locals.count = 0;
+app.locals.db = db;
+
+var getGitProfileByID = function(id, callback) {
+    return require("./modules/gitInfo").getGitProfileByID(id, callback);
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'website/views'));
@@ -126,7 +146,17 @@ app.get('/auth/github', passport.authenticate('github'));
 app.get('/profile',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
-        res.render('profile', { id: req.user });
+
+        //Gets the user profile before rendering the page
+        getGitProfileByID(req.user, function(res1) {
+            var profile = res1;
+
+            res.render('profile', {
+                id: req.user,
+                profile: profile
+            });
+
+        });
     });
 
 //How it renders the pages simplified:
