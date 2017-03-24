@@ -187,7 +187,7 @@ function getClassID() {
   classID = pageURL[1]
 }
 
-var refClassUsers
+var refClassUsers;
 var classID;
 var memberCount = 0;
 var isFirstLoad = true;
