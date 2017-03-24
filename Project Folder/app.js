@@ -76,7 +76,8 @@ passport.use(new Strategy({
                 db.ref('users/' + profile.id).set({
                     username: profile.username,
                     user_id: profile.id,
-                    access_token: accessToken
+                    access_token: accessToken,
+                    displayName: profile.displayName
                 });
                 return cb(null, profile.id);
             }
