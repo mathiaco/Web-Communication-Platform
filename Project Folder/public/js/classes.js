@@ -61,13 +61,13 @@ classesRef.on("child_added", function (snapshot, prevChildKey) {
         "<div class='panel panel-" + color + "'>" +
         "<div class='panel-heading'>" +
         newClass.title +
+        "<button id='" + snapshot.getKey() + "' class='btn btn-xs btn-danger pull-right' onClick='deleteBox(this.id)'><i class='fa fa-times'></i></button>" +
         "</div>" +
         "<div class='panel-body'>" +
         "<p>" + newClass.description + "</p>" +
         "</div>" +
         "<div class='panel-footer'>" +
-        "<a href='/classpage?c=" + snapshot.getKey() + "' class='btn btn-default btn-default btn-block'>View</a>" 
-        + "<br/>" + "<button  id="+snapshot.getKey()+"  class='btn btn-default btn-default btn-block'  onClick='deleteBox(this.id)' >Delete Box</button>"+
+        "<a href='/classpage?c=" + snapshot.getKey() + "' class='btn btn-default btn-default btn-block'>View</a>" +
         "</div>"
     )
     
