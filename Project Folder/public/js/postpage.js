@@ -1,3 +1,4 @@
+// Initialize the database to read and write data
 function initializeFirebase() {
     var config = {
         apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
@@ -9,14 +10,9 @@ function initializeFirebase() {
     firebase.initializeApp(config);
 }
 
-function getURLVariables() {
-    var pageURL = window.location.search.substring(1);
-    pageURL = pageURL.split("=");
-    classID = pageURL[1]
-}
 
-function writePostData(ref, name, content) {
-    alert("hi");
+// Write the comment data to database
+function writeCommentData(ref, name, content) {
     var commentRef = firebase.database().ref(ref);
     var newCommentRef = commentRef.push();
     newCommentRef.set({
@@ -26,13 +22,15 @@ function writePostData(ref, name, content) {
     });
 }
 
+// Initializes the page and get the needed data inorder to display
 function initializePage() {
     var invertComment = true;
     var postsRef = firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"]);
-    alert(urlParams["p"]);
+
+    // Reads the post data from the database
     postsRef.once("value").then(function (snapshot) {
         var newPost = snapshot.val();
-        alert(newPost.title)
+        // Displays post data on page.
         $("#commentTimeline").append(
             "<li>" +
             "<div class='timeline-badge'><i class='fa fa-check'></i>" +
@@ -49,9 +47,12 @@ function initializePage() {
             "</div>" +
             "</li>"
         )
+
+        // Reads comments in the database, and automatically knows when a new child is added
         firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/").on("child_added", function (snapshotChild) {
             var newComment = snapshotChild.val();
             var invertCode;
+            // Dictates which side the comment will show up on.
             if (invertComment) {
                 invertCode = "<li class='timeline-inverted'>"
                 invertComment = false;
@@ -60,6 +61,7 @@ function initializePage() {
                 invertCode = "<li>"
                 invertComment = true;
             }
+            // Displays the comment
             $("#commentTimeline").append(
                 invertCode +
                 "<div class='timeline-badge'><i class='fa fa-check'></i>" +
@@ -79,9 +81,9 @@ function initializePage() {
         });
     });
 
-
+    // Button Event for sending the comment to function that writes it to the database
     $("#commentBtn").click(function () {
-        writePostData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", "Jeff", $("#commentContent").val())
+        writeCommentData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", "Jeff", $("#commentContent").val())
     });
 }
 
