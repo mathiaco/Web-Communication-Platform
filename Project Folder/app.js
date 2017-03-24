@@ -106,9 +106,7 @@ var app = express();
 app.locals.count = 0;
 app.locals.db = db;
 
-var getGitProfileByID = function(id, callback) {
-    return require("./modules/gitInfo").getGitProfileByID(id, callback);
-};
+var gitInfo = require('./modules/gitInfo');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'website/views'));
@@ -146,14 +144,16 @@ app.get('/auth/github', passport.authenticate('github'));
 app.get('/profile',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
-
         //Gets the user profile before rendering the page
-        getGitProfileByID(req.user, function(res1) {
+        gitInfo.getGitProfileByID(req.user, function(res1) {
             var profile = res1;
+            gitInfo.getGitReposByID(req.user, function (repoData) {
+                res.render('profile', {
+                    id: req.params.id,
+                    profile: profile,
+                    repos: repoData
+                });
 
-            res.render('profile', {
-                id: req.user,
-                profile: profile
             });
 
         });
@@ -163,15 +163,40 @@ app.get('/profile/:id',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
         //Gets the user profile before rendering the page
-        getGitProfileByID(req.params.id, function(res1) {
-            var profile = res1;
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
 
-            res.render('profile', {
-                id: req.params.id,
-                profile: profile
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id, function (repoData) {
+                res.render('profile', {
+                    id: req.params.id,
+                    profile: profile,
+                    repos: repoData
+                });
+
             });
         });
     });
+
+app.get('/profile/:id/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id,function(repoData) {
+                gitInfo.getRepoContributionStats(profile.login,req.params.repo,function(repoStats){
+                    res.render('profile', {
+                        id: req.params.id,
+                        profile: profile,
+                        repos: repoData,
+                        repoStats: repoStats
+                    });
+                });
+            });
+        });
+
+    });
+
 
 //How it renders the pages simplified:
 //app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));

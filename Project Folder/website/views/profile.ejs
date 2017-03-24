@@ -3,26 +3,61 @@
 <!-- Needs CSS -->
 <div>
     ID number: <%= id %><br/>
+
+    <!-- Profile Info Div -->
     <div>
-        <img src = <%- profile.avatar_url %> >
+        <div>
+            <img src = <%- profile.avatar_url %> >
+        </div>
+        <div>
+            <%- profile.name %>
+        </div>
+        <%- profile.email %>
+        <div>
+            <%- profile.bio %>
+        </div>
+        <div>
+            <a href = <%= profile.html_url%>> View Github profile </a>
+        </div>
+        <div>
+            <a href = <%- profile.url %>> View Profile JSON data </a>
+        </div>
     </div>
-    <div>
-        <%- profile.name %>
-    </div>
-    <%- profile.email %>
-    <div>
-        <%- profile.bio %>
-    </div>
-    <div>
-        <a href = <%= profile.html_url%>> View Github profile </a>
-    </div>
-    <div>
-        <a href = <%- profile.url %>> View Profile JSON data </a>
-    </div>
+    <!-- END OF Profile Info Div -->
 
     <!-- Repo & Commit data -->
     <div>
-
+        Repositories <br>
+        <%  for(repo in repos){%>
+        <a href=<%= "/profile/"+profile.id+"/"+repos[repo].name%>> <%= repos[repo].name %> </a>
+        <br>
+        <%} %>
     </div>
+    <!-- END OF Repo & Commit data -->
+
+    <!-- Repo statistics -->
+    <% if(typeof repoStats !== 'undefined'){%>
+    <div>
+        <br><br> Statistics (WILL BE GRAPHS LATER) <br>
+        <% for(author in repoStats){ %>
+            <%= repoStats[author].author.login %>
+            <br> Total number of commits: &nbsp;
+            <%= repoStats[author].total %>
+            <br>
+            Week / additions / deletions / commits
+            <br>
+            <% for(week in repoStats[author].weeks){ %>
+                <% for(obj in repoStats[author].weeks[week]){ %>
+                    <%= repoStats[author].weeks[week][obj] %>
+                <%}%>
+                <br>
+            <%}%>
+            <br>
+        <%}%>
+    </div>
+    <%}%>
+    <!-- end of repo statistics -->
+
 </div>
+<!-- END OF Div containing the profile information -->
 

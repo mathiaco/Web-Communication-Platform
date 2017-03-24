@@ -1,4 +1,5 @@
 
+
 var githubAPI = require('github');
 var github = new githubAPI({
     protocol: "https",
@@ -11,31 +12,36 @@ var github = new githubAPI({
     timeout: 5000
 });
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
+module.exports = {
 
 //For Github URL: https://api.github.com/
-function httpGetAsync(theUrl, callback)
+    httpGetAsync:    function httpGetAsync(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);
     };
-    xmlHttp.open("GET", "https://api.github.com" + theUrl, true); // true for asynchronous
+    xmlHttp.open("GET", "https://api.github.com" + theUrl + "?client_id=47ab8c4ece816e23c431&client_secret=a900642d5ca6893021adbc9aa06314aa6ddfd18c", true); // true for asynchronous
     xmlHttp.send(null);
-}
+},
 
 /*
  Returns the user's github profile as JSON to the callback function
  */
-function getGitProfileByID(id, callback) {
+getGitProfileByID: function getGitProfileByID(id, callback) {
     if (id) {
+        github.authenticate({
+            type: "oauth",
+            key: "47ab8c4ece816e23c431",
+            secret: "a900642d5ca6893021adbc9aa06314aa6ddfd18c"
+        });
         github.users.getById({id: id}).then(function (res) {
             if (typeof callback === "function")
                 callback(res);
         });
     }
-}
+},
 /*
  To iterate Repo names :
  for(repo in res){
@@ -45,30 +51,30 @@ function getGitProfileByID(id, callback) {
 /*
  Function that gets Repositories for a user from github using a username
  */
-function getGitReposByUsername(username, callback) {
-    httpGetAsync('/users/' + username + '/repos', function (res) {
+getGitReposByUsername: function getGitReposByUsername(username, callback) {
+    module.exports.httpGetAsync('/users/' + username + '/repos', function (res) {
         var data = JSON.parse(res);
         callback(data);
     });
-}
+},
 
 /*
  Returns Git Repositories of the user with the provided ID
  */
-function getGitReposByID(id, callback) {
-    getGitUsernameByID(id, function (username) {
-        getGitReposByUsername(username, callback);
+getGitReposByID: function getGitReposByID(id, callback) {
+    module.exports.getGitUsernameByID(id, function (username) {
+        module.exports.getGitReposByUsername(username, callback);
     });
-}
+},
 
 /*
  Returns the username of the user with the provided ID
  */
-function getGitUsernameByID(id, callback) {
+getGitUsernameByID: function getGitUsernameByID(id, callback) {
     github.users.getById({id: id}).then(function (profile) {
         callback(profile.login)
     });
-}
+},
 
 /*
  Returns the contributors list with additions, deletions, and commit counts
@@ -84,8 +90,8 @@ function getGitUsernameByID(id, callback) {
  d - Number of deletions
  c - Number of commits
  */
-function getRepoContributionStats(owner, repo, callback) {
-    httpGetAsync('/repos/' + owner + '/' + repo + '/stats/contributors', function (res) {
+getRepoContributionStats: function getRepoContributionStats(owner, repo, callback) {
+    module.exports.httpGetAsync('/repos/' + owner + '/' + repo + '/stats/contributors', function (res) {
         var data = JSON.parse(res);
         callback(data);
     });
@@ -98,17 +104,21 @@ function getRepoContributionStats(owner, repo, callback) {
  console.log(res[author].weeks);
  }
  */
+
+};
+
 /*
- getRepoContributionStats('ivanb7','soen341group3',function(res){
+module.exports.getRepoContributionStats('ivanb7','soen341group3',function(res){
 
- for(author in res){
- console.log(res[author].author.login);
- console.log(res[author].total);
- console.log(res[author].weeks);
- }
- });
- */
+    for(author in res){
+        console.log(res[author].author.login);
+        console.log(res[author].total);
+        for(week in res[author].weeks){
+            console.log(res[author].weeks[week]);
+        }
+    }
+});
+*/
 
-
-module.exports.getGitProfileByID = getGitProfileByID;
+//module.exports.getGitProfileByID = getGitProfileByID;
 
