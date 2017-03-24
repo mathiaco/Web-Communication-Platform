@@ -15,10 +15,22 @@ function getURLVariables() {
     classID = pageURL[1]
 }
 
+function writePostData(ref, name, content) {
+    alert("hi");
+    var commentRef = firebase.database().ref(ref);
+    var newCommentRef = commentRef.push();
+    newCommentRef.set({
+        userid: currentUserID,
+        username: name,
+        content: content
+    });
+}
+
 function initializePage() {
+    var invertComment = true;
     var postsRef = firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"]);
     alert(urlParams["p"]);
-    postsRef.on("value", function (snapshot, prevChildKey) {
+    postsRef.once("value").then(function (snapshot) {
         var newPost = snapshot.val();
         alert(newPost.title)
         $("#commentTimeline").append(
@@ -37,11 +49,19 @@ function initializePage() {
             "</div>" +
             "</li>"
         )
-
-        firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/").on("child_added", function (snapshot) {
-            var newComment = snapshot.val();
+        firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/").on("child_added", function (snapshotChild) {
+            var newComment = snapshotChild.val();
+            var invertCode;
+            if (invertComment) {
+                invertCode = "<li class='timeline-inverted'>"
+                invertComment = false;
+            }
+            else {
+                invertCode = "<li>"
+                invertComment = true;
+            }
             $("#commentTimeline").append(
-                "<li class='timeline-inverted'>" +
+                invertCode +
                 "<div class='timeline-badge'><i class='fa fa-check'></i>" +
                 "</div>" +
                 "<div class='timeline-panel'>" +
@@ -57,6 +77,11 @@ function initializePage() {
             )
 
         });
+    });
+
+
+    $("#commentBtn").click(function () {
+        writePostData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", "Jeff", $("#commentContent").val())
     });
 }
 
