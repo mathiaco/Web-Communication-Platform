@@ -1,6 +1,7 @@
 
 var postsRef;
 
+// Write the post data to database
 function writePostData(posts, name, title, content) {
   var newPostRef = postsRef.push();
   newPostRef.set({
@@ -10,6 +11,7 @@ function writePostData(posts, name, title, content) {
   });
 }
 
+// Initialize the database to read and write data
 function initializeFirebase() {
   var config = {
     apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
@@ -24,10 +26,13 @@ function initializeFirebase() {
 initializeFirebase();
 postsRef = firebase.database().ref("posts/");
 
+// Button event listener to send data to function that writes to database
 $("#postBtn").click( function() {
   writePostData("posts/", "Jeff", $("#title-text").val(), $("#message-text").val())
 });
 
+
+// Read post data from database and displays it, even if a new child is added.
 postsRef.on("child_added", function(snapshot, prevChildKey) {
   var newPost = snapshot.val();
   $("#postList").append(
