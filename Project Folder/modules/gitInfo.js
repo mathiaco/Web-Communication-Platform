@@ -1,5 +1,11 @@
+/*
+   Modules that contains functions to make requests to the github API
+   Keep in mind that most functions are asynchronous and require a callback function.
+ */
 
-
+/*
+Github API wrapper initialization
+ */
 var githubAPI = require('github');
 var github = new githubAPI({
     protocol: "https",
@@ -12,6 +18,10 @@ var github = new githubAPI({
     timeout: 5000
 });
 var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+
+/*
+Exports the following functions
+ */
 module.exports = {
 
 //For Github URL: https://api.github.com/
@@ -108,6 +118,7 @@ getRepoContributionStats: function getRepoContributionStats(owner, repo, callbac
 };
 
 /*
+Example
 module.exports.getRepoContributionStats('ivanb7','soen341group3',function(res){
 
     for(author in res){
@@ -120,5 +131,4 @@ module.exports.getRepoContributionStats('ivanb7','soen341group3',function(res){
 });
 */
 
-//module.exports.getGitProfileByID = getGitProfileByID;
 
