@@ -211,7 +211,7 @@ function getClassID() {
   classID = pageURL[1]
 }
 
-var refClassUsers
+var refClassUsers;
 var classID;
 var postKey;
 var memberCount = 0;
