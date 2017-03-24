@@ -32,11 +32,15 @@ router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res
 });
 
 router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('classes.ejs', {});
+  res.render('classes.ejs', {
+    userID: req.user
+  });
 });
 
 router.get('/classpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('classpage.ejs', {});
+  res.render('classpage.ejs', {
+    userID: req.user
+  });
 });
 
 router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
