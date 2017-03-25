@@ -156,7 +156,7 @@ app.get('/profile',
             var profile = res1;
             gitInfo.getGitReposByID(req.user, function (repoData) {
                 res.render('profile', {
-                    id: req.params.id,
+                    id: req.user,
                     profile: profile,
                     repos: repoData
                 });
