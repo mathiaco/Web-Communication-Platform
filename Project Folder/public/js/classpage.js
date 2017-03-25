@@ -88,10 +88,10 @@ function initializePage() {
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-        "<span class='users list-group-item'>" +
-        user.username +
-        "<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
-        "</span>"
+        //"<span class='users list-group-item'>" +
+        "<a href='#' class='users list-group-item' onclick=\"location.href='/profile/" + user.user_id + "\'\">" + user.username + "</a>" 
+        //"<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
+        //"</span>"
       );
     }
     // If it's not the first load, then prepend names so they appear at the top.
