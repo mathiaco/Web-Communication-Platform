@@ -48,9 +48,7 @@
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">
-                    <%= profile.name %>
-                </h1>
+                <h1 class="page-header"></h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -60,71 +58,13 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-clock-o fa-fw"></i> Title
+                    </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <!-- MAIN CONTENT HERE -->
-
-                        <!-- Div containing the profile information -->
-                        <!-- Needs CSS -->
-                        <div>
-                            <!-- Profile Info Div -->
-                            <div>
-                                <div>
-                                    <img src = <%- profile.avatar_url %> >
-                                </div>
-                                <div>
-                                    <div>
-                                        <b>
-                                            <%- profile.name %>
-                                        </b>
-                                        <br>
-                                        <%- profile.email %>
-                                        <div>
-                                            <%- profile.bio %>
-                                        </div>
-                                        Github ID: <%= id %>
-                                    </div>
-                                    <a href = <%= profile.html_url%>> View Github profile </a>
-                                </div>
-                            </div>
-                            <!-- END OF Profile Info Div -->
-
-                            <!-- Repo & Commit data -->
-                            <div>
-                                <br> Repositories (Owned)<br>
-                                <%  for(repo in repos){%>
-                                <a href=<%= "/profile/"+profile.id+"/"+repos[repo].name%>> <%= repos[repo].name %> </a>
-                                <br>
-                                <%} %>
-                            </div>
-                            <!-- END OF Repo & Commit data -->
-
-                            <!-- Repo statistics -->
-                            <% if(typeof repoStats !== 'undefined'){%>
-                            <div>
-                                <br><br> Statistics (WILL BE GRAPHS LATER) <br>
-                                <% for(author in repoStats){ %>
-                                <%= repoStats[author].author.login %>
-                                <br> Total number of commits: &nbsp;
-                                <%= repoStats[author].total %>
-                                <br>
-                                Week / additions / deletions / commits
-                                <br>
-                                <% for(week in repoStats[author].weeks){ %>
-                                <% for(obj in repoStats[author].weeks[week]){ %>
-                                <%= repoStats[author].weeks[week][obj] %>
-                                <%}%>
-                                <br>
-                                <%}%>
-                                <br>
-                                <%}%>
-                            </div>
-                            <%}%>
-                            <!-- end of repo statistics -->
-
-                        </div>
-                        <!-- END OF Div containing the profile information -->
-
+                        
                     </div>
                     <!-- /.panel-body -->
                 </div>
