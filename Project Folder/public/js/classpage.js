@@ -84,12 +84,13 @@ function initializePage() {
   // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
-    var user = snapshot.val()
+    var user = snapshot.val();
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
         "<span class='users list-group-item'>" +
         user.username +
+        "<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
         "</span>"
       );
     }
@@ -97,7 +98,8 @@ function initializePage() {
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-        user.username +
+          user.username +
+        "<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
         "</span>"
       );
     }
