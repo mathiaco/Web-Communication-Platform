@@ -22,8 +22,7 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-      <% include headers/navbar.ejs %>
-      <% include headers/leftsidebar.ejs %>
+      <%include Templates/navBar.ejs%>
     <div id="main-content">
     <div id="chat-container">
       <div id="left-window-container">
@@ -59,6 +58,7 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script src="/js/firebaseInitialization.js"></script>
+    <script> var currentUserID = <%- JSON.stringify(userID) %></script>
     <script src="/js/chat.js"></script>
   </body>
 </html>
