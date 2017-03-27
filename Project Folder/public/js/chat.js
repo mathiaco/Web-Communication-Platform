@@ -3,28 +3,15 @@
 //TODO: next sprint
 
 //TODO: currently logged in userID
-var currentUserID;
 var currentUser = '';
 
-
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
-  authDomain: "group3db-f028e.firebaseapp.com",
-  databaseURL: "https://group3db-f028e.firebaseio.com",
-  storageBucket: "group3db-f028e.appspot.com",
-  messagingSenderId: "164875081133"
-};
-
-firebase.initializeApp(config);
-
 //Retrieves the user's full name from the database using the userID
-firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
-    currentUser = snap.val().displayName;
-
-    //TODO: take this statement out later
-    console.log(currentUser);
-});
+// firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
+//     currentUser = snap.val().displayName;
+//
+//     //TODO: take this statement out later
+//     console.log(currentUser);
+// });
 
 //reads channel from database and displays it
 function readChannel(){

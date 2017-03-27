@@ -1,14 +1,3 @@
-// Initialize the database to read and write data
-function initializeFirebase() {
-  var config = {
-    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
-    authDomain: "group3db-f028e.firebaseapp.com",
-    databaseURL: "https://group3db-f028e.firebaseio.com",
-    storageBucket: "group3db-f028e.appspot.com",
-    messagingSenderId: "164875081133"
-  };
-  firebase.initializeApp(config);
-}
 
 // Write the post data to database
 function writePostData(posts, name, title, content) {
@@ -84,22 +73,20 @@ function initializePage() {
   // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
-    var user = snapshot.val();
+    var user = snapshot.val()
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-        //"<span class='users list-group-item'>" +
-        "<a href='#' class='users list-group-item' onclick=\"location.href='/profile/" + user.user_id + "\'\">" + user.username + "</a>" 
-        //"<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
-        //"</span>"
+        "<span class='users list-group-item'>" +
+        user.username +
+        "</span>"
       );
     }
     // If it's not the first load, then prepend names so they appear at the top.
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-          user.username +
-        "<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
+        user.username +
         "</span>"
       );
     }
@@ -207,6 +194,3 @@ getClassID();
 initializeFirebase();
 var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 initializePage();
-
-
-
