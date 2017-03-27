@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
     <title>SOEN 341 Group 3</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -36,13 +35,10 @@
 </head>
 
 <body>
+      <% include headers/navbar.ejs %>
+      <% include headers/leftsidebar.ejs %>
 
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <%include Templates/navBar.ejs%>
-
-        <div id="page-wrapper">
+        <div id="main-content">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Your groups</h1>
@@ -63,103 +59,7 @@
                             <a href="/grouppage" class="btn btn-default btn-default btn-block">View</a>
                         </div>
                     </div>
-                    <!-- /.col-lg-4 -->
                 </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            COMP 371 - Group 6
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button type="button" class="btn btn-default btn-default btn-block">View</button>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            COMP 987 - Group 9
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button type="button" class="btn btn-default btn-default btn-block">View</button>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Join a group in your class</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="input-group custom-search-form" style="padding-bottom:20px;">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-            </div>
-             <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            COMP 341
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button type="button" class="btn btn-default btn-default btn-block">View</button>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            COMP 341
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button type="button" class="btn btn-default btn-default btn-block">View</button>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            COMP 341
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                        </div>
-                        <div class="panel-footer">
-                            <button type="button" class="btn btn-default btn-default btn-block">View</button>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                </div>
-            </div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
