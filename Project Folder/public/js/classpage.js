@@ -201,11 +201,6 @@ $("#createGroupBtn").click(function (){
   }
 
 
-  // $("#groupList").append(
-  //   "<span class='classMembers list-group-item'>" +
-  //   "<span class='groupName'>" + groupName + "</span>" +
-  //   "</span>"
-  // )
 })
 
 //deleting the class list and group list and reloading them.
