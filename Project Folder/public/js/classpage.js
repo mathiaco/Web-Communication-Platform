@@ -288,7 +288,7 @@ var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
 var groupList = [];
-a
+
 getClassID();
 
 initializeFirebase();
