@@ -14,7 +14,7 @@ function initializePage() {
 
   // Get the class title from the database and displays it
   firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
-    $("#classTitle").text(snapshot.val().title);
+   $("#classTitle").text(snapshot.val().title);
   });
 
   // If the current user is a TA, then display special TA functions.
@@ -190,7 +190,7 @@ $("#createGroupBtn").click(function (){
   //setting group name
   var groupName = document.getElementById("groupName").value;
 
-    var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupName);
+  var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupName);
   var counter = groupList.length
   for(index=0; index<counter; index++){
     var user = groupList.pop();
@@ -291,7 +291,7 @@ var groupList = [];
 
 getClassID();
 
-initializeFirebase();
+
 var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 initializePage();
 initializeClassList();

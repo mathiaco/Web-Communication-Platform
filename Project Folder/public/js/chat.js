@@ -5,13 +5,13 @@
 //TODO: currently logged in userID
 var currentUser = '';
 
-//Retrieves the user's full name from the database using the userID
-// firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
-//     currentUser = snap.val().displayName;
-//
-//     //TODO: take this statement out later
-//     console.log(currentUser);
-// });
+// Retrieves the user's full name from the database using the userID
+firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
+    currentUser = snap.val().username;
+
+    //TODO: take this statement out later
+    console.log(currentUser);
+});
 
 //reads channel from database and displays it
 function readChannel(){
