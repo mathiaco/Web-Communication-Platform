@@ -1,11 +1,11 @@
 //Intializes firebase with given parameters
 var config = {
-   apiKey: "AIzaSyBZVaPVp9LFg3W4DS3pxuBdz66OptBPf_U",
-   authDomain: "testing-5ec6c.firebaseapp.com",
-   databaseURL: "https://testing-5ec6c.firebaseio.com",
-   storageBucket: "testing-5ec6c.appspot.com",
-   messagingSenderId: "172557374667"
- };
+    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
+    authDomain: "group3db-f028e.firebaseapp.com",
+    databaseURL: "https://group3db-f028e.firebaseio.com",
+    storageBucket: "group3db-f028e.appspot.com",
+    messagingSenderId: "164875081133"
+  };
 
 firebase.initializeApp(config);
 
