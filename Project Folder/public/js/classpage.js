@@ -1,4 +1,3 @@
-
 // Write the post data to database
 function writePostData(posts, name, title, content) {
   var newPostRef = postsRef.push();
@@ -27,7 +26,7 @@ function initializePage() {
       "<div class='modal-content'>" +
       "<div class='modal-header'>" +
       "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
-      "<h4 class='modal-title' id='addUsersModalLabel'>Add user</h4>" +
+      "<h4 class='modal-title' id='addUsersModalLabel'>Add User</h4>" +
       "</div>" +
       "<div class='modal-body'>" +
 
@@ -90,6 +89,7 @@ function initializePage() {
         "</span>"
       );
     }
+
 
     if (isTA()) {
       // If it's the page's first load, then append names.
@@ -182,15 +182,117 @@ function getClassID() {
   classID = pageURL[1]
 }
 
+// GROUP STUFF
+
+//saves the group information to the database upon creation of group
+//button in the form
+$("#createGroupBtn").click(function (){
+  //setting group name
+  var groupName = document.getElementById("groupName").value;
+
+    var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupName);
+  var counter = groupList.length
+  for(index=0; index<counter; index++){
+    var user = groupList.pop();
+     ref.push({
+           user_id: user.user_id,
+           username: user.username
+      })
+  }
+
+
+})
+
+//deleting the class list and group list and reloading them.
+$("#createGroup").click(function(){
+  document.getElementById("groupName").value = "";
+  var ref = firebase.database().ref("classes/" + classID + "/users/");
+
+  refClassUsers.orderByValue().on("value", function (snapshot){
+    snapshot.forEach(function(data){
+      $(".groupMembers:contains(" + data.val().username + ")").remove();
+      $(".classMembers:contains(" + data.val().username + ")").remove();
+
+      $("#classList").append(
+        "<span class='classMembers list-group-item'>" +
+        "<span class='userName'>" + data.val().username + "</span>" +
+        "<button id=add" +data.val().username+" class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
+        "</span>"
+      );
+
+      $("#add" +data.val().username).click(function(){
+        console.log(data.val().username);
+        $("#groupMembersList").append(
+          "<span class='groupMembers list-group-item'>" +
+          "<span class='userName'>" + data.val().username + "</span>" +
+          "</span>"
+        );
+        groupList.push(data.val());
+        $(".classMembers:contains(" + data.val().username + ")").remove();
+      })
+  })
+  })
+})
+
+//creates the class list that user may select from to create groups (first load)
+function initializeClassList(){
+  var ref = firebase.database().ref("classes/" + classID + "/users/");
+
+  refClassUsers.orderByValue().on("value", function (snapshot){
+    snapshot.forEach(function(data){
+  $("#classList").append(
+    "<span class='classMembers list-group-item'>" +
+    "<span class='userName'>" + data.val().username + "</span>" +
+    "<button id=add" +data.val().username+" class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
+    "</span>"
+  );
+
+  $("#add" +data.val().username).click(function(){
+    console.log(data.val().username);
+    $("#groupMembersList").append(
+      "<span class='groupMembers list-group-item'>" +
+      "<span class='userName'>" + data.val().username + "</span>" +
+      "</span>"
+    );
+    groupList.push(data.val());
+    $(".classMembers:contains(" + data.val().username + ")").remove();
+  })
+  })
+  })
+
+}
+
+  function initializeGroup(){
+    var ref = firebase.database().ref("classes/" + classID + "/groups/");
+    ref.orderByValue().on("value", function (snapshot){
+      snapshot.forEach(function(data){
+    if($(".groupMembers:contains(" + data.key + ")").length < 1){
+      console.log($(".groupMembers:contains(" + data.key + ")").length)
+     document.getElementById('groupList').innerHTML +=
+     (
+     "<span class='groupMembers list-group-item'>" +
+     "<span class='groupName'>" + data.key + "</span>" +
+    "<button id=add" + data.key +" class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>"+
+     "</span>"
+     );
+   }
+   })
+   });
+}
+
+
+
 var refClassUsers;
 var classID;
 var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
-
-
+var groupList = [];
+a
 getClassID();
 
 initializeFirebase();
 var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 initializePage();
+initializeClassList();
+initializeGroup();
