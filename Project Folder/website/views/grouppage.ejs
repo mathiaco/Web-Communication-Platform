@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel='stylesheet' href='/stylesheets/pages.css' />
+
     <title>SOEN 341 Group 3</title>
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -31,32 +32,17 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-       #screen{
-            display: flex;
-            min-height:15vh;
-            width:100%;
-            padding:0;
-            margin:0;
-            align-items:center;
-            justify-content:center;
-            flex-direction:column;
-       }
-          #uploader{
-           -webkit-appearance:none;
-            appearance:none;
-            width:50%;
-            margin-bottom:10px;
-          }
-    </style>
-
 
 </head>
 
 <body>
-      <% include headers/navbar.ejs %>
-      <% include headers/leftsidebar.ejs %>
 
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <%include Templates/navBar.ejs%>
+
+        <!-- Page Content -->
         <div id="main-content">
             <div class="container-fluid">
                 <div class="row">
@@ -385,8 +371,9 @@
 
     <!-- Firebase JavaScript -->
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-    <script src="/js/firebaseInitialization.js"></script>
+
     <!-- Custom Page JavaScript -->
+    <script src="/js/firebaseInitialization.js"></script>
     <script src="js/grouppage.js"></script>
 </body>
 
