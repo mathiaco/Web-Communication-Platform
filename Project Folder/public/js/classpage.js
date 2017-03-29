@@ -15,6 +15,7 @@ function initializePage() {
   // Get the class title from the database and displays it
   firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
    $("#classTitle").text(snapshot.val().title);
+   taID = snapshot.val().ta;
   });
 
   // If the current user is a TA, then display special TA functions.
@@ -172,7 +173,10 @@ function initializePage() {
 
 // Change this later to check if person is actually a TA
 function isTA() {
-  return true;
+  if(taID == currentUserID)
+    return true;
+  else
+    return false;
 }
 
 // Gets the class ID from URL
@@ -288,6 +292,7 @@ var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
 var groupList = [];
+var taID;
 
 getClassID();
 
