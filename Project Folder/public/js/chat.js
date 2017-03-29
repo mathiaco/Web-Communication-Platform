@@ -1,28 +1,41 @@
-//TODO: Needs to add function to determine the current user
-//TODO: add function to add channels and add people to the channel
-//TODO: next sprint
-
-//TODO: currently logged in userID
 var currentUser = '';
 
 // Retrieves the user's full name from the database using the userID
-firebase.database().ref('users/'+ currentUserID).once('value').then(function(snap){
-    currentUser = snap.val().username;
-
-    //TODO: take this statement out later
-    console.log(currentUser);
+firebase.database().ref('users/'+ currentUserID).once('value').then(function(snapshot){
+    currentUser = snapshot.val().username;
 });
 
 //reads channel from database and displays it
 function readChannel(){
-  var ref = firebase.database().ref('channels');
+  var ref = firebase.database().ref('chat/channels');
+  var partOfChannel = false;
   var className = '';
 
   //cycles through the channels orders them alphabetically and
   ref.orderByValue().on("value", function(snapshot){
     snapshot.forEach(function(data){
-      document.getElementById('channel-container').innerHTML +=
-      ('<div onClick="changeActive(this)" value="' + data.val() + '" class="channel">' + data.val() + '</div>');
+
+      //if/else to check and see if the current user is part of a channelRef
+      //if so allow them to chat in that channel
+      if(currentUser === data.val().creator){
+        partOfChannel = true;
+      }
+      else{
+        refChannelUsers = firebase.database().ref("chat/channels/" + data.key + "/users/");
+
+        refChannelUsers.orderByValue().on("value", function(user1){
+          user1.forEach(function(user2){
+            if(currentUserID === user2.key){
+              partOfChannel = true;
+            }
+          });
+        });
+      }
+      if(partOfChannel){
+        document.getElementById('channel-container').innerHTML +=
+        ('<div onClick="changeActive(this)" value="' + data.val().channelName + '" class="channel">' + data.val().channelName + '</div>');
+        partOfChannel = false;
+      }
     });
   });
 }
@@ -44,7 +57,7 @@ $('#send-Message').submit(function (e){
     //do nothing if form is empty
   }
   else{
-    var ref = firebase.database().ref('messages/channel/' + currentChannel());
+    var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
     var message = document.getElementById('messageBox').value;
 
     ref.push({
@@ -67,7 +80,7 @@ function displayMessages(){
   }
   else{
     document.getElementById('chat-window-container').innerHTML = "";
-    var ref = firebase.database().ref('messages/channel/' + currentChannel());
+    var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
     ref.orderByValue().once("value", function(snapshot){
       snapshot.forEach(function(data){
         var classAddition = '';
@@ -84,7 +97,7 @@ function displayMessages(){
 
 //adds new messages of channel in container
 function addMessage(){
-  var ref = firebase.database().ref('messages/channel/' + currentChannel());
+  var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
 
   ref.once("child_added", function(snapshot){
     var newPost = snapshot.val();
