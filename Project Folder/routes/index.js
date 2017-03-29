@@ -32,15 +32,11 @@ router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res
 });
 
 router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('classes.ejs', {
-    userID: req.user
-  });
+  res.render('classes.ejs', {});
 });
 
 router.get('/classpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('classpage.ejs', {
-    userID: req.user
-  });
+  res.render('classpage.ejs', {});
 });
 
 router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
@@ -51,6 +47,16 @@ router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res)
 });
 router.get('/chat', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('chat.ejs', {
+    userID: req.user
+  });
+});
+router.get('/channels', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  res.render('channels.ejs', {
+    userID: req.user
+  });
+});
+router.get('/channelpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  res.render('channelpage.ejs', {
     userID: req.user
   });
 });
