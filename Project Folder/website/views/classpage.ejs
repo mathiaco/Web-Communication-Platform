@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>SOEN 341 Group 3</title>
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,196 +37,265 @@
 </head>
 
 <body>
+    <!-- get current user id -->
+    <script>
+        var currentUserID = <%- JSON.stringify(userID) %>
+    </script>
 
     <div id="wrapper">
 
         <!-- Navigation -->
         <%include Templates/navBar.ejs%>
 
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header" id="classTitle"></h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+            <div id="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" id="classTitle"></h1>
                     </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-user fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge" id="memberCount"></div>
-                                    <div>Members</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-quote-right fa-fw"></i> Class Forum
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group" id="postList">
-
-                            </div>
-                            <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn pull-left">View All Posts</a>
-                            <a href="#" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#postModal">Create Post</a>
-                            <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="postModalLabel">New post</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="recipient-name" class="control-label">Title:</label>
-                                                    <input type="text" class="form-control" id="title-text">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="message-text" class="control-label">Comment:</label>
-                                                    <textarea class="form-control" id="message-text"></textarea>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" id="postBtn" class="btn btn-success" data-dismiss="modal">Post</button>
-                                        </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">26</div>
+                                        <div>New Comments!</div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.modal -->
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Groups
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-user fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge" id="memberCount"></div>
+                                        <div>Members</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">124</div>
+                                        <div>New Orders!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-support fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">13</div>
+                                        <div>Support Tickets!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-quote-right fa-fw"></i> Class Forum
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="list-group" id="postList">
 
+                                </div>
+                                <!-- /.list-group -->
+                                <a href="#" class="btn btn-default btn pull-left">View All Posts</a>
+                                <a href="#" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#postModal">Create Post</a>
+                                <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="postModalLabel">New post</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">Title:</label>
+                                                        <input type="text" class="form-control" id="title-text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Comment:</label>
+                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" id="postBtn" class="btn btn-success" data-dismiss="modal">Post</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.modal -->
                             </div>
-                            <a href="#" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#groupModal">Create Group</a>
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> Class Members
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group" id="classMembers">
+                        <!-- /.panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-user fa-fw"></i> Groups
                             </div>
-                            <!-- /.list-group -->
-                            <a href="#" id="viewUsersBtn" class="btn btn-default btn pull-left" data-toggle="modal" data-target="#viewUsersModal">View All Users</a>
-                            <div id="addUserBtnHolder"></div>
+                            <div class="panel-body">
+                                <div class="list-group" id="groupList">
+                                </div>
+                            </div>
+
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="row">
+
+                                </div>
+                                <a href="#" button id="createGroup" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#groupModal">Create Group</a>
+
+                                <div class='modal fade' id='groupModal' tabindex='-1' role='dialog' aria-labelledby='groupModalLabel'>
+                                    <div class='modal-dialog' role='document'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                <h4 class='modal-title' id='groupModalLabel'>Create Group</h4>
+                                            </div>
+                                            <div class='modal-body'>
+
+                                                <div class='row'>
+                                                    <div class='col-lg-12'>
+                                                        <div class="form-group">
+                                                            <label for="recipient-name" class="control-label">Group Name:</label>
+                                                            <input type="text" class="form-control" id="groupName">
+                                                        </div>
+                                                        <!-- /input-group -->
+                                                    </div>
+                                                    <!-- /.col-lg-6 -->
+                                                </div>
+
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading'>
+                                                        <i class='fa fa-user fa-fw'></i> Group Members
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class='panel-body'>
+                                                        <div class='list-group' id='groupMembersList'>
+                                                        </div>
+                                                        <!-- /.list-group -->
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                                <!-- /.panel -->
+
+
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading'>
+                                                        <i class='fa fa-user fa-fw'></i> Class Members
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class='panel-body'>
+                                                        <div class='list-group' id='classList'>
+                                                        </div>
+                                                        <!-- /.list-group -->
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                                <!-- /.panel -->
+                                            </div>
+                                            <div class='modal-footer'>
+                                                <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                <button type='button' id="createGroupBtn" class='btn btn-success btn pull-left' data-dismiss='modal'>Create</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <div class="col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-user fa-fw"></i> Class Members
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="list-group" id="classMembers">
+                                </div>
+                                <!-- /.list-group -->
+                                <a href="#" id="viewUsersBtn" class="btn btn-default btn pull-left" data-toggle="modal" data-target="#viewUsersModal">View All Users</a>
+                                <div id="addUserBtnHolder"></div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-4 -->
                 </div>
-                <!-- /.col-lg-4 -->
+                <!-- /.row -->
+
+                <!-- /#page-wrapper -->
+
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-
+            <!-- /#wrapper -->
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -248,6 +318,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
 
     <!-- Custom Page JavaScript -->
+    <script src="/js/firebaseInitialization.js"></script>
     <script src="js/classpage.js"></script>
 </body>
 

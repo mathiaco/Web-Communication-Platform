@@ -1,24 +1,15 @@
-// Initialize the database to read and write data
-function initializeFirebase() {
-    var config = {
-        apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
-        authDomain: "group3db-f028e.firebaseapp.com",
-        databaseURL: "https://group3db-f028e.firebaseio.com",
-        storageBucket: "group3db-f028e.appspot.com",
-        messagingSenderId: "164875081133"
-    };
-    firebase.initializeApp(config);
-}
 
 
 // Write the comment data to database
-function writeCommentData(ref, name, content) {
+function writeCommentData(ref, name, content, icon, color) {
     var commentRef = firebase.database().ref(ref);
     var newCommentRef = commentRef.push();
     newCommentRef.set({
         userid: currentUserID,
         username: name,
-        content: content
+        content: content,
+        icon: icon,
+        color: color
     });
 }
 
@@ -31,22 +22,27 @@ function initializePage() {
     postsRef.once("value").then(function (snapshot) {
         var newPost = snapshot.val();
         // Displays post data on page.
-        $("#commentTimeline").append(
-            "<li>" +
-            "<div class='timeline-badge'><i class='fa fa-check'></i>" +
-            "</div>" +
-            "<div class='timeline-panel'>" +
-            "<div class='timeline-heading'>" +
-            "<h4 class='timeline-title'>" + newPost.title + "</h4>" +
-            "<p><small class='text-muted'><i class='fa fa-clock-o'></i> 11 hours ago from " + newPost.username + "</small>" +
-            "</p>" +
-            "</div>" +
-            "<div class='timeline-body'>" +
-            "<p>" + newPost.content + "</p>" +
-            "</div>" +
-            "</div>" +
-            "</li>"
-        )
+        firebase.database().ref("classes/" + urlParams["c"] + "/users/" + newPost.user_id).once("value").then(function (snapshotChild) {
+
+            var user = snapshotChild.val();
+            $("#commentTimeline").append(
+                "<li>" +
+                "<div class='timeline-badge " + user.color + "'><i class='fa " + user.icon + "'></i>" +
+                "</div>" +
+                "<div class='timeline-panel'>" +
+                "<div class='timeline-heading'>" +
+                "<h4 class='timeline-title'>" + newPost.title + "</h4>" +
+                "<p><small class='text-muted'><i class='fa fa-clock-o'></i> 11 hours ago from " + user.username + "</small>" +
+                "</p>" +
+                "</div>" +
+                "<div class='timeline-body'>" +
+                "<p>" + newPost.content + "</p>" +
+                "</div>" +
+                "</div>" +
+                "</li>"
+            )
+        })
+
 
         // Reads comments in the database, and automatically knows when a new child is added
         firebase.database().ref("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/").on("child_added", function (snapshotChild) {
@@ -64,7 +60,7 @@ function initializePage() {
             // Displays the comment
             $("#commentTimeline").append(
                 invertCode +
-                "<div class='timeline-badge'><i class='fa fa-check'></i>" +
+                "<div class='timeline-badge " + newComment.color + "'><i class='fa " + newComment.icon + "'></i>" +
                 "</div>" +
                 "<div class='timeline-panel'>" +
                 "<div class='timeline-heading'>" +
@@ -83,7 +79,17 @@ function initializePage() {
 
     // Button Event for sending the comment to function that writes it to the database
     $("#commentBtn").click(function () {
-        writeCommentData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", "Jeff", $("#commentContent").val())
+        var username = "";
+        var icon;
+        var color;
+        var time;
+        firebase.database().ref("classes/" + urlParams["c"] + "/users/" + currentUserID).once("value").then(function (snapshot) {
+            var user = snapshot.val();
+            username = user.username;
+            icon = user.icon;
+            color = user.color;
+            writeCommentData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", username, $("#commentContent").val(), icon, color);
+        });
     });
 }
 
@@ -102,6 +108,4 @@ var urlParams;
         urlParams[decode(match[1])] = decode(match[2]);
 })();
 
-initializeFirebase();
 initializePage();
-

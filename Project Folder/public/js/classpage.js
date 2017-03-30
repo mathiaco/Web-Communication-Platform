@@ -1,22 +1,12 @@
-// Initialize the database to read and write data
-function initializeFirebase() {
-  var config = {
-    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
-    authDomain: "group3db-f028e.firebaseapp.com",
-    databaseURL: "https://group3db-f028e.firebaseio.com",
-    storageBucket: "group3db-f028e.appspot.com",
-    messagingSenderId: "164875081133"
-  };
-  firebase.initializeApp(config);
-}
-
 // Write the post data to database
-function writePostData(posts, name, title, content) {
+function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
   newPostRef.set({
-    username: name,
+    user_id: user,
     title: title,
-    content: content
+    content: content,
+    icon: icon,
+    color: color
   });
 }
 
@@ -24,10 +14,7 @@ function writePostData(posts, name, title, content) {
 function initializePage() {
   refClassUsers = firebase.database().ref("classes/" + classID + "/users/");
 
-  // Get the class title from the database and displays it
-  firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
-    $("#classTitle").text(snapshot.val().title);
-  });
+
 
   // If the current user is a TA, then display special TA functions.
   if (isTA()) {
@@ -38,7 +25,7 @@ function initializePage() {
       "<div class='modal-content'>" +
       "<div class='modal-header'>" +
       "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
-      "<h4 class='modal-title' id='addUsersModalLabel'>Add user</h4>" +
+      "<h4 class='modal-title' id='addUsersModalLabel'>Add User</h4>" +
       "</div>" +
       "<div class='modal-body'>" +
 
@@ -84,33 +71,35 @@ function initializePage() {
   // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
-    var user = snapshot.val();
+    var user = snapshot.val()
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-        //"<span class='users list-group-item'>" +
-        "<a href='#' class='users list-group-item' onclick=\"location.href='/profile/" + user.user_id + "\'\">" + user.username + "</a>" 
-        //"<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
-        //"</span>"
+        "<span class='users list-group-item'>" +
+        user.username +
+        "</span>"
       );
     }
     // If it's not the first load, then prepend names so they appear at the top.
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-          user.username +
-        "<button class='btn btn-sm pull-right' onclick=\"location.href='/profile/"+user.user_id+"\'\">View Profile</button>"+
+        user.username +
         "</span>"
       );
     }
 
+
     if (isTA()) {
+      var removeBtn = "";
+      if (user.user_id != currentUserID)
+        removeBtn = "<button class='deleteUser pull-right btn btn-danger btn-xs'>Remove</button>";
       // If it's the page's first load, then append names.
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
           "<span class='userName'>" + user.username + "</span>" +
-          "<button class='deleteUser pull-right btn btn-danger btn-xs'>Delete</button>" +
+          removeBtn +
           "</span>"
         );
       }
@@ -119,7 +108,7 @@ function initializePage() {
         $("#userList").prepend(
           "<span class='users list-group-item'>" +
           "<span class='userName'>" + user.username + "</span>" +
-          "<button class='deleteUser pull-right btn btn-danger btn-xs'>Delete</button>" +
+          removeBtn +
           "</span>"
         );
       }
@@ -167,7 +156,10 @@ function initializePage() {
 
   // Send post data to function to be writen to database
   $("#postBtn").click(function () {
-    writePostData("posts/", "Jeff", $("#title-text").val(), $("#message-text").val())
+    firebase.database().ref("classes/" + classID + "/users/" + currentUserID).once("value").then(function (snapshot) {
+      var user = snapshot.val();
+      writePostData("posts/", currentUserID, $("#title-text").val(), $("#message-text").val(), user.icon, user.color);
+    })
   });
 
   // Event trigger when database adds a new post. Also displays post on screen.
@@ -185,7 +177,10 @@ function initializePage() {
 
 // Change this later to check if person is actually a TA
 function isTA() {
-  return true;
+  if (taID == currentUserID)
+    return true;
+  else
+    return false;
 }
 
 // Gets the class ID from URL
@@ -195,18 +190,128 @@ function getClassID() {
   classID = pageURL[1]
 }
 
+// GROUP STUFF
+
+//saves the group information to the database upon creation of group
+//button in the form
+$("#createGroupBtn").click(function () {
+  //setting group name
+  var groupName = document.getElementById("groupName").value;
+
+  var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupName);
+  var counter = groupList.length
+  for (index = 0; index < counter; index++) {
+    var user = groupList.pop();
+    ref.push({
+      user_id: user.user_id,
+      username: user.username
+    })
+  }
+})
+
+//deleting the class list and group list and reloading them.
+$("#createGroup").click(function () {
+  document.getElementById("groupName").value = "";
+  var ref = firebase.database().ref("classes/" + classID + "/users/");
+
+  refClassUsers.orderByValue().on("value", function (snapshot) {
+    snapshot.forEach(function (data) {
+      $(".groupMembers:contains(" + data.val().username + ")").remove();
+      $(".classMembers:contains(" + data.val().username + ")").remove();
+
+      $("#classList").append(
+        "<span class='classMembers list-group-item'>" +
+        "<span class='userName'>" + data.val().username + "</span>" +
+        "<button id=add" + data.val().username + " class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
+        "</span>"
+      );
+
+      $("#add" + data.val().username).click(function () {
+        console.log(data.val().username);
+        $("#groupMembersList").append(
+          "<span class='groupMembers list-group-item'>" +
+          "<span class='userName'>" + data.val().username + "</span>" +
+          "</span>"
+        );
+        groupList.push(data.val());
+        $(".classMembers:contains(" + data.val().username + ")").remove();
+      })
+    })
+  })
+})
+
+// Does this do anything? - Jeff
+//creates the class list that user may select from to create groups (first load)
+function initializeClassList() {
+  var ref = firebase.database().ref("classes/" + classID + "/users/");
+
+  refClassUsers.orderByValue().on("value", function (snapshot) {
+    snapshot.forEach(function (data) {
+      $("#classList").append(
+        "<span class='classMembers list-group-item'>" +
+        "<span class='userName'>" + data.val().username + "</span>" +
+        "<button id=add" + data.val().username + " class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
+        "</span>"
+      );
+
+      $("#add" + data.val().username).click(function () {
+        console.log(data.val().username);
+        $("#groupMembersList").append(
+          "<span class='groupMembers list-group-item'>" +
+          "<span class='userName'>" + data.val().username + "</span>" +
+          "</span>"
+        );
+        groupList.push(data.val());
+        $(".classMembers:contains(" + data.val().username + ")").remove();
+      })
+    })
+  })
+}
+
+function initializeGroup() {
+  var ref = firebase.database().ref("classes/" + classID + "/groups/");
+  ref.orderByValue().on("value", function (snapshot) {
+    snapshot.forEach(function (data) {
+      var removeBtn = "";
+      if (isTA()) {
+        removeBtn = "<button id=add" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
+      }
+
+      if ($(".groupMembers:contains(" + data.key + ")").length < 1) {
+        console.log($(".groupMembers:contains(" + data.key + ")").length)
+        document.getElementById('groupList').innerHTML +=
+          (
+            "<span class='groupMembers list-group-item'>" +
+            "<span class='groupName'>" + data.key + "</span>" +
+            removeBtn +
+            "</span>"
+          );
+      }
+    })
+  });
+}
+
+
+
 var refClassUsers;
 var classID;
 var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
-
+var groupList = [];
+var taID = "";
 
 getClassID();
 
-initializeFirebase();
+
 var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
-initializePage();
+// Get the class title from the database and displays it
+firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
+  $("#classTitle").text(snapshot.val().title);
+  taID = snapshot.val().ta;
+  initializePage();
+  initializeGroup();
+});
 
-
+//initializeClassList(); Do we need this?
 
