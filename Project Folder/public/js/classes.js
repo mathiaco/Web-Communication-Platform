@@ -2,6 +2,9 @@ var classesRef;
 var colCount = 1;
 var color;
 classesRef = firebase.database().ref("classes/");
+var icons = ["fa-glass", "fa-music", "fa-heart", "fa-star", "fa-plane", "fa-coffee",
+    "fa-cutlery", "fa-thumbs-up", "fa-flash", "fa-gamepad", "fa-tree"];
+var userColors = ["success", "warning", "info", "default", "danger"];
 
 // Writes class data to database
 function writeClasstData(taID, title, description) {
@@ -25,12 +28,17 @@ function deleteBox(id) {
 
 // allows user to join class when button is pressed
 function joinClass(classID) {
+    var rndColor = Math.floor(Math.random() * 5) + 0;
+    var rndIcon = Math.floor(Math.random() * 11) + 0;
+
     ref = firebase.database().ref("users/");
     ref.orderByChild("user_id").equalTo(currentUserID).once("value").then(function (snapshot) {
         snapshot.forEach(function (user) {
             firebase.database().ref("classes/" + classID + "/users/" + user.key).set({
                 username: user.val().username,
-                user_id: user.key
+                user_id: user.key,
+                icon: icons[rndIcon],
+                color: userColors[rndColor]
             });
         });
     });
@@ -53,7 +61,7 @@ function listClass(classKey, title, description, taID) {
     }
 
     var taDeleteBtn = "";
-    if(taID == currentUserID)
+    if (taID == currentUserID)
         taDeleteBtn = "<button id='" + classKey + "' class='btn btn-xs btn-danger pull-right' onClick='deleteBox(this.id)'><i class='fa fa-times'></i></button>";
 
     // append a new class with a specific key
