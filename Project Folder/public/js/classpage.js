@@ -1,10 +1,12 @@
 // Write the post data to database
-function writePostData(posts, name, title, content) {
+function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
   newPostRef.set({
-    username: name,
+    user_id: user,
     title: title,
-    content: content
+    content: content,
+    icon: icon,
+    color: color
   });
 }
 
@@ -12,11 +14,7 @@ function writePostData(posts, name, title, content) {
 function initializePage() {
   refClassUsers = firebase.database().ref("classes/" + classID + "/users/");
 
-  // Get the class title from the database and displays it
-  firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
-    $("#classTitle").text(snapshot.val().title);
-    taID = snapshot.val().ta;
-  });
+
 
   // If the current user is a TA, then display special TA functions.
   if (isTA()) {
@@ -93,12 +91,15 @@ function initializePage() {
 
 
     if (isTA()) {
+      var removeBtn = "";
+      if (user.user_id != currentUserID)
+        removeBtn = "<button class='deleteUser pull-right btn btn-danger btn-xs'>Remove</button>";
       // If it's the page's first load, then append names.
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
           "<span class='userName'>" + user.username + "</span>" +
-          "<button class='deleteUser pull-right btn btn-danger btn-xs'>Delete</button>" +
+          removeBtn +
           "</span>"
         );
       }
@@ -107,7 +108,7 @@ function initializePage() {
         $("#userList").prepend(
           "<span class='users list-group-item'>" +
           "<span class='userName'>" + user.username + "</span>" +
-          "<button class='deleteUser pull-right btn btn-danger btn-xs'>Delete</button>" +
+          removeBtn +
           "</span>"
         );
       }
@@ -155,7 +156,10 @@ function initializePage() {
 
   // Send post data to function to be writen to database
   $("#postBtn").click(function () {
-    writePostData("posts/", "Jeff", $("#title-text").val(), $("#message-text").val())
+    firebase.database().ref("classes/" + classID + "/users/" + currentUserID).once("value").then(function (snapshot) {
+      var user = snapshot.val();
+      writePostData("posts/", currentUserID, $("#title-text").val(), $("#message-text").val(), user.icon, user.color);
+    })
   });
 
   // Event trigger when database adds a new post. Also displays post on screen.
@@ -203,8 +207,6 @@ $("#createGroupBtn").click(function () {
       username: user.username
     })
   }
-
-
 })
 
 //deleting the class list and group list and reloading them.
@@ -238,6 +240,7 @@ $("#createGroup").click(function () {
   })
 })
 
+// Does this do anything? - Jeff
 //creates the class list that user may select from to create groups (first load)
 function initializeClassList() {
   var ref = firebase.database().ref("classes/" + classID + "/users/");
@@ -263,20 +266,24 @@ function initializeClassList() {
       })
     })
   })
-
 }
 
 function initializeGroup() {
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
   ref.orderByValue().on("value", function (snapshot) {
     snapshot.forEach(function (data) {
+      var removeBtn = "";
+      if (isTA()) {
+        removeBtn = "<button id=add" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
+      }
+
       if ($(".groupMembers:contains(" + data.key + ")").length < 1) {
         console.log($(".groupMembers:contains(" + data.key + ")").length)
         document.getElementById('groupList').innerHTML +=
           (
             "<span class='groupMembers list-group-item'>" +
             "<span class='groupName'>" + data.key + "</span>" +
-            "<button id=add" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>" +
+            removeBtn +
             "</span>"
           );
       }
@@ -292,12 +299,19 @@ var postKey;
 var memberCount = 0;
 var isFirstLoad = true;
 var groupList = [];
-var taID;
+var taID = "";
 
 getClassID();
 
 
 var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
-initializePage();
-initializeClassList();
-initializeGroup();
+// Get the class title from the database and displays it
+firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
+  $("#classTitle").text(snapshot.val().title);
+  taID = snapshot.val().ta;
+  initializePage();
+  initializeGroup();
+});
+
+//initializeClassList(); Do we need this?
+
