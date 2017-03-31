@@ -70,6 +70,7 @@ APP.JS
 	
 
 CHAT
+	
 	//General
 		- FIX CSS OVERFLOW or wtvr it's called
 		- Styling
