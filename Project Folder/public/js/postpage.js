@@ -4,12 +4,15 @@
 function writeCommentData(ref, name, content, icon, color) {
     var commentRef = firebase.database().ref(ref);
     var newCommentRef = commentRef.push();
+    var d = new Date();
+    var numDate = d.getTime();
     newCommentRef.set({
         userid: currentUserID,
         username: name,
         content: content,
         icon: icon,
-        color: color
+        color: color,
+        date: numDate
     });
 }
 
@@ -25,6 +28,7 @@ function initializePage() {
         firebase.database().ref("classes/" + urlParams["c"] + "/users/" + newPost.user_id).once("value").then(function (snapshotChild) {
 
             var user = snapshotChild.val();
+            var date = timeSince(newPost.date);
             $("#commentTimeline").append(
                 "<li>" +
                 "<div class='timeline-badge " + user.color + "'><i class='fa " + user.icon + "'></i>" +
@@ -32,7 +36,7 @@ function initializePage() {
                 "<div class='timeline-panel'>" +
                 "<div class='timeline-heading'>" +
                 "<h4 class='timeline-title'>" + newPost.title + "</h4>" +
-                "<p><small class='text-muted'><i class='fa fa-clock-o'></i> 11 hours ago from " + user.username + "</small>" +
+                "<p><small class='text-muted'><i class='fa fa-clock-o'></i> " + date + " from " + user.username + "</small>" +
                 "</p>" +
                 "</div>" +
                 "<div class='timeline-body'>" +
@@ -57,6 +61,7 @@ function initializePage() {
                 invertCode = "<li>"
                 invertComment = true;
             }
+            var date = timeSince(newComment.date);
             // Displays the comment
             $("#commentTimeline").append(
                 invertCode +
@@ -64,7 +69,7 @@ function initializePage() {
                 "</div>" +
                 "<div class='timeline-panel'>" +
                 "<div class='timeline-heading'>" +
-                "<p><small class='text-muted'><i class='fa fa-clock-o'></i> 11 hours ago from " + newComment.username + "</small>" +
+                "<p><small class='text-muted'><i class='fa fa-clock-o'></i> " + date + " from " + newComment.username + "</small>" +
                 "</p>" +
                 "</div>" +
                 "<div class='timeline-body'>" +
@@ -91,6 +96,35 @@ function initializePage() {
             writeCommentData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", username, $("#commentContent").val(), icon, color);
         });
     });
+}
+
+// Calculates the amount of time since the given date and current date
+function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
 }
 
 
