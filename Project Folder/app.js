@@ -6,19 +6,38 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-//
+
+//Custom made module to handle GIT API requests
+var gitInfo = require('./modules/gitInfo');
+
+//Firebase & Sessions
 var firebase = require('firebase-admin');
 var serviceAccount = require('./config/serviceAccountKey.json');
 var passport = require('passport');
 var Strategy = require('passport-github').Strategy;
-var config = require('./config/config.js');
+var config = require('./config/config');
 var connectEnsureLogin = require('connect-ensure-login');
 
+//Initializes Firebase Client
 firebase.initializeApp({
     credential: firebase.credential.cert(serviceAccount),
     databaseURL: config.firebase.databaseURL
 });
 var db = firebase.database();
+
+
+//GITHUB
+var githubAPI = require('github');
+var github = new githubAPI({
+    protocol: "https",
+    host: "api.github.com", // should be api.github.com for GitHub
+    headers: {
+        "user-agent": "Soen341Group3" // GitHub is happy with a unique user agent
+    },
+    Promise: require('bluebird'),
+    followRedirects: true, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
+    timeout: 5000
+});
 
 //Routes
 var index = require('./routes/index.js');
@@ -26,10 +45,10 @@ var login = require('./routes/login.js');
 
 
 //PASSPORT
-// Configure the Facebook strategy for use by Passport.
+// Configure the GITHUB strategy for use by Passport.
 //
 // OAuth 2.0-based strategies require a `verify` function which receives the
-// credential (`accessToken`) for accessing the Facebook API on the user's
+// credential (`accessToken`) for accessing the github API on the user's
 // behalf, along with the user's profile.  The function must invoke `cb`
 // with a user object, which will be set at `req.user` in route handlers after
 // authentication.
@@ -39,8 +58,8 @@ passport.use(new Strategy({
         callbackURL: config.github.redirect_uri
     },
     function(accessToken, refreshToken, profile, cb) {
-        // In this example, the user's Facebook profile is supplied as the user
-        // record.  In a production-quality application, the Facebook profile should
+        // In this example, the user's github profile is supplied as the user
+        // record.  In a production-quality application, the github profile should
         // be associated with a user record in the application's database, which
         // allows for account linking and authentication with other identity
         // providers.
@@ -57,7 +76,8 @@ passport.use(new Strategy({
                 db.ref('users/' + profile.id).set({
                     username: profile.username,
                     user_id: profile.id,
-                    access_token: accessToken
+                    access_token: accessToken,
+                    displayName: profile.displayName
                 });
                 return cb(null, profile.id);
             }
@@ -89,6 +109,7 @@ var app = express();
 
 //Global Vars should be initialized like this
 app.locals.count = 0;
+app.locals.db = db;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'website/views'));
@@ -115,22 +136,102 @@ app.use(passport.session());
 
 //The index route handles most of the simple routing.
 app.use('/', index);
+//The login routes handles requests to the /login
 app.get('/login', login);
-app.post('/login',login);
+
+//Handles the callback from the github api
 app.get('/auth/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
         res.redirect('/');
     });
 app.get('/auth/github', passport.authenticate('github'));
+
+//Handles request to the the profile page of the current user
 app.get('/profile',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
-        res.render('profile', { id: req.user });
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.user, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByID(req.user, function (repoData) {
+                res.render('profile', {
+                    id: req.user,
+                    profile: profile,
+                    repos: repoData
+                });
+
+            });
+
+        });
     });
 
-//How it renders the pages simplified:
-//app.get('/test', express.Router().get('/test',function(req,res){res.render('test')}));
+//Handles request to the the profile page of the user with a specified id
+app.get('/profile/:id',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id, function (repoData) {
+                res.render('profile', {
+                    id: req.params.id,
+                    profile: profile,
+                    repos: repoData
+                });
+
+            });
+        });
+    });
+
+//TODO: Cache repoData and repoStats in database since it makes heavy use of the Github API
+app.get('/profile/:id/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id,function(repoData) {
+                gitInfo.getRepoContributionStats(profile.login,req.params.repo,function(repoStats){
+                    res.render('profile', {
+                        id: req.params.id,
+                        profile: profile,
+                        repos: repoData,
+                        repoStats: repoStats,
+                        repoName: req.params.repo
+                    });
+                });
+            });
+        });
+    });
+
+
+
+/*
+//TODO: DELETE THIS AFTER Graph testing is done
+var repoStats = require('./public/graphs/json/repoStats.json');
+
+app.get('/profile/:id/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id, function (repoData) {
+                res.render('profile', {
+                    id: req.params.id,
+                    profile: profile,
+                    repos: repoData,
+                    repoStats: repoStats,
+                    repoName: req.params.repo
+                });
+            });
+        });
+    });
+*/
+
 
 
 // catch 404 and forward to error handler

@@ -2201,3 +2201,451 @@ lol was slightly confused
 Mathiaco-lee
 copu paste
 Thanks!
+Thanks!
+You can apparently also just drag it into a word doucment, it formats nicely!
+Mathiaco-lee Bessane
+Mathiaco-lee
+Oh nice
+Diyaan Athar
+Diyaan
+Kinda lame but if any of you want a meeting summary here it is: https://github.com/ivanb7/soen341group3/blob/master/Documentation/Meeting%20Minutes
+ivanb7/soen341group3
+soen341group3 - Group project for Soen 341 - Software Process
+github.com
+FEB 21ST, 11:38PM
+
+Jeff Buonamici
+Jeff
+Can someone accept my pull request
+thanks
+Diyaan Athar
+Diyaan
+Good?
+Jeff Buonamici
+Jeff
+FEB 22ND, 9:40AM
+copu paste
+Diyaan Athar
+Diyaan
+Thanks!
+You can apparently also just drag it into a word doucment, it formats nicely!
+Mathiaco-lee Bessane
+Mathiaco-lee
+Oh nice
+Diyaan Athar
+Diyaan
+Kinda lame but if any of you want a meeting summary here it is: https://github.com/ivanb7/soen341group3/blob/master/Documentation/Meeting%20Minutes
+ivanb7/soen341group3
+soen341group3 - Group project for Soen 341 - Software Process
+github.com
+FEB 21ST, 11:38PM
+
+Jeff Buonamici
+Jeff
+Can someone accept my pull request
+thanks
+Diyaan Athar
+Diyaan
+Good?
+Jeff Buonamici
+Jeff
+FEB 22ND, 9:40AM
+
+Jeff Buonamici
+Jeff
+I'm on my way to school
+Diyaan Athar
+Diyaan
+Great! You and I are meeting at 11 right?
+Jeff Buonamici
+Jeff
+Yup
+Diyaan Athar
+Diyaan
+FEB 22ND, 10:44AM
+
+Diyaan Athar
+Diyaan
+Ugh, sorry jeff I am running late. It might be 11:30 by the time I get there. Sorry 😞
+Jeff Buonamici
+Jeff
+Ok
+Diyaan Athar
+Diyaan
+Where are you?
+Sorry, jeff, where are you?
+Jeff Buonamici
+Jeff
+In the lab
+Diyaan Athar
+Diyaan
+H823?
+Jeff Buonamici
+Jeff
+Yup
+Ivan can you deploy the news updates
+Ivan Bogdev
+Ivan
+I'll do it when I get the chance
+Diyaan Athar
+Diyaan
+Jeff: https://www.airpair.com/firebase/posts/structuring-your-firebase-data\\
+Structuring your Firebase Data correctly for a Complex App
+Learn how to structure your data in Firebase as opposed to a relational DBMS system. A perfect guide to maintain relations in a NoSQL database.
+airpair.com
+Diyaan Athar
+Diyaan
+Ivan is the token you receive from gitHub stored in a cookie?
+Ivan Bogdev
+Ivan
+Right now its not stored anywhere
+Diyaan Athar
+Diyaan
+Then how does it know if we are logged in or not
+Ivan Bogdev
+Ivan
+It doesn't xD
+You can get in without logging in
+There's no sessions or cookies or verifications
+But it gets an access token from github
+Right now the access token is just written to the console and it disappears
+Diyaan Athar
+Diyaan
+But technically the access token could be stored and reused?
+Do we get  a different access token every time we login?
+Nathan & Emanuel, do you get a chance to integrate your chat with the overall website. If not, could you please do this by Saturday at the very latest as it would be great to see it and how it fits in with the rest of the site.
+Diyaan Athar
+Diyaan
+Please carefully read the post I made on the group page as it details what you need to do by our Saturday meeting. Please come prepared.
+Diyaan Athar
+Diyaan
+I am going through the user stories, and some of you still have not fixed up your user stories. Each user story needs to have a description, and an accurate task breakdown besides it.
+Ivan & Mathiaco: You have been assigned to user stories #14, #16, #17. Your user stories have not been touched so could you please make sure that they meet all the criteria above by Saturday 8 PM.
+Jeff Buonamici
+Jeff
+I'll look at it when I get home
+I didn't touch any of mine either I think
+Diyaan Athar
+Diyaan
+Perfect, thanks Jeff!
+Matuese and Nathan: you guys are set 🙂
+Ariles, you are assigned to User Story#22. Your user story has also not been touched. Please make sure that it meets all the criteria I mentioned above by Saturday 8 PM.
+Yousef: You have no user stories in the In Progress part of the SCRUM board
+The link to the SCRUM Board is here: https://goo.gl/QTfEQZ
+ivanb7/soen341group3
+soen341group3 - Group project for Soen 341 - Software Process
+github.com
+Please move the user story you are working on from the Icebox to the In Progress section. Also please make sure your user story has: a description, and actual task breakdown.
+Yousef Shaker
+Yousef
+Okay
+Diyaan Athar
+Diyaan
+Thanks Yousef!
+Diyaan Athar
+Diyaan
+Hi y'all, since I am in full harassment mode, I uploaded a task list to our Facebook page based on our conversations. Please make sure you come to our Saturday meeting prepared.
+Ivan Bogdev
+Ivan
+Awesome job!
+FEB 22ND, 10:43PM
+
+Diyaan Athar
+Diyaan
+I was taking a look at our overall sprints, and the sprint we have coming up is focussed on features so I think we should really be pushing ourselves to get the site functional over the next week and a half.
+Jeff Buonamici
+Jeff
+Ok
+FEB 24TH, 5:04PM
+
+Ivan Bogdev
+Ivan
+Hey did anyone have any success with Firebase? I can't figure it out
+Jeff Buonamici
+Jeff
+What's confusing you
+Ivan Bogdev
+Ivan
+I can't get it to put anything in the database
+I've been messing around with it for a few hours today and yesterday
+Jeff Buonamici
+Jeff
+Have you watched tutorials?
+Ivan Bogdev
+Ivan
+yeah
+Jeff Buonamici
+Jeff
+You added the code that connects it to the db?
+Jeff Buonamici
+Jeff
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC0_XhkEWujv03WECUWtR0Hck9WH_hjkoU",
+    authDomain: "group3db-f028e.firebaseapp.com",
+    databaseURL: "https://group3db-f028e.firebaseio.com",
+    storageBucket: "group3db-f028e.appspot.com",
+    messagingSenderId: "164875081133"
+  };
+  firebase.initializeApp(config);
+</script>
+www.gstatic.com
+/*! @license Firebase v3.6.10 Build: 3.6.10-rc.1 Terms: https://firebase.google.com/terms/ --- typedarray.js Copyright (c) 2010, Linden Research, Inc. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to...
+gstatic.com
+Ivan Bogdev
+Ivan
+yeah
+Diyaan Athar
+Diyaan
+Do you get errors when you try to store data?
+Ivan Bogdev
+Ivan
+got it to work 😀
+Jeff Buonamici
+Jeff
+What was wrong
+Ivan Bogdev
+Ivan
+It was giving me initializatiogn errors
+either my code was initializing twice
+or it was trying to run withotu initializing
+I kinda quickfixed it
+but it worked 😀
+Diyaan Athar
+Diyaan
+How?
+Yousef Shaker
+Yousef
+Yaw guys i want to update my branch but whenever i switch to another branch to make a pull request it trlls me aborting
+Diyaan Athar
+Diyaan
+I think someone else needs to pull
+Ivan Bogdev
+Ivan
+aborting?
+what does it say exactly
+Yousef Shaker
+Yousef
+When I switch from master to my branch it shows me this
+
+Ivan Bogdev
+Ivan
+try git stash
+then switch
+> git stash
+> git checkout your-branch
+Yousef Shaker
+Yousef
+
+This appeared when u stash
+Ivan Bogdev
+Ivan
+I have no idea
+lol
+Yousef Shaker
+Yousef
+Omg
+Ivan Bogdev
+Ivan
+do u have any changes on ur branch u need?
+Yousef Shaker
+Yousef
+I want to update my branch
+Ivan Bogdev
+Ivan
+you want your branch to be synced with master?
+Yousef Shaker
+Yousef
+Yeah
+Just a sec i think i figured it
+Ivan Bogdev
+Ivan
+git checkout master
+git pull
+git checkout <YOUR-BRANCH>
+git merge master
+Yousef Shaker
+Yousef
+Will am trying to do that
+But i cant switch
+Ivan Bogdev
+Ivan
+you can't git checkout master?
+Yousef Shaker
+Yousef
+Yeah
+Ivan Bogdev
+Ivan
+thats wierd
+google it
+it shouldnt be a problem
+if anythign you can always make a new branch
+Jeff Buonamici
+Jeff
+You can use the GUI version of git if you want
+I find it easier
+Yousef Shaker
+Yousef
+Will i am learning
+But i think i found the problem
+Since this is concordia's computer it has limited disk
+So i deleted the files
+And it worked fine
+But i still can t switch due to
+Memory consumption
+I did a pull request
+Ivan Bogdev
+Ivan
+lol
+Yousef Shaker
+Yousef
+Ivan if i want to change my file
+Ivan Bogdev
+Ivan
+dude
+Yousef Shaker
+Yousef
+Sorry
+I know
+Ivan Bogdev
+Ivan
+we can't merge because you're changing a file taht is long gone
+Yousef Shaker
+Yousef
+Its supposed
+So should i delete
+Ivan Bogdev
+Ivan
+just delete yeah
+and clone the repo again
+and start a new branch
+Yousef Shaker
+Yousef
+Done
+FEB 24TH, 8:30PM
+
+Yousef Shaker
+Yousef
+Guys we scored 3.9
+On the second sprint
+Jeff Buonamici
+Jeff
+Yeah
+Pretty shitty
+Yousef Shaker
+Yousef
+
+Disney Gif
+Seen by Ivan Bogdev at 10:23amSeen by Emanuel Mateus at 10:46amSeen by Diyaan Athar at 10:56amSeen by Yousef Shaker at 12:07pmSeen by Mathiaco-lee Bessane at 12:43pmSeen by Jeff Buonamici at 12:44pmSeen by Nathan Shummoogum at 12:48pm
+Yousef Shaker
+Yousef
+Yup pretty much
+Diyaan Athar
+Diyaan
+Thus my task lists on FB. Please make sure you have your stuff done by tomorrows meeting
+Not just yousef, everyone!
+FEB 25TH, 8:01PM
+
+Diyaan Athar
+Diyaan
+Is anyone around?
+Mathiaco-lee Bessane
+Mathiaco-lee
+yuup
+Ivan Bogdev
+Ivan
+Yeah
+Diyaan Athar
+Diyaan
+Okay, we will wait a couple of minutes before getting started I guess?
+Okay so Mathiaco-lee are you working with Ivan?
+I saw your name on the same user stories as Ivan so I am wondering if you are working with him or independently?
+Mathiaco-lee Bessane
+Mathiaco-lee
+I've been working on some stuff but we'll merge it
+there's some stuff i want done first
+but I am not done yet
+Diyaan Athar
+Diyaan
+Could you tell me exactly what you are working on?
+Mathiaco-lee Bessane
+Mathiaco-lee
+so Ivan is that alright with you
+?
+the profile info and activities taken from github
+Diyaan Athar
+Diyaan
+But you haven't talked to Ivan about what he is doing?
+What is you both are doubling up on work?
+*if?
+And what exactly have you done for these user stories?
+Seen by Ivan Bogdev at 10:23amSeen by Emanuel Mateus at 10:46amSeen by Diyaan Athar at 10:56amSeen by Yousef Shaker at 12:07pmSeen by Mathiaco-lee Bessane at 12:43pmSeen by Jeff Buonamici at 12:44pmSeen by Nathan Shummoogum at 12:48pm
+Mathiaco-lee Bessane
+Mathiaco-lee
+we both said what we would do
+here
+and it seemed different
+Diyaan Athar
+Diyaan
+So what exactly have you done and Ivan what exactly have you done?
+Yousef Shaker
+Yousef
+am here
+Diyaan Athar
+Diyaan
+Hi Yousef, just doing check-ins with everyone 🙂
+Yousef Shaker
+Yousef
+well basically i finished html and css
+and now i have an idea
+Diyaan Athar
+Diyaan
+Just one sec Yousef
+Yousef Shaker
+Yousef
+kk
+Seen by Ivan Bogdev at 10:23amSeen by Emanuel Mateus at 10:46amSeen by Diyaan Athar at 10:56amSeen by Yousef Shaker at 12:07pmSeen by Mathiaco-lee Bessane at 12:43pmSeen by Jeff Buonamici at 12:44pmSeen by Nathan Shummoogum at 12:48pm
+Diyaan Athar
+Diyaan
+I think Mathiaco-Lee and Ivan were giving updates on their user stories
+Mathiaco, what exactly have you done? [i.e. React, HTML, CSS, Firebase]
+And for which pages?
+Mathiaco-lee Bessane
+Mathiaco-lee
+the user story that is saying i want my github activity available on profile
+node.js and then firebase
+Diyaan Athar
+Diyaan
+Okay, so not the log-in page. I think you are working on that right Ivan?
+Mathiaco-lee Bessane
+Mathiaco-lee
+yes he did it
+Diyaan Athar
+Diyaan
+Perfect. So what is remaining on that user story and when will have you that code-base ready to merge with the rest of the teams?
+I am asking as I am pretty sure in our next sprint we will need to demonstrate features of our site.
+Mathiaco-lee Bessane
+Mathiaco-lee
+I updated the user stories last time with description and task list
+next meeting is on Tuesday
+i think I'll be good
+Diyaan Athar
+Diyaan
+So you will have it ready to merge by Tuesday?
+Mathiaco-lee Bessane
+Mathiaco-lee
+yes
+Diyaan Athar
+Diyaan
+:)
+Awesome, I will right you down for that.
+Sorry Ivan you are up next, where are you at?
+*write
+Nathan is Emanuel around?
+Sorry who is around?
+Seen by Ivan Bogdev at 10:23amSeen by Emanuel Mateus at 10:46amSeen by Diyaan Athar at 10:56amSeen by Yousef Shaker at 12:07pmSeen by Mathiaco-lee Bessane at 12:43pmSeen by Jeff Buonamici at 12:44pmSeen by Nathan Shummoogum at 12:48pm
+Yousef Shaker
+Yousef
+am here
