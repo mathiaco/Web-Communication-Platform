@@ -8,6 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <style>
+ #screen{
+      display: flex;
+      min-height:15vh;
+      width:100%;
+      padding:0;
+      margin:0;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+ }
+    #uploader{
+     -webkit-appearance:none;
+      appearance:none;
+      width:50%;
+      margin-bottom:10px;  
+    }
+</style>
 
     <title>SOEN 341 Group 3</title>
     <link rel='stylesheet' href='/stylesheets/pages.css' />
@@ -235,6 +253,23 @@
                             <!-- /.panel-footer -->
                         </div>
                         <!-- /.panel .chat-panel -->
+			    
+			    <div id="screen">
+                             <p> Upload your document to the group page</p>
+                             <progress value="0" max="100" id="uploader">0%
+                             </progress>
+                             <input type="file" value="upload" id="fileButton"/><br/>
+                        </div>
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> Uploading files </div>
+                    
+                <div class="panel-body">
+                      <div id="uploadfiles"> </div>
+                    </div>
+                </div>
+               </div> 
+			
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <i class="fa fa-quote-right fa-fw"></i> Group Forum
@@ -375,6 +410,9 @@
     <!-- Custom Page JavaScript -->
     <script src="/js/firebaseInitialization.js"></script>
     <script src="js/grouppage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script src="js/upload.js"></script>
+       
 </body>
 
 </html>
