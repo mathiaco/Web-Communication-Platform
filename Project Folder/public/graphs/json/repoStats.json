@@ -1,0 +1,738 @@
+[{
+	"total": 1,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486857600,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1487462400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489276800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489881600,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1490486400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	}],
+	"author": {
+		"login": "nathanshumm",
+		"id": 25252298,
+		"avatar_url": "https://avatars1.githubusercontent.com/u/25252298?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/nathanshumm",
+		"html_url": "https://github.com/nathanshumm",
+		"followers_url": "https://api.github.com/users/nathanshumm/followers",
+		"following_url": "https://api.github.com/users/nathanshumm/following{/other_user}",
+		"gists_url": "https://api.github.com/users/nathanshumm/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/nathanshumm/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/nathanshumm/subscriptions",
+		"organizations_url": "https://api.github.com/users/nathanshumm/orgs",
+		"repos_url": "https://api.github.com/users/nathanshumm/repos",
+		"events_url": "https://api.github.com/users/nathanshumm/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/nathanshumm/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 4,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 5,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1486857600,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1487462400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489276800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489881600,
+		"a": 522,
+		"d": 0,
+		"c": 2
+	},
+	{
+		"w": 1490486400,
+		"a": 85,
+		"d": 2,
+		"c": 1
+	}],
+	"author": {
+		"login": "rena-21",
+		"id": 9168157,
+		"avatar_url": "https://avatars3.githubusercontent.com/u/9168157?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/rena-21",
+		"html_url": "https://github.com/rena-21",
+		"followers_url": "https://api.github.com/users/rena-21/followers",
+		"following_url": "https://api.github.com/users/rena-21/following{/other_user}",
+		"gists_url": "https://api.github.com/users/rena-21/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/rena-21/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/rena-21/subscriptions",
+		"organizations_url": "https://api.github.com/users/rena-21/orgs",
+		"repos_url": "https://api.github.com/users/rena-21/repos",
+		"events_url": "https://api.github.com/users/rena-21/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/rena-21/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 13,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 26,
+		"d": 11,
+		"c": 7
+	},
+	{
+		"w": 1486857600,
+		"a": 4,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1487462400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 3,
+		"d": 2,
+		"c": 5
+	},
+	{
+		"w": 1489276800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489881600,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1490486400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	}],
+	"author": {
+		"login": "YousefAboElFoul",
+		"id": 25316395,
+		"avatar_url": "https://avatars0.githubusercontent.com/u/25316395?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/YousefAboElFoul",
+		"html_url": "https://github.com/YousefAboElFoul",
+		"followers_url": "https://api.github.com/users/YousefAboElFoul/followers",
+		"following_url": "https://api.github.com/users/YousefAboElFoul/following{/other_user}",
+		"gists_url": "https://api.github.com/users/YousefAboElFoul/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/YousefAboElFoul/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/YousefAboElFoul/subscriptions",
+		"organizations_url": "https://api.github.com/users/YousefAboElFoul/orgs",
+		"repos_url": "https://api.github.com/users/YousefAboElFoul/repos",
+		"events_url": "https://api.github.com/users/YousefAboElFoul/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/YousefAboElFoul/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 16,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 7,
+		"d": 1,
+		"c": 1
+	},
+	{
+		"w": 1486857600,
+		"a": 241,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1487462400,
+		"a": 1757,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489276800,
+		"a": 206,
+		"d": 74,
+		"c": 5
+	},
+	{
+		"w": 1489881600,
+		"a": 0,
+		"d": 58,
+		"c": 4
+	},
+	{
+		"w": 1490486400,
+		"a": 370,
+		"d": 70,
+		"c": 4
+	}],
+	"author": {
+		"login": "nathan-shumm",
+		"id": 19209440,
+		"avatar_url": "https://avatars2.githubusercontent.com/u/19209440?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/nathan-shumm",
+		"html_url": "https://github.com/nathan-shumm",
+		"followers_url": "https://api.github.com/users/nathan-shumm/followers",
+		"following_url": "https://api.github.com/users/nathan-shumm/following{/other_user}",
+		"gists_url": "https://api.github.com/users/nathan-shumm/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/nathan-shumm/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/nathan-shumm/subscriptions",
+		"organizations_url": "https://api.github.com/users/nathan-shumm/orgs",
+		"repos_url": "https://api.github.com/users/nathan-shumm/repos",
+		"events_url": "https://api.github.com/users/nathan-shumm/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/nathan-shumm/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 19,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 1,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 773,
+		"d": 378,
+		"c": 9
+	},
+	{
+		"w": 1486857600,
+		"a": 16,
+		"d": 6,
+		"c": 3
+	},
+	{
+		"w": 1487462400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 1533,
+		"d": 0,
+		"c": 2
+	},
+	{
+		"w": 1489276800,
+		"a": 4,
+		"d": 3,
+		"c": 3
+	},
+	{
+		"w": 1489881600,
+		"a": 128,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1490486400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	}],
+	"author": {
+		"login": "mathiaco",
+		"id": 25252955,
+		"avatar_url": "https://avatars1.githubusercontent.com/u/25252955?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/mathiaco",
+		"html_url": "https://github.com/mathiaco",
+		"followers_url": "https://api.github.com/users/mathiaco/followers",
+		"following_url": "https://api.github.com/users/mathiaco/following{/other_user}",
+		"gists_url": "https://api.github.com/users/mathiaco/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/mathiaco/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/mathiaco/subscriptions",
+		"organizations_url": "https://api.github.com/users/mathiaco/orgs",
+		"repos_url": "https://api.github.com/users/mathiaco/repos",
+		"events_url": "https://api.github.com/users/mathiaco/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/mathiaco/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 19,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 5,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1486857600,
+		"a": 17,
+		"d": 12,
+		"c": 2
+	},
+	{
+		"w": 1487462400,
+		"a": 1119,
+		"d": 811,
+		"c": 16
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1488672000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489276800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489881600,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1490486400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	}],
+	"author": {
+		"login": "I-Dream-Of-Machines",
+		"id": 16230030,
+		"avatar_url": "https://avatars1.githubusercontent.com/u/16230030?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/I-Dream-Of-Machines",
+		"html_url": "https://github.com/I-Dream-Of-Machines",
+		"followers_url": "https://api.github.com/users/I-Dream-Of-Machines/followers",
+		"following_url": "https://api.github.com/users/I-Dream-Of-Machines/following{/other_user}",
+		"gists_url": "https://api.github.com/users/I-Dream-Of-Machines/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/I-Dream-Of-Machines/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/I-Dream-Of-Machines/subscriptions",
+		"organizations_url": "https://api.github.com/users/I-Dream-Of-Machines/orgs",
+		"repos_url": "https://api.github.com/users/I-Dream-Of-Machines/repos",
+		"events_url": "https://api.github.com/users/I-Dream-Of-Machines/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/I-Dream-Of-Machines/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 35,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 7,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1486857600,
+		"a": 105983,
+		"d": 8676,
+		"c": 3
+	},
+	{
+		"w": 1487462400,
+		"a": 217,
+		"d": 1,
+		"c": 2
+	},
+	{
+		"w": 1488067200,
+		"a": 32,
+		"d": 17,
+		"c": 1
+	},
+	{
+		"w": 1488672000,
+		"a": 27,
+		"d": 55,
+		"c": 1
+	},
+	{
+		"w": 1489276800,
+		"a": 550,
+		"d": 1124,
+		"c": 14
+	},
+	{
+		"w": 1489881600,
+		"a": 759,
+		"d": 194,
+		"c": 8
+	},
+	{
+		"w": 1490486400,
+		"a": 518,
+		"d": 442,
+		"c": 5
+	}],
+	"author": {
+		"login": "jeffbuonamici",
+		"id": 11137499,
+		"avatar_url": "https://avatars0.githubusercontent.com/u/11137499?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/jeffbuonamici",
+		"html_url": "https://github.com/jeffbuonamici",
+		"followers_url": "https://api.github.com/users/jeffbuonamici/followers",
+		"following_url": "https://api.github.com/users/jeffbuonamici/following{/other_user}",
+		"gists_url": "https://api.github.com/users/jeffbuonamici/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/jeffbuonamici/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/jeffbuonamici/subscriptions",
+		"organizations_url": "https://api.github.com/users/jeffbuonamici/orgs",
+		"repos_url": "https://api.github.com/users/jeffbuonamici/repos",
+		"events_url": "https://api.github.com/users/jeffbuonamici/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/jeffbuonamici/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 52,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 9,
+		"d": 8,
+		"c": 3
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 8,
+		"d": 0,
+		"c": 1
+	},
+	{
+		"w": 1486857600,
+		"a": 590577,
+		"d": 103988,
+		"c": 11
+	},
+	{
+		"w": 1487462400,
+		"a": 101606,
+		"d": 1156,
+		"c": 9
+	},
+	{
+		"w": 1488067200,
+		"a": 0,
+		"d": 1,
+		"c": 1
+	},
+	{
+		"w": 1488672000,
+		"a": 1,
+		"d": 1,
+		"c": 2
+	},
+	{
+		"w": 1489276800,
+		"a": 5629,
+		"d": 229,
+		"c": 4
+	},
+	{
+		"w": 1489881600,
+		"a": 2539,
+		"d": 2340,
+		"c": 21
+	},
+	{
+		"w": 1490486400,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	}],
+	"author": {
+		"login": "ivanb7",
+		"id": 16981596,
+		"avatar_url": "https://avatars0.githubusercontent.com/u/16981596?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/ivanb7",
+		"html_url": "https://github.com/ivanb7",
+		"followers_url": "https://api.github.com/users/ivanb7/followers",
+		"following_url": "https://api.github.com/users/ivanb7/following{/other_user}",
+		"gists_url": "https://api.github.com/users/ivanb7/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/ivanb7/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/ivanb7/subscriptions",
+		"organizations_url": "https://api.github.com/users/ivanb7/orgs",
+		"repos_url": "https://api.github.com/users/ivanb7/repos",
+		"events_url": "https://api.github.com/users/ivanb7/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/ivanb7/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+},
+{
+	"total": 67,
+	"weeks": [{
+		"w": 1485043200,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1485648000,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1486252800,
+		"a": 10,
+		"d": 3,
+		"c": 2
+	},
+	{
+		"w": 1486857600,
+		"a": 437,
+		"d": 6,
+		"c": 13
+	},
+	{
+		"w": 1487462400,
+		"a": 0,
+		"d": 159,
+		"c": 7
+	},
+	{
+		"w": 1488067200,
+		"a": 35,
+		"d": 514,
+		"c": 20
+	},
+	{
+		"w": 1488672000,
+		"a": 0,
+		"d": 0,
+		"c": 4
+	},
+	{
+		"w": 1489276800,
+		"a": 0,
+		"d": 0,
+		"c": 0
+	},
+	{
+		"w": 1489881600,
+		"a": 229,
+		"d": 1865,
+		"c": 5
+	},
+	{
+		"w": 1490486400,
+		"a": 1600,
+		"d": 1854,
+		"c": 16
+	}],
+	"author": {
+		"login": "Mateuse",
+		"id": 15270310,
+		"avatar_url": "https://avatars2.githubusercontent.com/u/15270310?v=3",
+		"gravatar_id": "",
+		"url": "https://api.github.com/users/Mateuse",
+		"html_url": "https://github.com/Mateuse",
+		"followers_url": "https://api.github.com/users/Mateuse/followers",
+		"following_url": "https://api.github.com/users/Mateuse/following{/other_user}",
+		"gists_url": "https://api.github.com/users/Mateuse/gists{/gist_id}",
+		"starred_url": "https://api.github.com/users/Mateuse/starred{/owner}{/repo}",
+		"subscriptions_url": "https://api.github.com/users/Mateuse/subscriptions",
+		"organizations_url": "https://api.github.com/users/Mateuse/orgs",
+		"repos_url": "https://api.github.com/users/Mateuse/repos",
+		"events_url": "https://api.github.com/users/Mateuse/events{/privacy}",
+		"received_events_url": "https://api.github.com/users/Mateuse/received_events",
+		"type": "User",
+		"site_admin": false
+	}
+}]
