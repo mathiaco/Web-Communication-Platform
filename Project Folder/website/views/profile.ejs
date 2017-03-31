@@ -33,6 +33,9 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 
 <body>
@@ -101,6 +104,8 @@
 
                             <!-- Repo statistics -->
                             <% if(typeof repoStats !== 'undefined'){%>
+
+                            <!-- TEMP TEMP TEMP TODO: DELETE THIS WHEN GRAPHS WORK
                             <div>
                                 <br><br> Statistics (WILL BE GRAPHS LATER) <br>
                                 <% for(author in repoStats){ %>
@@ -118,6 +123,16 @@
                                 <%}%>
                                 <br>
                                 <%}%>
+                            </div>
+                            END OF DELETE THIS
+                            -->
+                            <div>
+                                <h2 style="text-align: center"><b>Repo Statistics</b><br> <%= repoName %></h2>
+                                <div id="graphsContainer"></div>
+                                <script>
+                                    var repoStats = <%- JSON.stringify(repoStats) %>;
+                                </script>
+                                <script src="../../graphs/plotlyScript.js"></script>
                             </div>
                             <%}%>
                             <!-- end of repo statistics -->
