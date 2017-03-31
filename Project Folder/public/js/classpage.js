@@ -1,12 +1,15 @@
 // Write the post data to database
 function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
+  var d = new Date();
+  var numDate = d.getTime();
   newPostRef.set({
     user_id: user,
     title: title,
     content: content,
     icon: icon,
-    color: color
+    color: color,
+    date: numDate
   });
 }
 
@@ -165,10 +168,11 @@ function initializePage() {
   // Event trigger when database adds a new post. Also displays post on screen.
   postsRef.on("child_added", function (snapshot, prevChildKey) {
     var newPost = snapshot.val();
+    var date = timeSince(newPost.date);
     $("#postList").append(
       "<a href='/postpage?c=" + classID + "&p=" + snapshot.getKey() + "' class='list-group-item'>" +
       newPost.title +
-      "<span class='pull-right text-muted small'><em>4 minutes ago</em>" +
+      "<span class='pull-right text-muted small'><em>" + date + " ago</em>" +
       "</span>" +
       "</a>"
     )
@@ -289,6 +293,35 @@ function initializeGroup() {
       }
     })
   });
+}
+
+// Calculates the amount of time sinve the given date and current date
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
 }
 
 
