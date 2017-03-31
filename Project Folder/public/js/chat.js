@@ -1,0 +1,132 @@
+var currentUser = '';
+
+// Retrieves the user's full name from the database using the userID
+firebase.database().ref('users/'+ currentUserID).once('value').then(function(snapshot){
+    currentUser = snapshot.val().username;
+});
+
+//reads channel from database and displays it
+function readChannel(){
+  var ref = firebase.database().ref('chat/channels');
+  var partOfChannel = false;
+  var className = '';
+
+  //cycles through the channels orders them alphabetically and
+  ref.orderByValue().on("value", function(snapshot){
+    snapshot.forEach(function(data){
+
+      //if/else to check and see if the current user is part of a channelRef
+      //if so allow them to chat in that channel
+      if(currentUser === data.val().creator){
+        partOfChannel = true;
+      }
+      else{
+        refChannelUsers = firebase.database().ref("chat/channels/" + data.key + "/users/");
+
+        refChannelUsers.orderByValue().on("value", function(user1){
+          user1.forEach(function(user2){
+            if(currentUserID === user2.key){
+              partOfChannel = true;
+            }
+          });
+        });
+      }
+      if(partOfChannel){
+        document.getElementById('channel-container').innerHTML +=
+        ('<div onClick="changeActive(this)" value="' + data.val().channelName + '" class="channel">' + data.val().channelName + '</div>');
+        partOfChannel = false;
+      }
+    });
+  });
+}
+//changes the active class
+function changeActive(param){
+  if(!($('#channel-container > .active'))){
+    $param.addClass("active");
+  }
+  else{
+    $('#channel-container > .active').removeClass("active");
+    $(param).addClass("active");
+  }
+  displayMessages();
+}
+
+//sends message to database
+$('#send-Message').submit(function (e){
+  if(document.getElementById('messageBox').value == ''){
+    //do nothing if form is empty
+  }
+  else{
+    var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
+    var message = document.getElementById('messageBox').value;
+
+    ref.push({
+      message: message,
+      user: currentUser
+    });
+
+    document.getElementById('messageBox').value = '';
+  }
+  addMessage();
+  //prevents refresh of page when form is sent
+  e.preventDefault();
+});
+
+//displays previous messages of channel in container
+function displayMessages(){
+  if($('#channel-container > .active').text() === ""){
+    document.getElementById('chat-window-container').innerHTML =
+    ('<h1 class="start-message">Please Select a Channel</h1>');
+  }
+  else{
+    document.getElementById('chat-window-container').innerHTML = "";
+    var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
+    ref.orderByValue().once("value", function(snapshot){
+      snapshot.forEach(function(data){
+        var classAddition = '';
+        if(currentUser === data.val().user){
+          classAddition = 'currentUser';
+        }
+        document.getElementById('chat-window-container').innerHTML +=
+        ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+      });
+      updateScroll()
+    });
+  }
+}
+
+//adds new messages of channel in container
+function addMessage(){
+  var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
+
+  ref.once("child_added", function(snapshot){
+    var newPost = snapshot.val();
+    var classAddition = '';
+    if(currentUser === newPost.user){
+      classAddition = 'currentUser';
+    }
+    document.getElementById('chat-window-container').innerHTML +=
+    ('<div class="' + classAddition + ' total-message"><p class="message">' + newPost.message + '</p><h6 class="message-from-user">Sent By:' + newPost.user + '</h6></div>');
+    updateScroll()
+  })
+}
+
+//determines what the currentChannel is
+function currentChannel(){
+  var text = $('#channel-container > .active').text();
+  return(text);
+}
+
+
+//dynamic scrolling for chat
+function updateScroll(){
+  var elem = $('#chat-window-container')[0].scrollHeight;
+  $('#chat-window-container').scrollTop(elem);
+}
+
+
+//loads function on load of page
+window.onload = function(){
+  readChannel();
+  displayMessages();
+};
