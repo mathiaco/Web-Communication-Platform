@@ -4,25 +4,41 @@
     <title>chat</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/chat.css' />
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div id="chat-container">
-      <div id="left-window-container">
-        <div id="chat-window-container">
-        </div>
-        <div id="form-container">
-          <form id="send-Message">
-          </br>
-            <input style="width: 60%;" type="text" id="messageBox" placeholder="Write Message Here"/>&nbsp&nbsp
-            <input type="submit" value="Send" class="send-button"/>
-          </form>
-        </div>
-      </div>
-      <div id="channel-container">
-      </div>
-    </div>
+      <%include Templates/navBar.ejs%>
+      <%include Templates/chatTemplate.ejs%>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-    <script src="/javascripts/chat.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 html{
+    height: 100%;
     margin: auto;
     display: block;
     position: relative;
@@ -6,6 +7,7 @@ html{
     font-family: Verdana, Geneva, sans-serif;
 }
 body{
+    height: 100%;
     background-color: #3d4e68;
     color: white;
 }

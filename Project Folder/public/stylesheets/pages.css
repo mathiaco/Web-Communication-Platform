@@ -1,0 +1,20 @@
+body, html {
+  height: 99%;
+}
+
+#leftside{
+  float: left;
+  width: 13%;
+  height: 100%;
+}
+#logo{
+  width: 10%;
+}
+/*#page-header*/
+
+#main-content{
+  height: 97%;
+  width: 86%;
+  padding-left: 1%;
+  float: left;
+}

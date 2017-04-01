@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/chat.css' />
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+      <%include Templates/navBar.ejs%>
+    <div id="main-content">
+      <div class="row">
+          <div class="col-lg-12">
+              <h1>Your Channels <button type="button" class="btn btn-success" data-toggle="modal" data-target="#postModal">Create Channels</button></h1>
+              <p class="page-header">***You can only delete channels that you have created***</p>
+              <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="postModalLabel">New Channel</h4>
+                          </div>
+                          <div class="modal-body">
+                              <form>
+                                  <div class="form-group">
+                                      <label for="recipient-name" class="control-label">Channel Name:</label>
+                                      <input type="text" class="form-control" id="channel-Name">
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="button" id="createChannelBtn" class="btn btn-success" data-dismiss="modal">Create</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- /.modal -->
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+      <div id="classRow" class="row">
+
+          <!-- Classes get put here -->
+
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <h1 class="page-header">Find a Channel</h1>
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="input-group custom-search-form" style="padding-bottom:20px;">
+                  <input id="channelSearchInput" type="text" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                  <button id="channelSearchBtn" class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
+                  </button>
+                  </span>
+              </div>
+              <!-- /input-group -->
+          </div>
+          <!-- /.col-lg-6 -->
+      </div>
+      <!-- /.row -->
+      <div id="searchedChannelRow" class="row">
+
+      </div>
+      <!-- /.row -->
+  </div>
+    </div>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+    <script src="/js/firebaseInitialization.js"></script>
+    <script> var currentUserID = <%- JSON.stringify(userID) %></script>
+    <script src="/js/channels.js"></script>
+  </body>
+</html>
