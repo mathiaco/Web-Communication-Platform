@@ -42,6 +42,7 @@ function joinClass(classID) {
             });
         });
     });
+    listClass(classID, newClass.title, newClass.description, newClass.ta);
 }
 
 // Lists all classes under "Your classes"
@@ -109,8 +110,21 @@ $("#classSearchBtn").click(function () {
                 "</div>" +
                 "</div>"
             )
+
         });
+        //"No result" message if class is not found
+        if (!(snapshot.val()))
+        {
+            $("#searchedClassesRow").append(
+                "<div class='col-lg-4'>" +
+                "<div class='panel panel-default'>" +
+                "<div class='panel-heading'>" +
+                "No Result found!" +
+                "</div>" +
+                "</div>"                    )
+        }
     });
+
 });
 
 // Fetch all classes current user is a member of
