@@ -64,7 +64,7 @@ DASHBOARD
 
 APP.JS
 
-	- MAKE DEFAULT PAGE = PROFILE PAGE
+	- MAKE DEFAULT PAGE = PROFILE PAGE (Fixed)
 	
 	- Fix Logout button
 	
