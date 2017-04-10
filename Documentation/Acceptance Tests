@@ -2,11 +2,27 @@ Acceptance test FOR #22
 https://github.com/ivanb7/soen341group3/issues/22
 
 Given: User is on the class page
-1. the user clicks on the button create class
+1. the user clicks on the button "create class"
 2. the small box panel appears
 3. the user fill his class ( title and description)
 4. the user clicks on the create button
-5. user has the ability to delete the class by clicking on red x button 
+5. user has the ability to delete the class by clicking on "red x button" 
 
 Test Verified by team [x]
 Test Verfied by client []
+--------------------------------------------------------------------------------------------------------------------------------
+Acceptance test FOR #27
+https://github.com/ivanb7/soen341group3/issues/27
+
+Given: User is on the groups 
+1. the user clicks on the button "view" and it goes on a specific group page
+2. the user clicks on the "choose File" button 
+3. a file explorer box appears where you can select the document you want to upload 
+4. the document is uploaded in the "Uploaded files" box 
+
+Test Verified by team [x]
+Test Verfied by client []
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
