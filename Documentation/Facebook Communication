@@ -2649,3 +2649,730 @@ Seen by Ivan Bogdev at 10:23amSeen by Emanuel Mateus at 10:46amSeen by Diyaan At
 Yousef Shaker
 Yousef
 am here
+Hey can anyone merge my pull request
+Ariles
+Mathiaco-lee Bessane
+Mathiaco-lee
+Jeff and Ivan, so the plan for the commits graph is to take the data and do it on html? because it is not possiblle to use the API for this
+as we were discussing last time
+MAR 24TH, 10:23AM
+
+Ivan Bogdev
+Ivan
+Yeah we'll make our own graphs
+MAR 24TH, 12:41PM
+
+Yousef Shaker
+Yousef
+Are u in 823
+Am coming now
+Mathiaco-lee Bessane
+Mathiaco-lee
+Yes
+MAR 24TH, 2:53PM
+
+Diyaan Athar
+Diyaan
+Can someone pull, I want to check something
+Jeff Buonamici
+Jeff
+You referenced a user story that is closed eh
+Diyaan Athar
+Diyaan
+Yeah, I realized I accidentally referenced a wrong user story, but I don't know how to fix it!
+I guess I can put a comment on the commit!
+Jeff Buonamici
+Jeff
+Also, all testing should be done on your branch before moving it to master
+Diyaan Athar
+Diyaan
+I was having a a problem with that, thus the pull request. I am sorry
+MAR 24TH, 8:12PM
+
+Nathan Shummoogum
+Nathan
+did someone move the users in the db?
+Jeff Buonamici
+Jeff
+No?
+Did they get deleted again
+Yeah they did
+Nathan Shummoogum
+Nathan
+no they are under classes, was it like that before
+Jeff Buonamici
+Jeff
+Wtf is happening
+Yeah it was
+That shows the users in that class
+Nathan Shummoogum
+Nathan
+ya ok thats fine, i thought I saw it not under classes before
+Jeff Buonamici
+Jeff
+But the users got deleted in the other tree
+Now it only shows Ivan
+Ivan Bogdev
+Ivan
+It was me!!!
+I deleted the users
+had to
+Jeff Buonamici
+Jeff
+Ok lmao
+Ivan Bogdev
+Ivan
+I'm going to make a pull request
+so that the users thing doesnt need to be deleted
+Jeff Buonamici
+Jeff
+I thought it was the bug that happened this morning
+Ivan Bogdev
+Ivan
+this morning was different
+it wasnt me
+Nathan Shummoogum
+Nathan
+lol i thought i was fking something up
+Ivan Bogdev
+Ivan
+merge when u get the chance
+and update from master
+I also added the button to view profile of members of a class
+Ivan Bogdev
+Ivan
+Hey, I made a template for the navigation bar and added it to all the pages, will make a pull request soon
+Jeff Buonamici
+Jeff
+MAR 26TH, 2:00PM
+
+Diyaan Athar
+Diyaan
+Is one of you adding documents to our firebase DB?
+MAR 26TH, 3:18PM
+
+Diyaan Athar
+Diyaan
+Hey ivan did you just add the functionality for #27? Because I spent the entire weekend working on that like I said I would
+Ariles
+nadia !!! i did the uploading part !!! missing just to retrieve the files and put it on the page based on the url !!!
+Diyaan Athar
+Diyaan
+Okay that really sucks because I wasted an entire weekend after specifically telling you I was doing
+You could have at least had the courtesy to tell before hand. We had this discussion just on Friday
+I could have worked on something else
+That's the whole point of the group chat and communication.
+Ariles
+exuse me but if you go to scrum board you can see who is assign to what and second i just wanted to help to finish and thirdly i spent more than 3 weeks
+to learn react
+Diyaan Athar
+Diyaan
+Then when we talk about it on thursday and friday you let me know
+Ariles
+and jeff did the part so i am not upset is a group project
+Diyaan Athar
+Diyaan
+I am upset because we are close to the end and I would rather have worked on an item that was actually useful.
+Ariles
+ok
+Diyaan Athar
+Diyaan
+Is there something someone is not working on that I can contribute to? I would rather not waste more time if I can help it.
+Jeff Buonamici
+Jeff
+This is why we shouldn't leave things to the last minute.
+Diyaan Athar
+Diyaan
+Agreed, but as we have. Is there something that you are working on Jeff that I can help with? Or one of your tasks I can take over.
+Have you started working on adding groups yet?
+Or can I work on that?
+Jeff Buonamici
+Jeff
+I'm not touching this project until Tuesday night.
+Nathan Shummoogum
+Nathan
+im working on creating groups within classes almost done
+however we still have nothing on the group pages
+so you can make something that reads from the database to create groups in the group pages
+Diyaan Athar
+Diyaan
+what exactly do you mean by that?
+Nathan Shummoogum
+Nathan
+well so far i created something where you can select members from your class to form groups and it saves it in the database
+Diyaan Athar
+Diyaan
+Okay, sure. I can work on that.
+I have to step out rn but I will ask you for more details when I get back.
+Ariles
+**the way how the Ta view the page and student should be different!!! and there should be connection!!!
+Diyaan Athar
+Diyaan
+Actually, maybe I can add the send documents functionality to the chat since I figure out how to do that. @Ariles Jazilan is that okay with you?
+Ariles
+Diyaan Athar
+Diyaan
+Okay, perfect!
+@Nathan Shummoogum we don't have that functionality do we?
+Nathan Shummoogum
+Nathan
+nope we dont
+Diyaan Athar
+Diyaan
+Okay great, I update the SCRUM board to reflect that.
+MAR 27TH, 4:34PM
+
+Yousef Shaker
+Yousef
+Guys the report syllabus is out i ma start working on it
+Since its due two weeks from now
+And i might do some frontend
+Stuff
+If i have time
+Yousef Shaker
+Yousef
+https://docs.google.com/document/d/1X2lK2DyFvSu_G7Zz5rjfCk1LuCsRcjaVmGoP8yYtGrM/edit?usp=sharing
+so this the word document for the report
+just request access when you have time
+Yousef Shaker
+Yousef
+https://docs.google.com/document/d/1UN8vl9vPeMhlTTTtPy7TQeO8ampUt8yjfrNijw4KngM/edit?usp=sharing
+here is  the link
+MAR 27TH, 6:11PM
+
+Yousef Shaker
+Yousef
+Guys am working on the chat
+Like the view for it
+Jeff
+Jeff Buonamici
+Jeff
+what
+Yousef Shaker
+Yousef
+Do u need help on something
+Jeff Buonamici
+Jeff
+my COMP 371 assignment
+Yousef Shaker
+Yousef
+Lol
+Omg
+Graphics
+MAR 29TH, 2:30PM
+
+Jeff Buonamici
+Jeff
+Guys
+We need to be careful with what we're commiting
+Someone overwrote all changes done in classes.js and now it's an older version of what it was.
+Yousef Shaker
+Yousef
+What
+Who
+Shit
+We re still going to meet tomorrow guys right
+Jeff Buonamici
+Jeff
+Also, did someone change it so that firebase is initialized on the backend automatically?
+Ariles
+I dont know but now its not displaying the create class
+Jeff Buonamici
+Jeff
+@Nathan Shummoogum I think you accidently changed classes.ejs on your branch because it has a lot of similar code to classpage.ejs now
+It's weird
+i made a pull request to reverted changes on master for Classes.ejs and Classes.js
+Nathan Shummoogum
+Nathan
+oh maybe i accidentally changed it, there shouldnt be any changed in classes.js/ejs only classpage
+Jeff Buonamici
+Jeff
+Emmanuel changed classes.js to an old version,
+You haven't changed anything on master. But on your branch, classes.ejs is messed up
+Nathan Shummoogum
+Nathan
+k ill update my branch
+Jeff Buonamici
+Jeff
+Did you change how firebase is initialized on pages?
+MAR 29TH, 5:18PM
+
+Nathan Shummoogum
+Nathan
+emanuel changed it
+he made a firebase.js file
+Jeff Buonamici
+Jeff
+Jeff Buonamici
+Jeff
+I'm gonna make it so that only a TA can delete groups on the classpage
+is that ok with you?
+Nathan Shummoogum
+Nathan
+i didnt make anyhting for the delete yet
+Jeff Buonamici
+Jeff
+oh, so the button doesn't do anything
+Nathan Shummoogum
+Nathan
+nope, left it there as a reminder to add that functionality
+Jeff Buonamici
+Jeff
+Ok, I'll work on it
+I'm gonna make a pull request so you can see some of the changes i've made.
+MAR 29TH, 9:42PM
+
+Jeff Buonamici
+Jeff
+@Yousef Shaker what was that about meeting tomorrow?
+MAR 29TH, 10:44PM
+
+Yousef Shaker
+Yousef
+I was just makin aure we re meeting tom right
+Jeff Buonamici
+Jeff
+when did we talk about this
+Yousef Shaker
+Yousef
+Umm last friday
+Jeff Buonamici
+Jeff
+Is everyone going?
+And what time did people agree on?
+Yousef Shaker
+Yousef
+U dunno thats why am asking
+I dunno*
+MAR 30TH, 7:23PM
+
+Yousef Shaker
+Yousef
+Guys am doing the unit test using qunit
+I made a new branch
+I add some files on it for testing
+Am gonna test it when i go home using npm
+Whose willing to spend the night to finish the project as i am willing to dp that
+Jeff Buonamici
+Jeff
+......what
+Yousef Shaker
+Yousef
+?
+Jeff Buonamici
+Jeff
+What do you mean finish the project
+MAR 30TH, 9:20PM
+
+Emanuel Mateus
+Emanuel
+were you able to get any of the unit tests done?
+i tried to get some for the chat but it kept giving me errors and not really sure how to do it
+Yousef Shaker
+Yousef
+You have to use npm for it
+Emanuel Mateus
+Emanuel
+npm is to install the modules like qunit
+Yousef Shaker
+Yousef
+Yeah
+Yousef Shaker
+Yousef
+
+Alreay on it
+Already on it
+Yousef Shaker
+Yousef
+Am really lost on which functions i should test
+Yousef Shaker
+Yousef
+There are no functions on our website or what
+Jeff Buonamici
+Jeff
+There's many functions
+It says the word function before every function
+Yousef Shaker
+Yousef
+Where they at
+I know
+That
+But which folder are they in
+Ivan Bogdev
+Ivan
+A few in the public/js folder
+Yousef Shaker
+Yousef
+Got it
+Ivan Bogdev
+Ivan
+a few in modules/gitInfo.js
+Yousef Shaker
+Yousef
+I ll run some tests here and there
+Ivan Bogdev
+Ivan
+just don't user test the downloaded modules
+Yousef Shaker
+Yousef
+Which ones
+Ivan Bogdev
+Ivan
+stuff with simple names like: classes.js, firebaseInitilization.js
+are ours
+Yousef Shaker
+Yousef
+Okay
+Ivan Bogdev
+Ivan
+stuff like jquery-3.1.1.1js are not
+http://3.1.1.1/
+3.1.1.1
+Yousef Shaker
+Yousef
+Btw how is the website going
+Ivan Bogdev
+Ivan
+sb-admin-min.js
+not ours
+Its so so
+I finished the profile pages
+repository statistics are now displayed as graphs
+Yousef Shaker
+Yousef
+Btw unit testing long ad f***£k
+Ivan Bogdev
+Ivan
+😆
+Yousef Shaker
+Yousef
+And tough too
+Ivan Bogdev
+Ivan
+oh and anything in /node_modules/ is not ours
+Yousef Shaker
+Yousef
+Made my first test
+Can check this
+
+Ivan Bogdev
+Ivan
+$ is jquery
+get jquery before running it
+Yousef Shaker
+Yousef
+How
+What should i type on the command for node ja
+Js
+Yousef Shaker
+Yousef
+Ivan Bogdev
+Ivan
+npm install jquery?
+or if its front end <script src= [jquery link]></script>
+Yousef Shaker
+Yousef
+Ummm
+I think installing it is better
+Still gives the same error byw
+Btw
+Jeff Buonamici
+Jeff
+Whatever your using isn't compatible with jquery I guess
+Yousef Shaker
+Yousef
+An using qunit
+Its compatible with js
+Jeff Buonamici
+Jeff
+They're website says it works with jquery so I don't k ow
+Know*
+Yousef Shaker
+Yousef
+Finallly
+I got something
+Yousef Shaker
+Yousef
+Yousef Shaker
+Yousef
+
+Yeahhhhh
+Wooig
+Am going to document things so that we use for the report
+MAR 31ST, 2:33PM
+
+Ariles
+Ivan
+The room
+Mathiaco-lee Bessane
+Mathiaco-lee
+H847
+Jeff Buonamici
+Jeff
+I'll be working on the design of the profile page when I get home.
+Jeff Buonamici
+Jeff
+So what's the plan for this week?
+Ariles
+We are doing a  to do list
+Me ivan
+Mathiaco and
+Yousef
+Jeff Buonamici
+Jeff
+Ok cool
+Diyaan Athar left the group.
+Mathiaco-lee Bessane
+Mathiaco-lee
+to do list has been uploaded
+on github/documentation
+Jeff Buonamici
+Jeff
+Wait nadia just left our group chat
+Mathiaco-lee Bessane
+Mathiaco-lee
+can you confirm if it's on purpose ?
+do you have her contact ?
+Jeff Buonamici
+Jeff
+No
+I don't have her on facebook
+Mathiaco-lee Bessane
+Mathiaco-lee
+Ivan is messaging her
+Mathiaco-lee Bessane
+Mathiaco-lee
+Jeff did you check the to do list ?
+do you think anything should be added ?
+Jeff Buonamici
+Jeff
+I need to add a back button on the postpage
+That can be added I guess
+Mathiaco-lee Bessane
+Mathiaco-lee
+okay
+Jeff Buonamici
+Jeff
+When someone accesses the class page, we need to check if the user logged on is actually in the class
+If not, they should be redirected back to classes.ejs
+because right now you can access any class by changing the URL
+Ivan Bogdev
+Ivan
+I made a todo list in documentation readme
+Jeff Buonamici
+Jeff
+Yeah I see it
+MAR 31ST, 5:22PM
+
+Ivan Bogdev
+Ivan
+still no reply from Nadia
+Jeff Buonamici
+Jeff
+Maybe she's dropping the class
+Anyway, I'm working on profile.ejs right now, I'
+I'll commit my changes later, and let me know if you like it
+Ivan Bogdev
+Ivan
+ok
+Also
+if u hard code some values for 
+-Total commits
+-additions
+deletions
+I'll put those in later
+Jeff Buonamici
+Jeff
+Like place holders?
+Yeah that's what I plan to do
+Ivan Bogdev
+Ivan
+yeah just like a 
+"Total commits: "
+and leave it blank
+Jeff Buonamici
+Jeff
+ok
+Nathan Shummoogum
+Nathan
+so are we going to delete the group page tab, and just view groups through the tab in the class page?
+and how come i cant see classes anymore?
+Ivan Bogdev
+Ivan
+You have to be in a class to see it
+Create one or join one
+Nathan Shummoogum
+Nathan
+Prof sent an email if we want to postpone the final sprint we can
+Jeff Buonamici
+Jeff
+Till when?
+Are there options!
+?*
+Ariles
+13
+Nathan Shummoogum
+Nathan
+Last day of class we must negotiate with the ta
+Ariles
+April
+Before 5pm
+Jeff Buonamici
+Jeff
+Ah ok
+Well what does everyone think?
+Nathan Shummoogum
+Nathan
+That extra weekend will be nice
+Jeff Buonamici
+Jeff
+Yeah
+Ariles
+Ariles
+Agree and we shoupd meet up as we did
+Today ivan
+Mathico and yousef
+Jeff Buonamici
+Jeff
+Cool, after our exam on Friday?
+Ariles
+Yeahhh sound good!!!
+Jeff Buonamici
+Jeff
+Jeff Buonamici
+Jeff
+I think everyone should do what they can this week. But remember to save time to study for our exam, because that's important.
+Ariles
+Yeahh truee !!
+Mathiaco-lee Bessane
+Mathiaco-lee
+Ivan you negotiate ?
+Ivan Bogdev
+Ivan
+I didnt
+Mathiaco-lee Bessane
+Mathiaco-lee
+I mean, will you ?
+Ivan Bogdev
+Ivan
+what date do you guys want to do it?
+Mathiaco-lee Bessane
+Mathiaco-lee
+I am free Monday 12th
+Nathan Shummoogum
+Nathan
+im fine anytime the week after
+Ivan Bogdev
+Ivan
+the 12 is wednesday
+Mathiaco-lee Bessane
+Mathiaco-lee
+Ohh
+Either Monday or Wednesday then
+Jeff Buonamici
+Jeff
+I'm fine on any day
+Ivan Bogdev
+Ivan
+ok guys
+decide on a day
+everyone needs to be availlable
+Emanuel Mateus
+Emanuel
+Monday/Wednesday is good for me
+Ariles
+ok go for wednesday
+Ivan Bogdev
+Ivan
+what time?
+Ariles
+before 5h45
+i have a class
+Ivan Bogdev
+Ivan
+Is 12:30 good for everyone?
+Nathan Shummoogum
+Nathan
+perfect
+Ariles
+Mathiaco-lee Bessane
+Mathiaco-lee
+Good
+Emanuel Mateus
+Emanuel
+yah
+Ivan Bogdev
+Ivan
+@Emanuel Mateus and @Jeff Buonamici and @Yousef Shaker .. and Nadia who's MIA
+I'll prepare the email
+We still have to make sure that the TA is available
+Ivan Bogdev
+Ivan
+Message to TA: 
+Hello,
+
+After reading the professor's email, we'd like to postpone the last sprint meeting if possible. 
+Would it be possible to postpone the meeting until Wednesday, April 12?
+Our preferred time would be at 12:30, but any other time would probably do.
+
+Would it be possible to arrange that? 
+
+Thank you, 
+Ivan Bogdev
+On behalf of Group 3.
+Ariles
+Ivan Bogdev
+Ivan
+I still haven't heard from @Yousef Shaker or Nadia
+ok I sent it
+Mathiaco-lee Bessane
+Mathiaco-lee
+👌🏾
+Yousef Shaker
+Yousef
+Am good for wedensday
+Ivan Bogdev
+Ivan
+Ok nice
+APR 1ST, 2:54PM
+
+Ivan Bogdev
+Ivan
+Message from the TA: Sure.
+but i will confirm you the time later. Maybe around 3pm.
+Shoot me an email as a reminder around April 10th to confirm you the slot.
+
+Thanks and good luck
+Jeff Buonamici
+Jeff
+Have we heard from Nadia?
+APR 1ST, 4:56PM
+
+Ivan Bogdev
+Ivan
+Nope
+TUE 10:02PM
+
+Jeff Buonamici
+Jeff
+How's everyone's studying going?
+Ivan Bogdev
+Ivan
+Im at design patterns and anti patterns
+Jeff Buonamici
+Jeff
+good stuff
+FRI 7:43AM
+
+Jeff Buonamici
+Jeff
+Good luck everyone!
+Mathiaco-lee Bessane
+Mathiaco-lee
+Thanks, you too
+Seen by Nathan Shummoogum at Friday 8:13am
+FRI 10:09AM
+
+Ivan Bogdev
+Ivan
+Hey Nathan and emanuel, you guys still in school
