@@ -3,7 +3,8 @@ CLASS PAGE
 	//MAIN CLASS PAGE
 		- Class search enter button doesn't work
 		- Class JOIN button needs to refresh page (or update the class list) automatically.
-		
+		- Message when the class doesn't exists ("No results found") (Fixed)
+
 	
 	//MEMBERS SECTION
 		- View users button doesn't work
@@ -64,7 +65,7 @@ DASHBOARD
 
 APP.JS
 
-	- MAKE DEFAULT PAGE = PROFILE PAGE
+	- MAKE DEFAULT PAGE = PROFILE PAGE (Fixed)
 	
 	- Fix Logout button
 	
