@@ -304,13 +304,7 @@ function initializeGroup() {
 }
 
 $("#manageGroups").click(function () {
-  var ref = firebase.database().ref("classes/" + classID + "/groups/")
-  $("#classList").append(
-    "<span class='classMembers list-group-item'>" +
-    "<span class='userName'>" + data.val().username + "</span>" +
-    "<button id=add" + data.val().username + " class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
-    "</span>"
-  );
+
 })
 
 // Calculates the amount of time sinve the given date and current date
