@@ -74,7 +74,7 @@ CHAT
 	
 	//General
 		- FIX CSS OVERFLOW or wtvr it's called
-		- Styling
+		- Styling   (fixed)
 		
 		- When not in channel, It shouldn't write.
 		
