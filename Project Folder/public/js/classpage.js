@@ -78,17 +78,17 @@ function initializePage() {
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-        "<span class='users list-group-item'>" +
+          "<span class='users list-group-item'>" + "<a href='/profile/" +user.user_id+" '>" +
         user.username +
-        "</span>"
+          "</a>" +"</span>"
       );
     }
     // If it's not the first load, then prepend names so they appear at the top.
     else {
       $("#classMembers").prepend(
-        "<span class='users list-group-item'>" +
-        user.username +
-        "</span>"
+          "<span class='users list-group-item'>" + "<a href='/profile/" +user.user_id+" '>" +
+          user.username +
+          "</a>" +"</span>"
       );
     }
 
@@ -101,7 +101,7 @@ function initializePage() {
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" + user.username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
@@ -225,7 +225,7 @@ $("#createGroup").click(function () {
 
       $("#classList").append(
         "<span class='classMembers list-group-item'>" +
-        "<span class='userName'>" + data.val().username + "</span>" +
+        "<span class='userName'>"  + "<a href='/profile/" +user.user_id+" '>" + data.val().username + "</a>" +"</span>" +
         "<button id=add" + data.val().username + " class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
         "</span>"
       );
@@ -234,7 +234,7 @@ $("#createGroup").click(function () {
         console.log(data.val().username);
         $("#groupMembersList").append(
           "<span class='groupMembers list-group-item'>" +
-          "<span class='userName'>" + data.val().username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/" +user.user_id+" '>" + data.val().username + "</a>" +"</span>" +
           "</span>"
         );
         groupList.push(data.val());
@@ -347,4 +347,3 @@ firebase.database().ref("classes/" + classID).once("value").then(function (snaps
 });
 
 //initializeClassList(); Do we need this?
-
