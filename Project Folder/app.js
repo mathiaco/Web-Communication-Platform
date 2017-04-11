@@ -185,6 +185,7 @@ app.get('/profile/:id',
         });
     });
 
+//TODO: Cache repoData and repoStats in database since it makes heavy use of the Github API
 app.get('/profile/:id/:repo',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
@@ -197,13 +198,41 @@ app.get('/profile/:id/:repo',
                         id: req.params.id,
                         profile: profile,
                         repos: repoData,
-                        repoStats: repoStats
+                        repoStats: repoStats,
+                        repoName: req.params.repo
                     });
                 });
             });
         });
-
     });
+
+
+
+/*
+//TODO: DELETE THIS AFTER Graph testing is done
+var repoStats = require('./public/graphs/json/repoStats.json');
+
+app.get('/profile/:id/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id, function (repoData) {
+                res.render('profile', {
+                    id: req.params.id,
+                    profile: profile,
+                    repos: repoData,
+                    repoStats: repoStats,
+                    repoName: req.params.repo
+                });
+            });
+        });
+    });
+*/
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

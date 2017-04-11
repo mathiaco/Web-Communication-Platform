@@ -26,6 +26,9 @@
     <!-- Custom Fonts -->
     <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Custom Page CSS -->
+    <link href="../../stylesheets/profile.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -33,146 +36,135 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 
 <body>
 
-<div id="wrapper">
+    <div id="wrapper">
 
-    <!-- Navigation -->
-    <%include Templates/navBar.ejs%>
+        <!-- Navigation -->
+        <%include Templates/navBar.ejs%>
 
-    <!-- page-wrapper -->
-    <div id="main-content">
+            <!-- page-wrapper -->
+            <div id="main-content">
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    <%= profile.name %>
-                </h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-
-        <!-- MAIN CONTENT HERE -->
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <!-- MAIN CONTENT HERE -->
-
-                        <!-- Div containing the profile information -->
-                        <!-- Needs CSS -->
-                        <div>
-                            <!-- Profile Info Div -->
-                            <div>
-                                <div>
-                                    <img src = <%- profile.avatar_url %> >
-                                </div>
-                                <div>
-                                    <div>
-                                        <b>
-                                            <%- profile.name %>
-                                        </b>
-                                        <br>
-                                        <%- profile.email %>
-                                        <div>
-                                            <%- profile.bio %>
-                                        </div>
-                                        Github ID: <%= id %>
-                                    </div>
-                                    <a href = <%= profile.html_url%>> View Github profile </a>
-                                </div>
-                            </div>
-                            <!-- END OF Profile Info Div -->
-
-                            <!-- Repo & Commit data -->
-                            <div>
-                                <br> Repositories (Owned)<br>
-                                <%  for(repo in repos){%>
-                                <a href=<%= "/profile/"+profile.id+"/"+repos[repo].name%>> <%= repos[repo].name %> </a>
-                                <br>
-                                <%} %>
-                            </div>
-                            <!-- END OF Repo & Commit data -->
-
-                            <!-- Repo statistics -->
-                            <% if(typeof repoStats !== 'undefined'){%>
-                            <div>
-                                <br><br> Statistics (WILL BE GRAPHS LATER) <br>
-                                <% for(author in repoStats){ %>
-                                <%= repoStats[author].author.login %>
-                                <br> Total number of commits: &nbsp;
-                                <%= repoStats[author].total %>
-                                <br>
-                                Week / additions / deletions / commits
-                                <br>
-                                <% for(week in repoStats[author].weeks){ %>
-                                <% for(obj in repoStats[author].weeks[week]){ %>
-                                <%= repoStats[author].weeks[week][obj] %>
-                                <%}%>
-                                <br>
-                                <%}%>
-                                <br>
-                                <%}%>
-                            </div>
-                            <%}%>
-                            <!-- end of repo statistics -->
-
-                        </div>
-                        <!-- END OF Div containing the profile information -->
-
+                <!-- Title -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" style="border:none;">
+                            <! -- <%= profile.name %> -->
+                        </h1>
                     </div>
-                    <!-- /.panel-body -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-8 -->
-            <div class="col-lg-4">
-                <!-- Place right side of page here -->
-            </div>
-            <!-- /.col-lg-4 -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-md-2">
-                <a href="#" title="Example tile shortcut" class="tile-box tile-box-alt btn-primary">
-                    <div class="tile-header">
-                        Dashboard
+
+                <!-- MAIN CONTENT HERE -->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-3">
+                        
+                            <img src=<%- profile.avatar_url %> class="img-rounded" style="width: 300px; height: auto;" >
+                            <h2><%- profile.name %></h2>
+                            <h4 class="text-muted">jeffbuonamici</h4> <!-- username -->
+                            <p class="text-muted"><%- profile.bio %></p>
+                            <div class="row" style="padding-top: 10px;border-top:1px #e1e4e8 solid;">
+                                <h5><i class="fa fa-envelope fa-fw"></i>jbuonamici@outlook.com</h5>
+                            </div>
+                            <!-- /.row -->
+                            <a href=<%= profile.html_url%> class="btn btn-info"> View Github profile </a>
                     </div>
-                    <div class="tile-content-wrapper">
-                        <div class="chart-alt-10 easyPieChart" data-percent="21" style="width: 100px; height: 100px; line-height: 100px;"><span>21</span>%<canvas width="100" height="100"></canvas></div>
+                    <!-- /.col-lg-4 -->
+                    <div id="repoContainer" class="col-lg-8">
+                        <h2 class="page-header" style="margin-top:0px;">Repositories</h2>
+                        <%  for(repo in repos){%>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <div><h4> <%= repos[repo].name %> </h4></div>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">123</div>
+                                            <div>Commits</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href=<%="/profile/" +profile.id+ "/"+repos[repo].name%>>
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <%} %>
+                        <% if(typeof repoStats !== 'undefined'){%>
+                            <div>
+                                <h2><span>Repo Statistics for </span><span class="text-muted"><%= repoName %></span></h2>
+                                <div id="graphsContainer"></div>
+                                <script>
+                                    var repoStats = <%- JSON.stringify(repoStats) %>;
+                                </script>
+                                <script src="../../graphs/plotlyScript.js"></script>
+                            </div>
+                        <%}%>
                     </div>
-                </a>
+                    <!-- /.col-lg-8 -->
+                </div>
+                <!-- /.row -->
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="#" title="Example tile shortcut" class="tile-box tile-box-alt btn-primary">
+                            <div class="tile-header">
+                                Dashboard
+                            </div>
+                            <div class="tile-content-wrapper">
+                                <div class="chart-alt-10 easyPieChart" data-percent="21" style="width: 100px; height: 100px; line-height: 100px;"><span>21</span>%
+                                    <canvas width="100" height="100"></canvas>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-        </div>
-        <!-- /.row -->
+            <!-- /#page-wrapper -->
+
     </div>
-    <!-- /#page-wrapper -->
+    <!-- /#wrapper -->
 
-</div>
-<!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
 
-<!-- jQuery -->
-<script src="../../vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../../vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="../../vendor/raphael/raphael.min.js"></script>
+    <script src="../../vendor/morrisjs/morris.min.js"></script>
+    <script src="../../data/morris-data.js"></script>
 
-<!-- Morris Charts JavaScript -->
-<script src="../../vendor/raphael/raphael.min.js"></script>
-<script src="../../vendor/morrisjs/morris.min.js"></script>
-<script src="../../data/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/firebaseInitialization.js"></script>
+    <script src="../../dist/js/sb-admin-2.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="/js/firebaseInitialization.js"></script>
-<script src="../../dist/js/sb-admin-2.js"></script>
+    <!-- Custom Page JavaScript -->
+    <script src="js/profile.js"></script>
+
 
 </body>
 
