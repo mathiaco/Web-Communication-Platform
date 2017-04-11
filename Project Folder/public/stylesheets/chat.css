@@ -6,7 +6,6 @@ body, html {
 #chat-container{
   padding: 1%;
   height: 99%;
-
   overflow: hidden;
 }
 
@@ -16,11 +15,17 @@ body, html {
   height: 98%;
   width: 82%;
   float: left;
+  border: 2px solid black;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f1f5f8, #00B09f);
+  opacity: 0.9;
 }
 
 #channel-container{
-  border-color: grey;
+  background: linear-gradient(135deg, #f1f5f8, #00B09f);
+  border-color: black;
   border-style: solid;
+  border-radius: 8px;
   border-width:  1px 1px 1px 0px;
   height: 98%;
   width: 17%;
@@ -36,7 +41,7 @@ body, html {
 }
 
 #form-container{
-  border-top: 1px dotted black;
+  border-top: 1px solid black;
   height: 6%;
   padding: 1%;
   overflow: none;
@@ -45,7 +50,7 @@ body, html {
 
 /*For channel list styling of channel*/
 .channel{
-  border-bottom: 1px dotted grey;
+  border-bottom: 1px solid grey;
   font-family: monospace;
   font-weight: bold;
   padding: 4%;
@@ -74,7 +79,8 @@ body, html {
 }
 
 .currentUser .message{
-  color: blue;
+  color: #1e1e1e;
+ 
 }
 
 .currentUser .message-from-user{
