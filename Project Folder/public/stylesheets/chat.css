@@ -3,54 +3,31 @@ body, html {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-#chat-container{
-  padding: 1%;
-  height: 99%;
-  overflow: hidden;
-}
-
-
-#left-window-container{
-  border: 1px solid grey;
-  height: 98%;
-  width: 82%;
-  float: left;
-  border: 2px solid black;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #f1f5f8, #00B09f);
-  opacity: 0.9;
-}
-
 #channel-container{
-  background: linear-gradient(135deg, #f1f5f8, #00B09f);
-  border-color: black;
-  border-style: solid;
-  border-radius: 8px;
-  border-width:  1px 1px 1px 0px;
-  height: 98%;
-  width: 17%;
-  float: left;
+  background-color: #eee;
+  background-clip: content-box;
+  border-left: 1px solid #ddd;
+  padding-left: 0;
+  height: 100%;
   overflow: auto;
+}
+
+#totalBody{
+  padding: 0;
 }
 
 #chat-window-container{
   vertical-align: bottom;
-  padding: 2%;
-  height: 85%;
+  height: 100%;
   overflow: auto;
 }
 
-#form-container{
-  border-top: 1px solid black;
-  height: 6%;
-  padding: 1%;
-  overflow: none;
+#toChannel{
+  float: right;
 }
-
 
 /*For channel list styling of channel*/
 .channel{
-  border-bottom: 1px solid grey;
   font-family: monospace;
   font-weight: bold;
   padding: 4%;
@@ -70,6 +47,9 @@ body, html {
 }
 
 .total-message{
+  padding: 0;
+  width: 40%;
+  word-break: break-all;
   clear:both;
 }
 
@@ -78,9 +58,12 @@ body, html {
   right: 0;
 }
 
+.currentUser p{
+  float: right;
+}
+
 .currentUser .message{
-  color: #1e1e1e;
- 
+  color: blue;
 }
 
 .currentUser .message-from-user{
