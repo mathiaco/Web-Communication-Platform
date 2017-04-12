@@ -76,7 +76,7 @@ function initializePage() {
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-          "<span class='users list-group-item'>" + "<a href='/profile/" +user.user_id+" '>" +
+          "<span class='users list-group-item'>" + "<a href='/profile/id/" +user.user_id+" '>" +
         user.username +
           "</a>" +"</span>"
       );
@@ -84,7 +84,7 @@ function initializePage() {
     // If it's not the first load, then prepend names so they appear at the top.
     else {
       $("#classMembers").prepend(
-          "<span class='users list-group-item'>" + "<a href='/profile/" +user.user_id+" '>" +
+          "<span class='users list-group-item'>" + "<a href='/profile/id/" +user.user_id+" '>" +
           user.username +
           "</a>" +"</span>"
       );
@@ -99,7 +99,7 @@ function initializePage() {
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" +"<a href='/profile/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
+          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
