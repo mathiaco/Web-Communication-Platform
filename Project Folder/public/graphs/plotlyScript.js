@@ -89,7 +89,7 @@ for(i in repoStats2) {
     //div2 will hold the author info, commits, additions and deletions
     var div2 = document.createElement("div");
     var idx = (length1 - i - 1);
-    div2.innerHTML = "<div class='authorName'>"+ repoStats2[idx].author + "</div>" + "Total Commits: " + repoStats2[idx].total + "<br>" + "Additions: " + repoStats2[idx].additions + " lines" + "<br>" + "Deletions: " + repoStats2[idx].deletions + " lines";
+    div2.innerHTML = "<div class='authorName'><a href='/profile/user/"+repoStats2[idx].author+"'>"+ repoStats2[idx].author + "</a></div>" + "Total Commits: " + repoStats2[idx].total + "<br>" + "Additions: " + repoStats2[idx].additions + " lines" + "<br>" + "Deletions: " + repoStats2[idx].deletions + " lines";
     div2.setAttribute("class","statsInfo");
 
 

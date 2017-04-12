@@ -167,7 +167,7 @@ app.get('/profile',
     });
 
 //Handles request to the the profile page of the user with a specified id
-app.get('/profile/:id',
+app.get('/profile/id/:id',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
         //Gets the user profile before rendering the page
@@ -175,6 +175,9 @@ app.get('/profile/:id',
 
             var profile = res1;
             gitInfo.getGitReposByID(req.params.id, function (repoData) {
+
+                //TODO: Cache Repo Information
+
                 res.render('profile', {
                     id: req.params.id,
                     profile: profile,
@@ -185,6 +188,7 @@ app.get('/profile/:id',
         });
     });
 
+/*
 //TODO: Cache repoData and repoStats in database since it makes heavy use of the Github API
 app.get('/profile/:id/:repo',
     connectEnsureLogin.ensureLoggedIn(),
@@ -194,6 +198,7 @@ app.get('/profile/:id/:repo',
             var profile = res1;
             gitInfo.getGitReposByID(req.params.id,function(repoData) {
                 gitInfo.getRepoContributionStats(profile.login,req.params.repo,function(repoStats){
+                    //TODO: Cache Repo statistics
                     res.render('profile', {
                         id: req.params.id,
                         profile: profile,
@@ -205,9 +210,95 @@ app.get('/profile/:id/:repo',
             });
         });
     });
+*/
 
+//TODO: Cache repoData and repoStats in database since it makes heavy use of the Github API
+app.get('/profile/id/:id/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByID(req.params.id, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByID(req.params.id,function(repoData) {
+                if(req.query.owner)
+                {
+                    console.log(req.query.owner + " " + req.params.repo);
+                    gitInfo.getRepoContributionStats(req.query.owner, req.params.repo, function (repoStats) {
+                        //TODO: Cache Repo statistics
+                        res.render('profile', {
+                            id: req.params.id,
+                            profile: profile,
+                            repos: repoData,
+                            repoStats: repoStats,
+                            repoName: req.params.repo
+                        });
+                    });
+                } else {
+                    gitInfo.getRepoContributionStats(profile.login,req.params.repo,function(repoStats) {
+                        res.render('profile', {
+                            id: req.params.id,
+                            profile: profile,
+                            repos: repoData,
+                            repoStats: repoStats,
+                            repoName: req.params.repo
+                        });
+                    });
+                }
+            });
+        });
+    });
 
+//Handles request to the the profile page of the user with a specified id
+app.get('/profile/user/:username',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByUsername(req.params.username, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByUsername(req.params.username, function (repoData) {
 
+                //TODO: Cache Repo Information
+
+                res.render('profile', {
+                    profile: profile,
+                    repos: repoData
+                });
+
+            });
+        });
+    });
+app.get('/profile/user/:username/:repo',
+    connectEnsureLogin.ensureLoggedIn(),
+    function(req, res){
+        //Gets the user profile before rendering the page
+        gitInfo.getGitProfileByUsername(req.params.username, function(res1) {
+            var profile = res1;
+            gitInfo.getGitReposByUsername(req.params.username,function(repoData) {
+                if(req.query.owner)
+                {
+                    console.log(req.query.owner + " " + req.params.repo);
+                    gitInfo.getRepoContributionStats(req.query.owner, req.params.repo, function (repoStats) {
+                        //TODO: Cache Repo statistics
+                        res.render('profile', {
+                            profile: profile,
+                            repos: repoData,
+                            repoStats: repoStats,
+                            repoName: req.params.repo
+                        });
+                    });
+                } else {
+                    gitInfo.getRepoContributionStats(profile.login,req.params.repo,function(repoStats) {
+                        res.render('profile', {
+                            profile: profile,
+                            repos: repoData,
+                            repoStats: repoStats,
+                            repoName: req.params.repo
+                        });
+                    });
+                }
+            });
+        });
+    });
 /*
 //TODO: DELETE THIS AFTER Graph testing is done
 var repoStats = require('./public/graphs/json/repoStats.json');
