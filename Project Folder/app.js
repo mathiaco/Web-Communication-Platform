@@ -189,7 +189,7 @@ app.get('/profile/id/:id',
     });
 
 /*
-//TODO: Cache repoData and repoStats in database since it makes heavy use of the Github API
+//OLD CODE
 app.get('/profile/:id/:repo',
     connectEnsureLogin.ensureLoggedIn(),
     function(req, res){
@@ -300,7 +300,7 @@ app.get('/profile/user/:username/:repo',
         });
     });
 /*
-//TODO: DELETE THIS AFTER Graph testing is done
+//OLD CODE
 var repoStats = require('./public/graphs/json/repoStats.json');
 
 app.get('/profile/:id/:repo',
