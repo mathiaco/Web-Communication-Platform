@@ -315,44 +315,47 @@ $("#channelSearchBtn").click(function(){
     document.getElementById('channelSearchInput').value = '';
 });
 
-//searches for channel on enter press
-$("#search-Channel").submit(function(e){
-  var channelName = $("#channelSearchInput").val();
-  document.getElementById('not-Found').innerHTML = "";
-  if (colCount == 1) {
-      color = "purple";
-      colCount++;
-  }
-  else if (colCount == 2) {
-      color = "pink";
-      colCount++;
-  }
-  else if (colCount == 3) {
-      color = "orange";
-      colCount = 1;
-  }
-
-    channelRef.orderByChild("channelName").equalTo(channelName).once("value").then(function(snapshot){
-      if(snapshot.exists()){
-          snapshot.forEach(function(data){
-              $("#searchedChannelRow").append(
-                  "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
-                  "<div class='panel panel-" + color + "'>" +
-                  "<div class='panel-heading'>" +
-                  data.val().channelName +
-                  "</div>" +
-                  "<div class='panel-footer'>" +
-                  "<a href='/channelpage?c=" + snapshot.getKey() + "' class='btn btn-default btn-default btn-block'>View</a></div>"
-                );
-          });
-      }
-      else{
-        document.getElementById('not-Found').innerHTML = "Channel " + channelName + " Does Not Exist!";
-      }
-    });
-    document.getElementById('channelSearchInput').value = '';
-    e.preventDefault();
-});
+// //searches for channel on enter press
+// $("#search-Channel").submit(function(e){
+//   var channelName = $("#channelSearchInput").val();
+//   document.getElementById('not-Found').innerHTML = "";
+//   if (colCount == 1) {
+//       color = "purple";
+//       colCount++;
+//   }
+//   else if (colCount == 2) {
+//       color = "pink";
+//       colCount++;
+//   }
+//   else if (colCount == 3) {
+//       color = "orange";
+//       colCount = 1;
+//   }
+//
+//     channelRef.orderByChild("channelName").equalTo(channelName).once("value").then(function(snapshot){
+//       if(snapshot.exists()){
+//           snapshot.forEach(function(data){
+//             console.log(data.channelName);
+//
+//               $("#searchedChannelRow").append(
+//                   "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
+//                   "<div class='panel panel-" + color + "'>" +
+//                   "<div class='panel-heading'>" +
+//                   data.val().channelName +
+//                   "</div>" +
+//                   "<div class='panel-footer'>" +
+//                   "<button id=" + snapshot.getKey() + " class='btn btn-default btn-default btn-block' onClick='selectedChannel(this.id)' data-toggle='modal' data-target='#view'>View</button>"
+//                 );
+//
+//           });
+//       }
+//       else{
+//         document.getElementById('not-Found').innerHTML = "Channel " + channelName + " Does Not Exist!";
+//       }
+//     });
+//     document.getElementById('channelSearchInput').value = '';
+//     e.preventDefault();
+// });
 
 
 function checkUser(creator, key){
