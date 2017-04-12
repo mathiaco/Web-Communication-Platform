@@ -12,22 +12,22 @@
     <title>SOEN 341 Group 3</title>
     <link rel='stylesheet' href='/stylesheets/pages.css' />
     <!-- Bootstrap Core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../../../../dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="../../../vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Page CSS -->
-    <link href="../../stylesheets/profile.css" rel="stylesheet">
+    <link href="../../../stylesheets/profile.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,6 +73,7 @@
                             <div class="row" style="padding-top: 10px;border-top:1px #e1e4e8 solid;">
                                 <h5><i class="fa fa-envelope fa-fw"></i><%= profile.email%></h5>
                                 <h5><i class="fa fa-link fa-fw"></i><a href=<%= profile.blog%>><%= profile.blog%> </a> </h5>
+
                             </div>
                             <!-- /.row -->
                             <a href=<%= profile.html_url%> class="btn btn-info"> View Github profile </a>
@@ -86,35 +87,49 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <div><h4> <%= repos[repo].name %> </h4></div>
+                                            <div><h3> <%= repos[repo].name %> </h3></div>
                                         </div>
+                                        <!--
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">123 </div>
-                                            <div>Commits</div>
+
+                                            <div class="big"><%- repos[repo].size/1000 %></div>
+                                            <div>MB</div>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
-                                <a href=<%="/profile/" +profile.id+ "/"+repos[repo].name%>>
+                                <% if(repos[repo].owner.login == profile.login){%>
+                                <a href=<%="/profile/id/" +profile.id+ "/"+repos[repo].name%>>
                                     <div class="panel-footer">
                                         <span class="pull-left">View Details</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                         <div class="clearfix"></div>
                                     </div>
                                 </a>
+                                <%} else {%>
+                                <a href=<%="/profile/id/" +profile.id+ "/"+repos[repo].name +"?owner="+ repos[repo].owner.login%>>
+                                    <div class="panel-footer">
+                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                                <%}%>
                             </div>
                         </div>
                         <%} %>
+                    </div>
                         <% if(typeof repoStats !== 'undefined'){%>
-                            <div>
+                            <div class="col-lg-10 ">
                                 <h2><span>Repo Statistics for </span><span class="text-muted"><%= repoName %></span></h2>
                                 <div id="graphsContainer"></div>
                                 <script>
                                     var repoStats = <%- JSON.stringify(repoStats) %>;
                                 </script>
-                                <script src="../../graphs/plotlyScript.js"></script>
+                                <script src="../../../graphs/plotlyScript.js"></script>
                             </div>
                         <%}%>
-                    </div>
+
                     <!-- /.col-lg-8 -->
                 </div>
                 <!-- /.row -->
@@ -146,25 +161,27 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../../../vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="../../vendor/raphael/raphael.min.js"></script>
-    <script src="../../vendor/morrisjs/morris.min.js"></script>
-    <script src="../../data/morris-data.js"></script>
+    <script src="../../../vendor/raphael/raphael.min.js"></script>
+    <script src="../../../vendor/morrisjs/morris.min.js"></script>
+    <script src="../../../data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="/js/firebaseInitialization.js"></script>
-    <script src="../../dist/js/sb-admin-2.js"></script>
+    <script src="../../../../dist/js/sb-admin-2.js"></script>
 
     <!-- Custom Page JavaScript -->
+    <!--
     <script src="js/profile.js"></script>
+    -->
 
 
 </body>
