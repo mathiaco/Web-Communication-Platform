@@ -62,7 +62,7 @@ getGitProfileByID: function getGitProfileByID(id, callback) {
  Function that gets Repositories for a user from github using a username
  */
 getGitReposByUsername: function getGitReposByUsername(username, callback) {
-    module.exports.httpGetAsync('/users/' + username + '/repos', function (res) {
+    module.exports.httpGetAsync('/users/' + username + '/repos?type=all', function (res) {
         var data = JSON.parse(res);
         callback(data);
     });

@@ -68,10 +68,10 @@
                         
                             <img src=<%- profile.avatar_url %> class="img-rounded" style="width: 300px; height: auto;" >
                             <h2><%- profile.name %></h2>
-                            <h4 class="text-muted">jeffbuonamici</h4> <!-- username -->
+                            <h4 class="text-muted"><%- profile.login %></h4> <!-- username -->
                             <p class="text-muted"><%- profile.bio %></p>
                             <div class="row" style="padding-top: 10px;border-top:1px #e1e4e8 solid;">
-                                <h5><i class="fa fa-envelope fa-fw"></i>jbuonamici@outlook.com</h5>
+                                <h5><i class="fa fa-envelope fa-fw"></i> <%- profile.email %> </h5>
                             </div>
                             <!-- /.row -->
                             <a href=<%= profile.html_url%> class="btn btn-info"> View Github profile </a>
@@ -85,11 +85,11 @@
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <div><h4> <%= repos[repo].name %> </h4></div>
+                                            <div><h3> <%= repos[repo].name %> </h3></div>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">123</div>
-                                            <div>Commits</div>
+                                            <div class="big"><%- repos[repo].size/1000 %></div>
+                                            <div>MB</div>
                                         </div>
                                     </div>
                                 </div>
