@@ -6,6 +6,7 @@ firebase.database().ref('users/'+ currentUserID).once('value').then(function(sna
     currentUser = snapshot.val().username;
 });
 
+
 //reads channel from database and displays it
 function readChannel(){
   var ref = firebase.database().ref('chat/channels');
@@ -89,8 +90,10 @@ function displayMessages(){
         if(currentUser === data.val().user){
           classAddition = 'currentUser';
         }
-        document.getElementById('chat-window-container').innerHTML +=
-        ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        if(!data.val().message == ''){
+          document.getElementById('chat-window-container').innerHTML +=
+          ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        }
       });
       updateScroll()
     });
