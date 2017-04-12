@@ -71,10 +71,5 @@ router.get('/channels', connectEnsureLogin.ensureLoggedIn(), function (req, res)
     userID: req.user
   });
 });
-router.get('/channelpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('channelpage.ejs', {
-    userID: req.user
-  });
-});
 
 module.exports = router;
