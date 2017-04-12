@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>chat</title>
+    <title>channels</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel='stylesheet' href='/stylesheets/chat.css' />
     <link rel='stylesheet' href='/stylesheets/pages.css' />
@@ -26,7 +26,7 @@
     <div id="main-content">
       <div class="row">
           <div class="col-lg-12">
-              <h1>Your Channels <button type="button" class="btn btn-success" data-toggle="modal" data-target="#postModal">Create Channels</button></h1>
+              <h1>Your Channels <button type="button" class="btn btn-success" data-toggle="modal" onClick="erase()" data-target="#postModal">Create Channels</button></h1>
               <p class="page-header">***You can only delete channels that you have created***</p>
               <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
                   <div class="modal-dialog" role="document">
@@ -36,19 +36,62 @@
                               <h4 class="modal-title" id="postModalLabel">New Channel</h4>
                           </div>
                           <div class="modal-body">
-                              <form>
+                              <form id="send-Channel">
                                   <div class="form-group">
                                       <label for="recipient-name" class="control-label">Channel Name:</label>
-                                      <input type="text" class="form-control" id="channel-Name">
+                                      <input type="text" class="form-control" id="channel-Name"></br>
+                                      <label for="recipient-nanme" id="already-Exists" class="text-danger"></label>
                                   </div>
                               </form>
                           </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="button" id="createChannelBtn" class="btn btn-success" data-dismiss="modal">Create</button>
+                              <button type="button" id="createChannelBtn" class="btn btn-success">Create</button>
                           </div>
                       </div>
                   </div>
+              </div>
+              <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="viewModalLabel">Add User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-User">
+                            <div class="form-group">
+                              <label for="recipient-name" class="control-label">Search User: (Can only add users that are not already in the Channel)</label>
+                              <input type="text" class="form-control" id="user-Search"></br>
+                              <label for="recipient-name" id="no-User" class="text-danger"></label>
+                            </div>
+                        </form>
+                        <div id="searchResults" class="panel panel-default">
+                          <div class="panel-heading">
+                              <i class='fa fa-user fa-fw'></i> Search Results
+                          </div>
+                          <div class="panel-body">
+                            <div class="list-group" id="userSearchResults">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class='fa fa-user fa-fw'></i> Current Users
+                            </div>
+                            <div class="panel-body">
+                              <div class="list-group" id="userList">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button style="float: left" type="button" id="leaveChannel" class="btn btn-info" data-dismiss="modal">Leave Channel</button>
+                        <button type="button" id="searchUserBtn" class="btn btn-success">Search</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- /.modal -->
           </div>
@@ -60,32 +103,7 @@
           <!-- Classes get put here -->
 
       </div>
-      <div class="row">
-          <div class="col-lg-12">
-              <h1 class="page-header">Find a Channel</h1>
-          </div>
-          <!-- /.col-lg-12 -->
-      </div>
-      <!-- /.row -->
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="input-group custom-search-form" style="padding-bottom:20px;">
-                  <input id="channelSearchInput" type="text" class="form-control" placeholder="Search...">
-                  <span class="input-group-btn">
-                  <button id="channelSearchBtn" class="btn btn-default" type="button">
-                      <i class="fa fa-search"></i>
-                  </button>
-                  </span>
-              </div>
-              <!-- /input-group -->
-          </div>
-          <!-- /.col-lg-6 -->
-      </div>
-      <!-- /.row -->
-      <div id="searchedChannelRow" class="row">
-
-      </div>
-      <!-- /.row -->
+      
   </div>
     </div>
     <!-- jQuery -->
@@ -107,6 +125,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script src="/js/firebaseInitialization.js"></script>
     <script> var currentUserID = <%- JSON.stringify(userID) %></script>
+    <script src="/js/md5.js"></script>
     <script src="/js/channels.js"></script>
   </body>
 </html>
