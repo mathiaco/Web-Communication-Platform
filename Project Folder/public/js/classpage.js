@@ -72,12 +72,12 @@ function initializePage() {
   // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
-    var user = snapshot.val()
+    var user = snapshot.val();
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
         "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
         "</span>"
       );
     }
@@ -85,7 +85,7 @@ function initializePage() {
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
         "</span>"
       );
     }
@@ -99,7 +99,7 @@ function initializePage() {
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" + user.username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
@@ -108,7 +108,7 @@ function initializePage() {
       else {
         $("#userList").prepend(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" + user.username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
@@ -136,7 +136,6 @@ function initializePage() {
     ref = firebase.database().ref("users/");
     ref.orderByChild("username").equalTo(userName).once("value").then(function (snapshot) {
       snapshot.forEach(function (user) {
-        console.log("R U SRS?")
         firebase.database().ref("classes/" + classID + "/users/" + user.key).set({
           username: user.val().username,
           user_id: user.key
