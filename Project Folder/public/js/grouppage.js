@@ -179,12 +179,10 @@ function initializePosts() {
 
   // Event trigger when database adds a new post. Also displays post on screen.
   postsRef.on("child_added", function (snapshot, prevChildKey) {
-    alert("hi")
     var newPost = snapshot.val();
-    alert(newPost.title)
     var date = timeSince(newPost.date);
     $("#postList").append(
-      "<a href='/postpage?c=" + classID + "&p=" + snapshot.getKey() + "' class='list-group-item'>" +
+      "<a href='/grouppostpage?c=" + classID + "&g=" + groupID +"&p=" + snapshot.getKey() + "' class='list-group-item'>" +
       newPost.title +
       "<span class='pull-right text-muted small'><em>" + date + " ago</em>" +
       "</span>" +
