@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SOEN 341 Group 3</title>
+    <link rel='stylesheet' href='/stylesheets/pages.css' />
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- get current user id -->
+    <script>
+        var currentUserID = <%- JSON.stringify(userID) %>
+    </script>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <%include Templates/navBar.ejs%>
+
+        <!-- Page Content -->
+        <div id="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            <!-- Title Here -->
+                        </h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+
+                    <div class="col-lg-3">
+                    </div>
+                    <!-- /.col-lg-3 -->
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-clock-o fa-fw"></i> Response Timeline
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <ul class="timeline" id="commentTimeline">
+                                </ul>
+                            </div>
+                            <!-- /.panel-body -->
+                            <div class='panel-footer'>
+                                <div class="row" style="margin: 15px;">
+                                    <h4>Write comment:</h4>
+                                    <textarea id="commentContent" class="form-control" style="height: 91px; margin-bottom: 20px;"></textarea>
+                                    <button id="commentBtn" type="button" class="btn btn-success pull-right">Submit</button>
+                                </div>
+                            </div>
+                            <!-- /.panel-footer -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                    <div class="col-lg-3">
+                    </div>
+                    <!-- /.col-lg-3 -->
+
+
+
+
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Firebase JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+
+    <!-- Custom Page JavaScript -->
+    <script src="/js/firebaseInitialization.js"></script>
+    <script src="js/grouppostpage.js"></script>
+</body>
+
+</html>

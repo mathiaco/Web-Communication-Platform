@@ -40,7 +40,9 @@ router.get('/groups', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('groups.ejs', {});
 });
 router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('grouppage.ejs', {});
+  res.render('grouppage.ejs', {
+     userID: req.user
+  });
 });
 
 router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
@@ -58,6 +60,12 @@ router.get('/classpage', connectEnsureLogin.ensureLoggedIn(), function (req, res
 router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   // send userID to postpage.ejs
   res.render('postpage.ejs', {
+    userID: req.user
+  });
+});
+router.get('/grouppostpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  // send userID to postpage.ejs
+  res.render('grouppostpage.ejs', {
     userID: req.user
   });
 });
