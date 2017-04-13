@@ -93,8 +93,9 @@ function initializePage() {
 
     if (isTA()) {
       var removeBtn = "";
-      if (user.user_id != currentUserID)
+      if (user.user_id != currentUserID) {
         removeBtn = "<button class='deleteUser pull-right btn btn-danger btn-xs'>Remove</button>";
+      }
       // If it's the page's first load, then append names.
       if (isFirstLoad) {
         $("#userList").append(
@@ -179,9 +180,9 @@ function initializePage() {
 
 // Change this later to check if person is actually a TA
 function isTA() {
-  if (taID == currentUserID)
+  if (taID == currentUserID){
     return true;
-  else
+    }  else
     return true;
 }
 
@@ -253,7 +254,7 @@ $("#createGroup").click(function () {
 
 // Does this do anything? - Jeff
 //creates the class list that user may select from to create groups (first load)
-function initializeClassList() {
+/*nction initializeClassList() {
   var ref = firebase.database().ref("classes/" + classID + "/users/");
 
   refClassUsers.orderByValue().on("value", function (snapshot) {
@@ -277,28 +278,27 @@ function initializeClassList() {
       })
     })
   })
-}
+}*/
 
 function initializeGroup() {
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
-  ref.orderByValue().on("value", function (snapshot) {
-    snapshot.forEach(function (data) {
+  ref.orderByValue().on("child_added", function (snapshot) {
       var removeBtn = "";
       if (isTA()) {
-          console.log(data.key)
-        removeBtn = "<button id=remove" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
+          console.log(snapshot.key)
+        removeBtn = "<button id=remove" + snapshot.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
       }
 
-      if ($(".groupList:contains(" + data.val().Group_Name + ")").length < 1) {
-        console.log($(".groupMembers:contains(" + data.key + ")").length)
+      if ($(".groupList:contains(" + snapshot.val().Group_Name + ")").length < 1) {
+        console.log($(".groupMembers:contains(" + snapshot.key + ")").length)
         document.getElementById('groupList').innerHTML +=
           (
-            "<a href='/groupPage?c=" + data.key + "/class?c=" + classID + "' class='list-group-item'>" +
-            data.val().Group_Name +
-            "</span>"
+            "<a href='/groupPage?c=" + snapshot.key + "/class?c=" + classID + "' class='list-group-item'>" +
+            snapshot.val().Group_Name +
+            removeBtn +
+            "</a>"
           );
       }
-    })
   });
 }
 
