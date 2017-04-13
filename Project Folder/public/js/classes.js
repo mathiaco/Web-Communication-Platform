@@ -16,7 +16,6 @@ function writeClasstData(taID, title, description) {
         description: description
     });
     joinClass(classKey);
-    listClass(classKey, title, description, taID);
 }
 
 // delete the specific class from the database and also the class will not be showed anymore on the webpage.
@@ -41,6 +40,12 @@ function joinClass(classID) {
                 color: userColors[rndColor]
             });
         });
+    });
+    var refClass = firebase.database().ref("classes/"+classID);
+    var refClassUsers = firebase.database().ref("classes/"+classID + "/users");
+
+    refClass.once('value').then(function(snapshot){
+        listClass(classID, snapshot.val().title, snapshot.val().description, snapshot.val().ta);
     });
 }
 
@@ -109,8 +114,21 @@ $("#classSearchBtn").click(function () {
                 "</div>" +
                 "</div>"
             )
+
         });
+        //"No result" message if class is not found
+        if (!(snapshot.val()))
+        {
+            $("#searchedClassesRow").append(
+                "<div class='col-lg-4'>" +
+                "<div class='panel panel-default'>" +
+                "<div class='panel-heading'>" +
+                "No Result found!" +
+                "</div>" +
+                "</div>"                    )
+        }
     });
+
 });
 
 // Fetch all classes current user is a member of

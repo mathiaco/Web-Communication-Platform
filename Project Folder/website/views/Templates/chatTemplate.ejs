@@ -1,23 +1,28 @@
-<div id="main-content">
-<div id="chat-container">
-  <div id="left-window-container">
-    <div id="chat-window-container">
-    </div>
-    <div id="form-container">
-      <form id="send-Message">
-      </br>
-        <input style="width: 60%;" type="text" id="messageBox" placeholder="Write Message Here"/>&nbsp&nbsp
-        <input type="submit" value="Send" class="send-button"/></br></br>
-        <a id="toChannel" href="/channels" class="btn btn-default btn pull-left">Create A New Channel</a>
-      </form>
+<div class="container-fluid" style="height: 90%">
+  <div class="row" style="height: 100%">
+    <div class="col-lg-10" style="height: 100%">
+      <div class="panel panel-primary" style="height: 100%">
+        <div class="panel-heading">Chat</div>
+        <div class="panel-body" id="totalBody" style="height: 80%">
+          <div class="row" style="height: 100%">
+            <div class="col-md-10" id="chat-window-container"></div>
+            <div class="col-md-2" id="channel-container"></div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <form class="form-group" id="send-Message">
+            <input style="width: 60%;" type="text" id="messageBox" class="form-control" placeholder="Write Message Here"/></br>
+            <input type="submit" value="Send" style="margin-left: 1%" class="send-button btn btn-success"/>
+            <a id="toChannel" href="/channels" class="btn btn-default btn pull-left">Create A New Channel</a>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="channel-container">
-  </div>
-</div>
 </div>
 
 <script> var currentUserID = <%- JSON.stringify(userID) %></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 <script src="/js/firebaseInitialization.js"></script>
+<script src="/js/md5.js"></script>
 <script src="/js/chat.js"></script>

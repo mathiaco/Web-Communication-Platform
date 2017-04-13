@@ -17,8 +17,6 @@ function writePostData(posts, user, title, content, icon, color) {
 function initializePage() {
   refClassUsers = firebase.database().ref("classes/" + classID + "/users/");
 
-
-
   // If the current user is a TA, then display special TA functions.
   if (isTA()) {
     $("#addUserBtnHolder").append(
@@ -74,12 +72,12 @@ function initializePage() {
   // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
-    var user = snapshot.val()
+    var user = snapshot.val();
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
         "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
         "</span>"
       );
     }
@@ -87,7 +85,7 @@ function initializePage() {
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
         "</span>"
       );
     }
@@ -101,7 +99,7 @@ function initializePage() {
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" + user.username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
@@ -110,7 +108,7 @@ function initializePage() {
       else {
         $("#userList").prepend(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" + user.username + "</span>" +
+          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
           removeBtn +
           "</span>"
         );
@@ -184,7 +182,7 @@ function isTA() {
   if (taID == currentUserID)
     return true;
   else
-    return false;
+    return true;
 }
 
 // Gets the class ID from URL
@@ -201,17 +199,26 @@ function getClassID() {
 $("#createGroupBtn").click(function () {
   //setting group name
   var groupName = document.getElementById("groupName").value;
-
-  var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupName);
+  var groupID;
+  var ref = firebase.database().ref("classes/" + classID + "/groups/" );
   var counter = groupList.length
+  ref.push({
+    Group_Name: groupName
+  })
+
+   ref.on("child_added", function(snapshot, prevChildKey){
+     groupID = snapshot.getKey()
+   });
   for (index = 0; index < counter; index++) {
     var user = groupList.pop();
+  var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupID +"/users/");
     ref.push({
       user_id: user.user_id,
       username: user.username
     })
   }
 })
+
 
 //deleting the class list and group list and reloading them.
 $("#createGroup").click(function () {
@@ -278,22 +285,32 @@ function initializeGroup() {
     snapshot.forEach(function (data) {
       var removeBtn = "";
       if (isTA()) {
-        removeBtn = "<button id=add" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
+          console.log(data.key)
+        removeBtn = "<button id=remove" + data.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
       }
 
-      if ($(".groupMembers:contains(" + data.key + ")").length < 1) {
+      if ($(".groupList:contains(" + data.val().Group_Name + ")").length < 1) {
         console.log($(".groupMembers:contains(" + data.key + ")").length)
         document.getElementById('groupList').innerHTML +=
           (
-            "<span class='groupMembers list-group-item'>" +
-            "<span class='groupName'>" + data.key + "</span>" +
-            removeBtn +
+            "<a href='/groupPage?c=" + data.key + "/class?c=" + classID + "' class='list-group-item'>" +
+            data.val().Group_Name +
             "</span>"
           );
       }
     })
   });
 }
+
+$("#manageGroups").click(function () {
+  var ref = firebase.database().ref("classes/" + classID + "/groups/")
+  $("#classList").append(
+    "<span class='classMembers list-group-item'>" +
+    "<span class='userName'>" + data.val().username + "</span>" +
+    "<button id=add" + data.val().username + " class='addUser pull-right btn btn-success btn-xs'>Add</button>" +
+    "</span>"
+  );
+})
 
 // Calculates the amount of time sinve the given date and current date
 function timeSince(date) {
@@ -347,4 +364,3 @@ firebase.database().ref("classes/" + classID).once("value").then(function (snaps
 });
 
 //initializeClassList(); Do we need this?
-

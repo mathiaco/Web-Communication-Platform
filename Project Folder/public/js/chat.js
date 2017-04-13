@@ -1,9 +1,11 @@
 var currentUser = '';
+var channelRef = firebase.database().ref('chat/messages/channel/');
 
 // Retrieves the user's full name from the database using the userID
 firebase.database().ref('users/'+ currentUserID).once('value').then(function(snapshot){
     currentUser = snapshot.val().username;
 });
+
 
 //reads channel from database and displays it
 function readChannel(){
@@ -53,8 +55,9 @@ function changeActive(param){
 
 //sends message to database
 $('#send-Message').submit(function (e){
-  if(document.getElementById('messageBox').value == ''){
+  if(document.getElementById('messageBox').value == '' || currentChannel() === ''){
     //do nothing if form is empty
+    document.getElementById('messageBox').value = '';
   }
   else{
     var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
@@ -65,9 +68,9 @@ $('#send-Message').submit(function (e){
       user: currentUser
     });
 
+    //resets text box to empty
     document.getElementById('messageBox').value = '';
   }
-  addMessage();
   //prevents refresh of page when form is sent
   e.preventDefault();
 });
@@ -87,29 +90,39 @@ function displayMessages(){
         if(currentUser === data.val().user){
           classAddition = 'currentUser';
         }
-        document.getElementById('chat-window-container').innerHTML +=
-        ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        if(!data.val().message == ''){
+          document.getElementById('chat-window-container').innerHTML +=
+          ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        }
       });
       updateScroll()
     });
   }
 }
 
-//adds new messages of channel in container
-function addMessage(){
-  var ref = firebase.database().ref('chat/messages/channel/' + currentChannel());
-
-  ref.once("child_added", function(snapshot){
-    var newPost = snapshot.val();
-    var classAddition = '';
-    if(currentUser === newPost.user){
-      classAddition = 'currentUser';
+//adds new messages automatically across different people
+channelRef.on("child_changed", function(){
+  messageRef = firebase.database().ref('chat/messages/channel/' + currentChannel());
+  document.getElementById('chat-window-container').innerHTML = '';
+  messageRef.on("child_added", function(snapshot){
+    if(!snapshot.val().message){
+      //do nothing
     }
-    document.getElementById('chat-window-container').innerHTML +=
-    ('<div class="' + classAddition + ' total-message"><p class="message">' + newPost.message + '</p><h6 class="message-from-user">Sent By:' + newPost.user + '</h6></div>');
-    updateScroll()
-  })
-}
+    else{
+      var newPost = snapshot.val();
+      var classAddition = '';
+
+      if(currentUser === newPost.user){
+        classAddition = 'currentUser';
+      }
+
+      document.getElementById('chat-window-container').innerHTML +=
+      ('<div class="' + classAddition + ' total-message"><p class="message">' + newPost.message + '</p><h6 class="message-from-user">Sent By:' + newPost.user + '</h6></div>');
+      updateScroll();
+    }
+  });
+});
+
 
 //determines what the currentChannel is
 function currentChannel(){
@@ -124,9 +137,6 @@ function updateScroll(){
   $('#chat-window-container').scrollTop(elem);
 }
 
-
 //loads function on load of page
-window.onload = function(){
   readChannel();
   displayMessages();
-};
