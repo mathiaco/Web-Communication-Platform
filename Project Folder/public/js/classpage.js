@@ -1,3 +1,4 @@
+var postCount=0;
 // Write the post data to database
 function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
@@ -165,6 +166,7 @@ function initializePage() {
 
   // Event trigger when database adds a new post. Also displays post on screen.
   postsRef.on("child_added", function (snapshot, prevChildKey) {
+    postCount++;
     var newPost = snapshot.val();
     var date = timeSince(newPost.date);
     $("#postList").append(
@@ -174,6 +176,8 @@ function initializePage() {
       "</span>" +
       "</a>"
     )
+      // Adjust Post count displayed
+      $("#postCount").text(postCount);
   });
 }
 
