@@ -70,8 +70,7 @@ function initializePage() {
       "<!-- /.modal -->"
     );
   }
-
-  // Fetches users that are in the class and displays them.
+    // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
     var user = snapshot.val();
@@ -206,6 +205,7 @@ $("#createGroupBtn").click(function () {
   //setting group name
   var groupName = document.getElementById("groupName").value;
   var groupID;
+  groupCount++;
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
   var counter = groupList.length
   ref.push({
@@ -213,7 +213,7 @@ $("#createGroupBtn").click(function () {
   })
 
   ref.on("child_added", function (snapshot, prevChildKey) {
-    groupID = snapshot.getKey()
+    groupID = snapshot.getKey();
   });
   for (index = 0; index < counter; index++) {
     var user = groupList.pop();
@@ -244,7 +244,6 @@ $("#createGroup").click(function () {
       );
 
       $("#add" + data.val().username).click(function () {
-        groupCount++;
         console.log(data.val().username);
         $("#groupMembersList").append(
           "<span class='groupMembers list-group-item'>" +
@@ -287,7 +286,7 @@ $("#createGroup").click(function () {
 }*/
 
 function initializeGroup() {
-    // Adjust member count displayed
+    // Adjust Group count displayed
     $("#groupCount").text(groupCount);
 
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
@@ -314,13 +313,13 @@ function initializeGroup() {
     }
 
     $(".delGroup").click(function () {
-      groupCount--;
       var groupElement = $(this);
       var key = $(this).attr("id");
       ref.on("child_removed", function (data) {
         groupElement.closest("span").remove();
       })
       firebase.database().ref("classes/" + classID + "/groups/").child(key).remove();
+      groupCount--;
     });
   });
 }
@@ -382,7 +381,8 @@ var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
   $("#classTitle").text(snapshot.val().title);
   taID = snapshot.val().ta;
-  initializePage();
+    $("#ta").text(taID);
+    initializePage();
   initializeGroup();
 });
 
