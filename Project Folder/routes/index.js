@@ -40,7 +40,9 @@ router.get('/groups', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('groups.ejs', {});
 });
 router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('grouppage.ejs', {});
+  res.render('grouppage.ejs', {
+     userID: req.user
+  });
 });
 
 router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
