@@ -2,7 +2,7 @@ CLASS PAGE
 
 	//MAIN CLASS PAGE
 		- Class search enter button doesn't work
-		- Class JOIN button needs to refresh page (or update the class list) automatically.
+		- Class JOIN button needs to refresh page (or update the class list) automatically. (Fixed)
 		- Message when the class doesn't exists ("No results found") (Fixed)
 
 	
