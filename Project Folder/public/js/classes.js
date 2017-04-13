@@ -16,7 +16,6 @@ function writeClasstData(taID, title, description) {
         description: description
     });
     joinClass(classKey);
-    listClass(classKey, title, description, taID);
 }
 
 // delete the specific class from the database and also the class will not be showed anymore on the webpage.
@@ -42,7 +41,12 @@ function joinClass(classID) {
             });
         });
     });
-    listClass(classID, newClass.title, newClass.description, newClass.ta);
+    var refClass = firebase.database().ref("classes/"+classID);
+    var refClassUsers = firebase.database().ref("classes/"+classID + "/users");
+
+    refClass.once('value').then(function(snapshot){
+        listClass(classID, snapshot.val().title, snapshot.val().description, snapshot.val().ta);
+    });
 }
 
 // Lists all classes under "Your classes"
