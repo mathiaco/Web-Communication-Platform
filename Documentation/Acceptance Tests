@@ -1,9 +1,9 @@
 Acceptance test for #14
 https://github.com/ivanb7/soen341group3/issues/14
 
-Given: User is on the dashboard
-1.
-2. 
+Given: User enters this link: https://soen341group3.herokuapp.com/
+1. a panel named " Login via" appears to the screen
+2. the user clicks on the green button "github" where he could login with his github account
 
 Test Verified by the team [x]
 Test Verfied by the client []
@@ -11,9 +11,9 @@ Test Verfied by the client []
 Acceptance test for #15
 https://github.com/ivanb7/soen341group3/issues/15
 
-Given: User is on the dashboard
-1.
-2. 
+Given: TA is on the dashboard
+1.the TA can click on a repository 
+2. it displays the profile activity(number of commits, graphs etc)
 
 Test Verified by the team [x]
 Test Verfied by the client []
@@ -81,6 +81,22 @@ Given: User is on the class page
 Test Verified by the team [x]
 Test Verfied by the client []
 ---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #26
+https://github.com/ivanb7/soen341group3/issues/26
+
+Given: User is on the class page
+1. the user clicks on the "view" button of a specific class
+2.  it displays a page where you can find class members,class forum, groups 
+3.  the user clicks on the button create a post
+4.  a small panel appears
+5. the user fill the title and the comment of the post
+6. the user clicks on the Post button 
+7. the title of the post appears on the class forum page and the user can click on it to see the comment he posted
+8. with the close button, the user can click on it if he don't want to post
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------\
 Acceptance test for #27
 https://github.com/ivanb7/soen341group3/issues/27
 
@@ -89,6 +105,31 @@ Given: User is on the groups
 2. the user clicks on the "choose File" button 
 3. a file explorer box appears where you can select the document you want to upload 
 4. the document is uploaded in the "Uploaded files" box 
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #28
+https://github.com/ivanb7/soen341group3/issues/28
+
+Given: User is on the group forum box
+1. the user clicks on a specific post 
+2. a response timeline box appears
+3. the user can comment on this particular post by filling the blank box  
+4. the user clicks on the submit button to post a comment
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #34
+https://github.com/ivanb7/soen341group3/issues/34
+
+Given: User is in a specific class page 
+1. on the class members box, the user clicks on the add user button 
+2. a small panel appears
+3. the user can search for a classmate and can add him with green + button
+4. the user can click on the remove button to delete a team member
+
 
 Test Verified by the team [x]
 Test Verfied by the client []
@@ -102,7 +143,21 @@ Given: User is on class page
 small box "no result found"
 3.once the user found the class, he can click on the join button and he will be added to the class
 
-Test Verified by the team []
+Test Verified by the team [x]
 Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #37
+https://github.com/ivanb7/soen341group3/issues/37
 
+Given: the user is on his specific class 
+1.on the groups box, the user clicks on the create Group button 
+2. a big panel appears
+3. the user fill the name of the group and add the others classmates to the group
+4. the user clicks on the create button and it displays on the groups box
+5. the user clicks on the name of the group that he created and it redirects to the group page
+6. the user clicks on the create post button where he can create a post and it will display on the group forum
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------
 
