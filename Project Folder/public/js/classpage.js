@@ -22,13 +22,13 @@ function initializePage() {
   // If the current user is a TA, then display special TA functions.
   if (isTA()) {
     $("#addUserBtnHolder").append(
-      "<a href='#' id='addUserBtn' class='btn btn-success btn pull-right' data-toggle='modal' data-target='#addUsersModal'>Add User</a>" +
+      "<a href='#' id='addUserBtn' class='btn btn-success btn pull-right' data-toggle='modal' data-target='#addUsersModal'>Manage Users</a>" +
       "<div class='modal fade' id='addUsersModal' tabindex='-1' role='dialog' aria-labelledby='addUsersModalLabel'>" +
       "<div class='modal-dialog' role='document'>" +
       "<div class='modal-content'>" +
       "<div class='modal-header'>" +
       "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
-      "<h4 class='modal-title' id='addUsersModalLabel'>Add User</h4>" +
+      "<h4 class='modal-title' id='addUsersModalLabel'>Manage Users</h4>" +
       "</div>" +
       "<div class='modal-body'>" +
 
