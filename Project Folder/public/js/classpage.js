@@ -1,4 +1,5 @@
 var postCount=0;
+var groupCount=0;
 // Write the post data to database
 function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
@@ -243,6 +244,7 @@ $("#createGroup").click(function () {
       );
 
       $("#add" + data.val().username).click(function () {
+        groupCount++;
         console.log(data.val().username);
         $("#groupMembersList").append(
           "<span class='groupMembers list-group-item'>" +
@@ -285,6 +287,9 @@ $("#createGroup").click(function () {
 }*/
 
 function initializeGroup() {
+    // Adjust member count displayed
+    $("#groupCount").text(groupCount);
+
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
 
 
@@ -309,6 +314,7 @@ function initializeGroup() {
     }
 
     $(".delGroup").click(function () {
+      groupCount--;
       var groupElement = $(this);
       var key = $(this).attr("id");
       ref.on("child_removed", function (data) {
