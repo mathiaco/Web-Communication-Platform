@@ -77,7 +77,7 @@ function initializePage() {
     if (isFirstLoad) {
       $("#classMembers").append(
         "<span class='users list-group-item'>" +
-        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
+        "<span class='userName'>" + "<a href='/profile/id/" + user.user_id + " '>" + user.username + "</a>" + "</span>" +
         "</span>"
       );
     }
@@ -85,7 +85,7 @@ function initializePage() {
     else {
       $("#classMembers").prepend(
         "<span class='users list-group-item'>" +
-        "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
+        "<span class='userName'>" + "<a href='/profile/id/" + user.user_id + " '>" + user.username + "</a>" + "</span>" +
         "</span>"
       );
     }
@@ -100,7 +100,7 @@ function initializePage() {
       if (isFirstLoad) {
         $("#userList").append(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
+          "<span class='userName'>" + "<a href='/profile/id/" + user.user_id + " '>" + user.username + "</a>" + "</span>" +
           removeBtn +
           "</span>"
         );
@@ -109,7 +109,7 @@ function initializePage() {
       else {
         $("#userList").prepend(
           "<span class='users list-group-item'>" +
-          "<span class='userName'>" +"<a href='/profile/id/" +user.user_id+" '>" + user.username + "</a>" +"</span>" +
+          "<span class='userName'>" + "<a href='/profile/id/" + user.user_id + " '>" + user.username + "</a>" + "</span>" +
           removeBtn +
           "</span>"
         );
@@ -180,9 +180,9 @@ function initializePage() {
 
 // Change this later to check if person is actually a TA
 function isTA() {
-  if (taID == currentUserID){
+  if (taID == currentUserID) {
     return true;
-    }  else
+  } else
     return true;
 }
 
@@ -201,18 +201,18 @@ $("#createGroupBtn").click(function () {
   //setting group name
   var groupName = document.getElementById("groupName").value;
   var groupID;
-  var ref = firebase.database().ref("classes/" + classID + "/groups/" );
+  var ref = firebase.database().ref("classes/" + classID + "/groups/");
   var counter = groupList.length
   ref.push({
     Group_Name: groupName
   })
 
-   ref.on("child_added", function(snapshot, prevChildKey){
-     groupID = snapshot.getKey()
-   });
+  ref.on("child_added", function (snapshot, prevChildKey) {
+    groupID = snapshot.getKey()
+  });
   for (index = 0; index < counter; index++) {
     var user = groupList.pop();
-  var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupID +"/users/");
+    var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupID + "/users/");
     ref.push({
       user_id: user.user_id,
       username: user.username
@@ -282,23 +282,36 @@ $("#createGroup").click(function () {
 
 function initializeGroup() {
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
-  ref.orderByValue().on("child_added", function (snapshot) {
-      var removeBtn = "";
-      if (isTA()) {
-          console.log(snapshot.key)
-        removeBtn = "<button id=remove" + snapshot.key + " class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
-      }
 
-      if ($(".groupList:contains(" + snapshot.val().Group_Name + ")").length < 1) {
-        console.log($(".groupMembers:contains(" + snapshot.key + ")").length)
-        document.getElementById('groupList').innerHTML +=
-          (
-            "<a href='/groupPage?c=" + snapshot.key + "/class?c=" + classID + "' class='list-group-item'>" +
-            snapshot.val().Group_Name +
-            removeBtn +
-            "</a>"
-          );
-      }
+
+  ref.orderByValue().on("child_added", function (snapshot) {
+    var removeBtn = "";
+    if (isTA()) {
+      console.log(snapshot.key)
+      removeBtn = "<button id='" + snapshot.key + "' class='delGroup pull-right btn btn-danger btn-xs'>Remove</button>";
+    }
+
+    if ($(".groupList:contains(" + snapshot.val().Group_Name + ")").length < 1) {
+      console.log($(".groupMembers:contains(" + snapshot.key + ")").length)
+      document.getElementById('groupList').innerHTML +=
+        (
+          "<span class='list-group-item'>" +
+          "<a href='/grouppage?c=" + snapshot.key + "/class?c=" + classID + "'>" +
+          snapshot.val().Group_Name +
+          "</a>" +
+          removeBtn +
+          "</span>"
+        );
+    }
+
+    $(".delGroup").click(function () {
+      var groupElement = $(this);
+      var key = $(this).attr("id");
+      ref.on("child_removed", function (data) {
+        groupElement.closest("span").remove();
+      })
+      firebase.database().ref("classes/" + classID + "/groups/").child(key).remove();
+    });
   });
 }
 
