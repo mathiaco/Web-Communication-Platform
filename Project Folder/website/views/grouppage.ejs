@@ -54,7 +54,11 @@
 </head>
 
 <body>
-  <!-- get current user id -->
+    <!-- get current user id -->
+    <script>
+        var currentUserID = <%- JSON.stringify(userID) %>
+    </script>
+  
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -148,7 +152,7 @@
                         </div>
                 <div>
                     <div class="panel panel-default">
-                        <div class="panel-heading"> Uploading files </div>
+                        <div class="panel-heading"> Uploaded files </div>
 
                 <div class="panel-body">
                       <div id="uploadfiles"> </div>
