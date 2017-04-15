@@ -194,7 +194,6 @@ function addUserToChannel(userSelected,ref){
 
   ref.orderByChild("username").equalTo(userSelected).once("value").then(function(snapshot){
     snapshot.forEach(function(user){
-      console.log(currentChannelID);
       firebase.database().ref("chat/channels/" + currentChannelID + "/users/" + user.key).set({
         username: user.val().username,
         user_id: user.key
