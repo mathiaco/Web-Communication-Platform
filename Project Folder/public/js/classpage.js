@@ -1,5 +1,8 @@
-var postCount=0;
-var numGroups=0;
+var postCount = 0;
+var numGroups = 0;
+var icons = ["fa-glass", "fa-music", "fa-heart", "fa-star", "fa-plane", "fa-coffee",
+  "fa-cutlery", "fa-thumbs-up", "fa-flash", "fa-gamepad", "fa-tree"];
+var userColors = ["success", "warning", "info", "default", "danger"];
 // Write the post data to database
 function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
@@ -70,7 +73,7 @@ function initializePage() {
       "<!-- /.modal -->"
     );
   }
-    // Fetches users that are in the class and displays them.
+  // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
     var user = snapshot.val();
@@ -138,9 +141,13 @@ function initializePage() {
     ref = firebase.database().ref("users/");
     ref.orderByChild("username").equalTo(userName).once("value").then(function (snapshot) {
       snapshot.forEach(function (user) {
+        var rndColor = Math.floor(Math.random() * 5) + 0;
+        var rndIcon = Math.floor(Math.random() * 11) + 0;
         firebase.database().ref("classes/" + classID + "/users/" + user.key).set({
           username: user.val().username,
-          user_id: user.key
+          user_id: user.key,
+          icon: icons[rndIcon],
+          color: userColors[rndColor]
         });
       });
     });
@@ -177,8 +184,8 @@ function initializePage() {
       "</span>" +
       "</a>"
     )
-      // Adjust Post count displayed
-      $("#postCount").text(postCount);
+    // Adjust Post count displayed
+    $("#postCount").text(postCount);
   });
 }
 
@@ -222,8 +229,8 @@ $("#createGroupBtn").click(function () {
       username: user.username
     })
   }
-    // Adjust Group count displayed
-    $("#groupCount").text(numGroups);
+  // Adjust Group count displayed
+  $("#groupCount").text(numGroups);
 })
 
 //deleting the class list and group list and reloading them.
@@ -308,8 +315,8 @@ function initializeGroup() {
           "</span>"
         );
       numGroups++;
-        // Adjust Group count displayed
-        $("#groupCount").text(numGroups);
+      // Adjust Group count displayed
+      $("#groupCount").text(numGroups);
     }
 
     $(".delGroup").click(function () {
@@ -320,10 +327,10 @@ function initializeGroup() {
         groupElement.closest("span").remove();
       })
       firebase.database().ref("classes/" + classID + "/groups/").child(key).remove();
-        // Adjust Group count displayed
-        $("#groupCount").text(numGroups);
-    });// Adjust Group count displayed
+      // Adjust Group count displayed
       $("#groupCount").text(numGroups);
+    });// Adjust Group count displayed
+    $("#groupCount").text(numGroups);
   });
 }
 
@@ -384,11 +391,11 @@ var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
   $("#classTitle").text(snapshot.val().title);
   taID = snapshot.val().ta;
-    $("#ta").append(
-    "<a href= 'profile/id/" + taID+ "'>" +
-        taID + "</a>"
-    );
-    initializePage();
+  $("#ta").append(
+    "<a href= 'profile/id/" + taID + "'>" +
+    taID + "</a>"
+  );
+  initializePage();
   initializeGroup();
 });
 

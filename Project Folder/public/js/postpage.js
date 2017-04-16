@@ -2,10 +2,13 @@
 
 // Write the comment data to database
 function writeCommentData(ref, name, content, icon, color) {
+    
     var commentRef = firebase.database().ref(ref);
     var newCommentRef = commentRef.push();
     var d = new Date();
+    
     var numDate = d.getTime();
+    alert(icon)
     newCommentRef.set({
         userid: currentUserID,
         username: name,
@@ -14,6 +17,7 @@ function writeCommentData(ref, name, content, icon, color) {
         color: color,
         date: numDate
     });
+    alert("hi")
 }
 
 // Initializes the page and get the needed data inorder to display
