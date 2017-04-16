@@ -2,11 +2,11 @@
 
 // Write the comment data to database
 function writeCommentData(ref, name, content, icon, color) {
-    
+
     var commentRef = firebase.database().ref(ref);
     var newCommentRef = commentRef.push();
     var d = new Date();
-    
+
     var numDate = d.getTime();
     newCommentRef.set({
         userid: currentUserID,
@@ -84,6 +84,13 @@ function initializePage() {
         });
     });
 
+    $("#commentContent").keydown(function (event) {
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            $("#commentBtn").trigger("click");
+        }
+    });
+
     // Button Event for sending the comment to function that writes it to the database
     $("#commentBtn").click(function () {
         var username = "";
@@ -96,6 +103,7 @@ function initializePage() {
             icon = user.icon;
             color = user.color;
             writeCommentData("classes/" + urlParams["c"] + "/posts/" + urlParams["p"] + "/comments/", username, $("#commentContent").val(), icon, color);
+            $("#commentContent").val("");
         });
     });
 }
