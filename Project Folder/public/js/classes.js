@@ -126,7 +126,7 @@ $("#classSearchBtn").click(function () {
     ref = firebase.database().ref("classes/");
 
     // Finds the class you search based on the text input
-    ref.orderByChild("title").equalTo(className).once("value").then(function (snapshot) {
+    ref.orderByChild("title").startAt(className).endAt(className+"\uf8ff").once("value").then(function (snapshot) {
         snapshot.forEach(function (classSearched) {
             var isRegistered = false;
             firebase.database().ref("classes/" + classSearched.getKey() + "/users/").once("value", function (usersSnapshot) {
