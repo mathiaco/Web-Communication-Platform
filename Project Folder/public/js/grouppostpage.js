@@ -23,7 +23,7 @@ function initializePage() {
 
     // Reads the post data from the database
     postsRef.once("value").then(function (snapshot) {
-        
+
         var newPost = snapshot.val();
         // Displays post data on page.
         firebase.database().ref("classes/" + urlParams["c"] + "/users/" + newPost.user_id).once("value").then(function (snapshotChild) {
@@ -82,6 +82,13 @@ function initializePage() {
         });
     });
 
+    $("#commentContent").keydown(function (event) {
+        var keyCode = (event.keyCode ? event.keyCode : event.which);
+        if (keyCode == 13) {
+            $("#commentBtn").trigger("click");
+        }
+    });
+
     // Button Event for sending the comment to function that writes it to the database
     $("#commentBtn").click(function () {
         var username = "";
@@ -94,6 +101,7 @@ function initializePage() {
             icon = user.icon;
             color = user.color;
             writeCommentData("classes/" + urlParams["c"] + "/groups/" + urlParams["g"] + "/posts/" + urlParams["p"] + "/comments/", username, $("#commentContent").val(), icon, color);
+            $("#commentContent").val("");
         });
     });
 }
