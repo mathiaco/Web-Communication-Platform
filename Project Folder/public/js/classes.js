@@ -25,7 +25,7 @@ function deleteBox(id) {
     $("div").remove("#" + idOfBox);
 };
 
-// allows user to join class when button is pressed
+// allows user to join class when class is created is pressed
 function joinClass(classID) {
     var rndColor = Math.floor(Math.random() * 5) + 0;
     var rndIcon = Math.floor(Math.random() * 11) + 0;
@@ -41,6 +41,34 @@ function joinClass(classID) {
             });
         });
     });
+    var refClass = firebase.database().ref("classes/" + classID);
+    var refClassUsers = firebase.database().ref("classes/" + classID + "/users");
+
+    refClass.once('value').then(function (snapshot) {
+        listClass(classID, snapshot.val().title, snapshot.val().description, snapshot.val().ta);
+    });
+}
+
+// allows user to join class when button is pressed
+function joinClassBtnEvent(classID) {
+    var rndColor = Math.floor(Math.random() * 5) + 0;
+    var rndIcon = Math.floor(Math.random() * 11) + 0;
+
+    ref = firebase.database().ref("users/");
+    ref.orderByChild("user_id").equalTo(currentUserID).once("value").then(function (snapshot) {
+        snapshot.forEach(function (user) {
+            firebase.database().ref("classes/" + classID + "/users/" + user.key).set({
+                username: user.val().username,
+                user_id: user.key,
+                icon: icons[rndIcon],
+                color: userColors[rndColor]
+            });
+        });
+    });
+
+    $("#"+classID).html("Already in this class");
+    $("#"+classID).addClass("disabled");
+
     var refClass = firebase.database().ref("classes/" + classID);
     var refClassUsers = firebase.database().ref("classes/" + classID + "/users");
 
@@ -115,7 +143,7 @@ $("#classSearchBtn").click(function () {
                 else {
                     joinButton = "<button id='" + classSearched.getKey() +
                         "' type='button' class='btn btn-success btn-default btn-block'" +
-                        " onClick='joinClass(this.id)'>Join</button>";
+                        " onClick='joinClassBtnEvent(this.id)'>Join</button>";
                 }
                 $("#searchedClassesRow").append(
 
