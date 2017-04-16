@@ -1,3 +1,5 @@
+var postCount=0;
+var numGroups=0;
 // Write the post data to database
 function writePostData(posts, user, title, content, icon, color) {
   var newPostRef = postsRef.push();
@@ -68,8 +70,7 @@ function initializePage() {
       "<!-- /.modal -->"
     );
   }
-
-  // Fetches users that are in the class and displays them.
+    // Fetches users that are in the class and displays them.
   refClassUsers.orderByChild("username").on("child_added", function (snapshot, prevChildKey) {
     memberCount++;
     var user = snapshot.val();
@@ -166,6 +167,7 @@ function initializePage() {
 
   // Event trigger when database adds a new post. Also displays post on screen.
   postsRef.on("child_added", function (snapshot, prevChildKey) {
+    postCount++;
     var newPost = snapshot.val();
     var date = timeSince(newPost.date);
     $("#postList").append(
@@ -175,6 +177,8 @@ function initializePage() {
       "</span>" +
       "</a>"
     )
+      // Adjust Post count displayed
+      $("#postCount").text(postCount);
   });
 }
 
@@ -208,7 +212,7 @@ $("#createGroupBtn").click(function () {
   })
 
   ref.on("child_added", function (snapshot, prevChildKey) {
-    groupID = snapshot.getKey()
+    groupID = snapshot.getKey();
   });
   for (index = 0; index < counter; index++) {
     var user = groupList.pop();
@@ -218,8 +222,9 @@ $("#createGroupBtn").click(function () {
       username: user.username
     })
   }
+    // Adjust Group count displayed
+    $("#groupCount").text(numGroups);
 })
-
 
 //deleting the class list and group list and reloading them.
 $("#createGroup").click(function () {
@@ -251,7 +256,6 @@ $("#createGroup").click(function () {
     })
   })
 })
-
 // Does this do anything? - Jeff
 //creates the class list that user may select from to create groups (first load)
 /*nction initializeClassList() {
@@ -281,6 +285,7 @@ $("#createGroup").click(function () {
 }*/
 
 function initializeGroup() {
+
   var ref = firebase.database().ref("classes/" + classID + "/groups/");
 
 
@@ -302,16 +307,23 @@ function initializeGroup() {
           removeBtn +
           "</span>"
         );
+      numGroups++;
+        // Adjust Group count displayed
+        $("#groupCount").text(numGroups);
     }
 
     $(".delGroup").click(function () {
       var groupElement = $(this);
+      numGroups--;
       var key = $(this).attr("id");
       ref.on("child_removed", function (data) {
         groupElement.closest("span").remove();
       })
       firebase.database().ref("classes/" + classID + "/groups/").child(key).remove();
-    });
+        // Adjust Group count displayed
+        $("#groupCount").text(numGroups);
+    });// Adjust Group count displayed
+      $("#groupCount").text(numGroups);
   });
 }
 
@@ -372,7 +384,11 @@ var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
   $("#classTitle").text(snapshot.val().title);
   taID = snapshot.val().ta;
-  initializePage();
+    $("#ta").append(
+    "<a href= 'profile/id/" + taID+ "'>" +
+        taID + "</a>"
+    );
+    initializePage();
   initializeGroup();
 });
 

@@ -17,12 +17,6 @@ function readChannel(){
   ref.orderByValue().on("value", function(snapshot){
     snapshot.forEach(function(data){
 
-      //if/else to check and see if the current user is part of a channelRef
-      //if so allow them to chat in that channel
-      if(currentUser === data.val().creator){
-        partOfChannel = true;
-      }
-      else{
         refChannelUsers = firebase.database().ref("chat/channels/" + data.key + "/users/");
 
         refChannelUsers.orderByValue().on("value", function(user1){
@@ -32,7 +26,7 @@ function readChannel(){
             }
           });
         });
-      }
+
       if(partOfChannel){
         document.getElementById('channel-container').innerHTML +=
         ('<div onClick="changeActive(this)" value="' + data.val().channelName + '" class="channel">' + data.val().channelName + '</div>');
