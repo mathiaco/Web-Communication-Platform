@@ -194,7 +194,7 @@ function isTA() {
   if (taID == currentUserID) {
     return true;
   } else
-    return true;
+    return false;
 }
 
 // Gets the class ID from URL

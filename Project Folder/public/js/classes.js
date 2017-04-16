@@ -41,10 +41,10 @@ function joinClass(classID) {
             });
         });
     });
-    var refClass = firebase.database().ref("classes/"+classID);
-    var refClassUsers = firebase.database().ref("classes/"+classID + "/users");
+    var refClass = firebase.database().ref("classes/" + classID);
+    var refClassUsers = firebase.database().ref("classes/" + classID + "/users");
 
-    refClass.once('value').then(function(snapshot){
+    refClass.once('value').then(function (snapshot) {
         listClass(classID, snapshot.val().title, snapshot.val().description, snapshot.val().ta);
     });
 }
@@ -93,39 +93,56 @@ $("#createClassBtn").click(function () {
 
 // Ability to search for class
 $("#classSearchBtn").click(function () {
-
+    $("#searchedClassesRow").empty();
     var className = $("#classSearchInput").val();
     ref = firebase.database().ref("classes/");
 
     // Finds the class you search based on the text input
     ref.orderByChild("title").equalTo(className).once("value").then(function (snapshot) {
         snapshot.forEach(function (classSearched) {
-            $("#searchedClassesRow").append(
-                "<div class='col-lg-4'>" +
-                "<div class='panel panel-default'>" +
-                "<div class='panel-heading'>" +
-                classSearched.val().title +
-                "</div>" +
-                "<div class='panel-body'>" +
-                "<p>" + classSearched.val().description + "</p>" +
-                "</div>" +
-                "<div class='panel-footer'>" +
-                "<button id='" + classSearched.getKey() + "' type='button' class='btn btn-success btn-default btn-block' onClick='joinClass(this.id)'>Join</button>" +
-                "</div>" +
-                "</div>"
-            )
+            var isRegistered = false;
+            firebase.database().ref("classes/" + classSearched.getKey() + "/users/").once("value", function (usersSnapshot) {
 
+                usersSnapshot.forEach(function (userSnapshot) {
+                    if (userSnapshot.getKey() == currentUserID)
+                        isRegistered = true;
+                });
+                var joinButton = ""
+                if (isRegistered) {
+                    joinButton = "<button id='' type='button' class='btn btn-success disabled btn-default btn-block'" +
+                        " '>Already in this class</button>";
+                }
+                else {
+                    joinButton = "<button id='" + classSearched.getKey() +
+                        "' type='button' class='btn btn-success btn-default btn-block'" +
+                        " onClick='joinClass(this.id)'>Join</button>";
+                }
+                $("#searchedClassesRow").append(
+
+                    "<div class='col-lg-4'>" +
+                    "<div class='panel panel-default'>" +
+                    "<div class='panel-heading'>" +
+                    classSearched.val().title +
+                    "</div>" +
+                    "<div class='panel-body'>" +
+                    "<p>" + classSearched.val().description + "</p>" +
+                    "</div>" +
+                    "<div class='panel-footer'>" +
+                    joinButton +
+                    "</div>" +
+                    "</div>"
+                )
+            });
         });
         //"No result" message if class is not found
-        if (!(snapshot.val()))
-        {
+        if (!(snapshot.val())) {
             $("#searchedClassesRow").append(
                 "<div class='col-lg-4'>" +
                 "<div class='panel panel-default'>" +
                 "<div class='panel-heading'>" +
                 "No Result found!" +
                 "</div>" +
-                "</div>"                    )
+                "</div>")
         }
     });
 
