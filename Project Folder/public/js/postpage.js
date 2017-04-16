@@ -8,7 +8,6 @@ function writeCommentData(ref, name, content, icon, color) {
     var d = new Date();
     
     var numDate = d.getTime();
-    alert(icon)
     newCommentRef.set({
         userid: currentUserID,
         username: name,
@@ -17,7 +16,6 @@ function writeCommentData(ref, name, content, icon, color) {
         color: color,
         date: numDate
     });
-    alert("hi")
 }
 
 // Initializes the page and get the needed data inorder to display
