@@ -119,6 +119,13 @@ $("#createClassBtn").click(function () {
     writeClasstData(currentUserID, $("#class-title").val(), $("#description-text").val())
 });
 
+$("#classSearchInput").keydown(function(event){ 
+    var keyCode = (event.keyCode ? event.keyCode : event.which);   
+    if (keyCode == 13) {
+        $("#classSearchBtn").trigger("click");
+    }
+});
+
 // Ability to search for class
 $("#classSearchBtn").click(function () {
     $("#searchedClassesRow").empty();
