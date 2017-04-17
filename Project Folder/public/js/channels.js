@@ -88,21 +88,20 @@ channelRef.on("child_added", function(snapshot){
       colCount = 1;
   }
 
-    if(checkUser(creator, snapshot.getKey())){
-
+    if(checkUser(snapshot.getKey())){
       //allows deletion of channel if current user is the creator of the channel
       if(creator === currentUser){
-        $("#classRow").append(
-            "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
-            "<div class='panel panel-" + color + "'>" +
-            "<div class='panel-heading'>" +
-            newChannel.channelName +
-            "</div>" +
-            "<div class='panel-footer'>" +
-            "<button id=" + snapshot.getKey() + " class='btn btn-default btn-default btn-block' onClick='selectedChannel(this.id)' data-toggle='modal' data-target='#view'>View</button>"
-            + "<br/>" + "<button  id="+ snapshot.getKey()+"  class='btn btn-default btn-default btn-block'  onClick='deleteBox(this.id)' >Delete Box</button>"+
-            "</div>"
-        );
+              $("#classRow").append(
+                  "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
+                  "<div class='panel panel-" + color + "'>" +
+                  "<div class='panel-heading'>" +
+                  newChannel.channelName +
+                  "</div>" +
+                  "<div class='panel-footer'>" +
+                  "<button id=" + snapshot.getKey() + " class='btn btn-default btn-default btn-block' onClick='selectedChannel(this.id)' data-toggle='modal' data-target='#view'>View</button>"
+                  + "<br/>" + "<button  id="+ snapshot.getKey()+"  class='btn btn-default btn-default btn-block'  onClick='deleteBox(this.id)' >Delete Box</button>"+
+                  "</div>"
+              );
       }
       else{
         $("#classRow").append(
@@ -116,7 +115,6 @@ channelRef.on("child_added", function(snapshot){
           );
       }
     }
-    currentChannelID = snapshot.getKey();
 });
 
 //removes channel
@@ -189,6 +187,7 @@ $("#searchUserBtn").click(function(e){
 function addUserToChannel(userSelected,ref){
   var creator = '';
 
+
   creatorRef = firebase.database().ref("chat/channels/" + currentChannelID + "/creator").once("value", function(snapshot){
     creator = snapshot.val();
   });
@@ -220,8 +219,6 @@ function addUserToChannel(userSelected,ref){
 }
 
 function selectedChannel(id){
-  var channelid = id;
-  document.getElementById('userList').innerHTML = '';
   var creator = '';
 
   creatorRef = firebase.database().ref("chat/channels/" + id + "/creator").once("value", function(snapshot){
@@ -231,6 +228,7 @@ function selectedChannel(id){
   refChannelUsers = firebase.database().ref("chat/channels/" + id + "/users");
 
   refChannelUsers.once("value").then(function(snapshot){
+      document.getElementById('userList').innerHTML = '';
     snapshot.forEach(function(user){
       if(creator === currentUser){
         if(creator === user.val().username){
@@ -258,6 +256,7 @@ function selectedChannel(id){
       }
     });
   });
+  currentChannelID = id;
 }
 
 $("#leaveChannel").click(function(e){
@@ -277,93 +276,9 @@ function removeUserChannel(id){
   selectedChannel(channelid);
 }
 
-//searches for channel click
-$("#channelSearchBtn").click(function(){
-  var channelName = $("#channelSearchInput").val();
-  document.getElementById('not-Found').innerHTML = "";
-  if (colCount == 1) {
-      color = "purple";
-      colCount++;
-  }
-  else if (colCount == 2) {
-      color = "pink";
-      colCount++;
-  }
-  else if (colCount == 3) {
-      color = "orange";
-      colCount = 1;
-  }
 
-    channelRef.orderByChild("channelName").equalTo(channelName).once("value").then(function(snapshot){
-      if(snapshot.exists()){
-          snapshot.forEach(function(data){
-              $("#searchedChannelRow").append(
-                  "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
-                  "<div class='panel panel-" + color + "'>" +
-                  "<div class='panel-heading'>" +
-                  data.val().channelName +
-                  "</div>" +
-                  "<div class='panel-footer'>" +
-                  "<a href='/channelpage?c=" + snapshot.getKey() + "' class='btn btn-default btn-default btn-block'>View</a></div>"
-                );
-          });
-      }
-      else{
-        document.getElementById('not-Found').innerHTML = "Channel " + channelName + " Does Not Exist!";
-      }
-    });
-    document.getElementById('channelSearchInput').value = '';
-});
-
-// //searches for channel on enter press
-// $("#search-Channel").submit(function(e){
-//   var channelName = $("#channelSearchInput").val();
-//   document.getElementById('not-Found').innerHTML = "";
-//   if (colCount == 1) {
-//       color = "purple";
-//       colCount++;
-//   }
-//   else if (colCount == 2) {
-//       color = "pink";
-//       colCount++;
-//   }
-//   else if (colCount == 3) {
-//       color = "orange";
-//       colCount = 1;
-//   }
-//
-//     channelRef.orderByChild("channelName").equalTo(channelName).once("value").then(function(snapshot){
-//       if(snapshot.exists()){
-//           snapshot.forEach(function(data){
-//             console.log(data.channelName);
-//
-//               $("#searchedChannelRow").append(
-//                   "<div id="+snapshot.getKey()+" class='col-lg-4'>" +
-//                   "<div class='panel panel-" + color + "'>" +
-//                   "<div class='panel-heading'>" +
-//                   data.val().channelName +
-//                   "</div>" +
-//                   "<div class='panel-footer'>" +
-//                   "<button id=" + snapshot.getKey() + " class='btn btn-default btn-default btn-block' onClick='selectedChannel(this.id)' data-toggle='modal' data-target='#view'>View</button>"
-//                 );
-//
-//           });
-//       }
-//       else{
-//         document.getElementById('not-Found').innerHTML = "Channel " + channelName + " Does Not Exist!";
-//       }
-//     });
-//     document.getElementById('channelSearchInput').value = '';
-//     e.preventDefault();
-// });
-
-
-function checkUser(creator, key){
+function checkUser(key){
   var display = false;
-  if(creator === currentUser){
-      display = true;
-  }
-  else{
     refChannelUsers = firebase.database().ref("chat/channels/" + key + "/users/");
     refChannelUsers.orderByValue().on("value", function(user1){
       user1.forEach(function(user2){
@@ -372,9 +287,9 @@ function checkUser(creator, key){
           }
       });
     });
-  }
   return display;
 }
+
 
 function erase(){
   document.getElementById("already-Exists").innerHTML = "";

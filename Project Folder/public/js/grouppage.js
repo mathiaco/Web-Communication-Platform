@@ -1,12 +1,12 @@
 var postsRef;
 
 //Initialize the page
-function initializePage(){
+function initializePage() {
   //initialize page Header with group name
   var ref = firebase.database().ref("classes/" + classID + "/groups/" + groupID);
-  ref.orderByValue().on("value",function(snapshot){
+  ref.orderByValue().on("value", function (snapshot) {
 
-      document.getElementById("groupName").innerHTML = snapshot.val().Group_Name;
+    document.getElementById("groupName").innerHTML = snapshot.val().Group_Name;
   })
 
   refGroupUsers = firebase.database().ref("classes/" + classID + "/groups/" + groupID + "/users/");
@@ -84,16 +84,16 @@ function initializePage(){
     // If it's the page's first load, then append names.
     if (isFirstLoad) {
       $("#classMembers").append(
-        "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='users list-group-item'>" + "<a href='/profile/id/" + user.user_id + " '>" +
+        user.username + "</a>" +
         "</span>"
       );
     }
     // If it's not the first load, then prepend names so they appear at the top.
     else {
       $("#classMembers").prepend(
-        "<span class='users list-group-item'>" +
-        user.username +
+        "<span class='users list-group-item'>" + "<a href='/profile/id/" + user.user_id + " '>" +
+        user.username + "</a>" +
         "</span>"
       );
     }
@@ -101,7 +101,7 @@ function initializePage(){
 
     if (isTA()) {
       var removeBtn = "";
-        removeBtn = "<button class='deleteUser pull-right btn btn-danger btn-xs'>Remove</button>";
+      removeBtn = "<button class='deleteUser pull-right btn btn-danger btn-xs'>Remove</button>";
       // If it's the page's first load, then append names.
       if (isFirstLoad) {
         $("#userList").append(
@@ -168,47 +168,78 @@ function writePostData(posts, user, title, content, icon, color) {
   });
 }
 
-postsRef = firebase.database().ref("classes/" + classID + "/groups/" + groupID + "/posts");
+function initializePosts() {
 
-$("#postBtn").click(function () {
-  firebase.database().ref("classes/" + classID + "/groups/" + groupID + currentUserID).once("value").then(function (snapshot) {
-    var user = snapshot.val();
-    writePostData("posts/", currentUserID, $("#title-text").val(), $("#message-text").val(), user.icon, user.color);
-  })
-});
+  $("#postBtn").click(function () {
+    firebase.database().ref("classes/" + classID + "/users/" + currentUserID).once("value").then(function (snapshot) {
+      var user = snapshot.val();
+      writePostData("posts/", currentUserID, $("#title-text").val(), $("#message-text").val(), user.icon, user.color);
+    })
+  });
 
-// Event trigger when database adds a new post. Also displays post on screen.
-postsRef.on("child_added", function (snapshot, prevChildKey) {
-  var newPost = snapshot.val();
-  var date = timeSince(newPost.date);
-  $("#postList").append(
-    "<a href='/postpage?c=" + classID + "&p=" + snapshot.getKey() + "' class='list-group-item'>" +
-    newPost.title +
-    "<span class='pull-right text-muted small'><em>" + date + " ago</em>" +
-    "</span>" +
-    "</a>"
-  )
-});
+  // Event trigger when database adds a new post. Also displays post on screen.
+  postsRef.on("child_added", function (snapshot, prevChildKey) {
+    var newPost = snapshot.val();
+    var date = timeSince(newPost.date);
+    $("#postList").append(
+      "<a href='/grouppostpage?c=" + classID + "&g=" + groupID +"&p=" + snapshot.getKey() + "' class='list-group-item'>" +
+      newPost.title +
+      "<span class='pull-right text-muted small'><em>" + date + " ago</em>" +
+      "</span>" +
+      "</a>"
+    )
+  });
+}
 
+// Calculates the amount of time sinve the given date and current date
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
 
 //get classID and GroupID from the url
 function getGroupID() {
   var pageURL = window.location.search.substring(1);
   pageURL = pageURL.split("=");
-  groupID = pageURL[1].substring(0,20);
+  groupID = pageURL[1].substring(0, 20);
   classID = pageURL[2]
   console.log("GROUP ID: " + groupID)
   console.log("Class ID: " + classID)
 }
-$(".deleteGroupBtn" ).click(function () {
+$(".deleteGroupBtn").click(function () {
   $(".groupList:contains(" + data.val().username + ")").remove();
   ref.child(key).remove();
 })
 
 
-function isTA(){
+function isTA() {
   return true;
 }
+
+
 
 var groupID
 var classID
@@ -216,6 +247,8 @@ var isFirstLoad = true;
 var memberCount = 0;
 
 getGroupID();
-initializePage();
 
+var postsRef = firebase.database().ref("classes/" + classID + "/groups/" + groupID + "/posts/");
+initializePage();
+initializePosts();
 
