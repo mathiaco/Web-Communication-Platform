@@ -64,18 +64,11 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Comments!</div>
+                                        <div class="huge" id="postCount"></div>
+                                        <div>New Posts!</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -91,60 +84,39 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
-                                    </div>
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" id="groupCount"></div>
+                                    <div>New Groups!</div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
+                </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
+                                        <i class="fa fa-user fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
+                                        <div class="huge" id="ta"></div>
+                                          <div>TA ID</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
                         </div>
                     </div>
-                </div>
+            </div>
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-8">
@@ -158,8 +130,7 @@
 
                                 </div>
                                 <!-- /.list-group -->
-                                <a href="#" class="btn btn-default btn pull-left">View All Posts</a>
-                                <a href="#" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#postModal">Create Post</a>
+                                <a href="#" class="btn btn-success btn pull-center" data-toggle="modal" data-target="#postModal">Create Post</a>
                                 <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -198,10 +169,10 @@
                             <div class="panel-body">
                                 <div class="list-group" id="groupList">
                                 </div>
-                                <a href="#" button id="createGroup" class="btn btn-success btn pull-right" data-toggle="modal" data-target="#groupModal">Create Group</a>
+                                <a href="#" button id="createGroup" class="btn btn-success btn pull-center" data-toggle="modal" data-target="#groupModal">Create Group</a>
                             </div>
 
-                            <!-- /.panel-heading -->       
+                            <!-- /.panel-heading -->
                                 <div class='modal fade' id='groupModal' tabindex='-1' role='dialog' aria-labelledby='groupModalLabel'>
                                     <div class='modal-dialog' role='document'>
                                         <div class='modal-content'>
@@ -273,7 +244,6 @@
                                 <div class="list-group" id="classMembers">
                                 </div>
                                 <!-- /.list-group -->
-                                <a href="#" id="viewUsersBtn" class="btn btn-default btn pull-left" data-toggle="modal" data-target="#viewUsersModal">View All Users</a>
                                 <div id="addUserBtnHolder"></div>
                             </div>
                             <!-- /.panel-body -->
@@ -316,3 +286,4 @@
 </body>
 
 </html>
+

@@ -28,6 +28,7 @@ var x = [];
 var y = [];
 var maxCommit = 0;
 
+
 //Loops through the repoStats json data
 for(val in repoStats){
 
@@ -58,7 +59,9 @@ for(val in repoStats){
             author: repoStats[val].author.login,
             total: repoStats[val].total,
             x: x,
-            y: y
+            y: y,
+            additions: additions,
+            deletions: deletions
         }
     );
     //Resets the x and y variable
@@ -71,12 +74,32 @@ var repoGraph = document.getElementById("graphsContainer");
 /*
     Creating div for each contributor in the repository
  */
+var length1 = repoStats2.length;
+
 for(i in repoStats2) {
+
+    //container for the statistics
+    var container = document.createElement("div");
+    container.setAttribute("class","statsContainer");
+
     //Create divs for each author
+    //Div will hold the graph
     var div = document.createElement("div");
+
+    //div2 will hold the author info, commits, additions and deletions
+    var div2 = document.createElement("div");
+    var idx = (length1 - i - 1);
+    div2.innerHTML = "<div class='authorName'><a href='/profile/user/"+repoStats2[idx].author+"'>"+ repoStats2[idx].author + "</a></div>" + "Total Commits: " + repoStats2[idx].total + "<br>" + "Additions: " + repoStats2[idx].additions + " lines" + "<br>" + "Deletions: " + repoStats2[idx].deletions + " lines";
+    div2.setAttribute("class","statsInfo");
+
+
     div.setAttribute("id","graph"+ (repoStats2.length - i - 1));
     div.setAttribute("style","width: 60%; height: 300px");
-    repoGraph.appendChild(div);
+
+    container.appendChild(div2);
+    container.appendChild(div);
+
+    repoGraph.appendChild(container);
 }
 /*
     Populating the divs with graphs using Plotly
@@ -87,7 +110,7 @@ for(j in repoStats2){
             x: repoStats2[j].x, y: repoStats2[j].y
         }],
         {
-            title: repoStats2[j].author,
+            title: "Commits from " + repoStats2[j].author,
             xaxis:
             {
                 title: "Week"

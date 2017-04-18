@@ -42,3 +42,10 @@
      margin-left: auto;
      margin-right: auto;
 }
+
+.authorName {
+    font-size: 18px;
+}
+.big {
+    font-size: 30px;
+}

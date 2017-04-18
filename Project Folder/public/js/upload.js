@@ -54,3 +54,21 @@
     );
     
 });
+
+function initializePage (){
+
+    var refFiles = firebase.database().ref("StoringDocuments/");
+    refFiles.once('value').then(function(snapshot){
+        snapshot.forEach(function (childSnapshot)
+        {
+             var downLUrl = childSnapshot.val().url;
+            var filename = childSnapshot.val().filename;
+        // append the name of the file
+        $("#uploadfiles").append(
+            "<a href='" + downLUrl+ "'> "+ filename +" <a/>" + "<br/>");
+    })
+        });
+
+}
+
+ initializePage();

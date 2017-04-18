@@ -6,6 +6,7 @@ firebase.database().ref('users/'+ currentUserID).once('value').then(function(sna
     currentUser = snapshot.val().username;
 });
 
+
 //reads channel from database and displays it
 function readChannel(){
   var ref = firebase.database().ref('chat/channels');
@@ -16,12 +17,6 @@ function readChannel(){
   ref.orderByValue().on("value", function(snapshot){
     snapshot.forEach(function(data){
 
-      //if/else to check and see if the current user is part of a channelRef
-      //if so allow them to chat in that channel
-      if(currentUser === data.val().creator){
-        partOfChannel = true;
-      }
-      else{
         refChannelUsers = firebase.database().ref("chat/channels/" + data.key + "/users/");
 
         refChannelUsers.orderByValue().on("value", function(user1){
@@ -31,7 +26,7 @@ function readChannel(){
             }
           });
         });
-      }
+
       if(partOfChannel){
         document.getElementById('channel-container').innerHTML +=
         ('<div onClick="changeActive(this)" value="' + data.val().channelName + '" class="channel">' + data.val().channelName + '</div>');
@@ -89,8 +84,10 @@ function displayMessages(){
         if(currentUser === data.val().user){
           classAddition = 'currentUser';
         }
-        document.getElementById('chat-window-container').innerHTML +=
-        ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        if(!data.val().message == ''){
+          document.getElementById('chat-window-container').innerHTML +=
+          ('<div class="' + classAddition + ' total-message"><p class="message">' + data.val().message + '</p><h6 class="message-from-user">Sent By:' + data.val().user + '</h6></div>');
+        }
       });
       updateScroll()
     });

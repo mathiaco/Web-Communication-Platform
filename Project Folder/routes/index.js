@@ -1,13 +1,25 @@
 var express = require('express');
 var router = express.Router();
 var connectEnsureLogin = require('connect-ensure-login');
+var gitInfo = require('../modules/gitInfo');
 
 /* GET home page. */
 router.get('/', function (req, res) {
   //TODO: Adjust index page
   //IF LOGGED IN -> render INDEX
   if (req.user) {
-    res.render('dashboard.ejs', {});
+          //Gets the user profile before rendering the page
+          gitInfo.getGitProfileByID(req.user, function(res1) {
+              var profile = res1;
+              gitInfo.getGitReposByID(req.user, function (repoData) {
+                  res.render('profile', {
+                      id: req.user,
+                      profile: profile,
+                      repos: repoData
+                  });
+
+              });
+          });
   }
   //IF NOT LOGGED IN -> render Login page
   else {
@@ -28,7 +40,9 @@ router.get('/groups', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('groups.ejs', {});
 });
 router.get('/grouppage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('grouppage.ejs', {});
+  res.render('grouppage.ejs', {
+     userID: req.user
+  });
 });
 
 router.get('/classes', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
@@ -49,6 +63,12 @@ router.get('/postpage', connectEnsureLogin.ensureLoggedIn(), function (req, res)
     userID: req.user
   });
 });
+router.get('/grouppostpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
+  // send userID to postpage.ejs
+  res.render('grouppostpage.ejs', {
+    userID: req.user
+  });
+});
 router.get('/chat', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('chat.ejs', {
     userID: req.user
@@ -56,11 +76,6 @@ router.get('/chat', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
 });
 router.get('/channels', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
   res.render('channels.ejs', {
-    userID: req.user
-  });
-});
-router.get('/channelpage', connectEnsureLogin.ensureLoggedIn(), function (req, res) {
-  res.render('channelpage.ejs', {
     userID: req.user
   });
 });

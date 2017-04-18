@@ -2,8 +2,9 @@ CLASS PAGE
 
 	//MAIN CLASS PAGE
 		- Class search enter button doesn't work
-		- Class JOIN button needs to refresh page (or update the class list) automatically.
-		
+		- Class JOIN button needs to refresh page (or update the class list) automatically. (Fixed)
+		- Message when the class doesn't exists ("No results found") (Fixed)
+
 	
 	//MEMBERS SECTION
 		- View users button doesn't work
@@ -50,21 +51,21 @@ GROUP PAGE
 	
 PROFILE PAGE
 
-	- Styling
+	- Styling fixed
 	
-	- Add Repos Contributed to by the user
+	- Add Repos Contributed to by the user  fixed
 	
-	- Fix Names not showing for people without a name in github.
+	- Fix Names not showing for people without a name in github.  fixed
 
 DASHBOARD
 
-	- REPLACE BY PROFILE PAGE
+	- REPLACE BY PROFILE PAGE  (fixed)
 	
-	- Remove BELL
+	- Remove BELL  (fixed)
 
 APP.JS
 
-	- MAKE DEFAULT PAGE = PROFILE PAGE
+	- MAKE DEFAULT PAGE = PROFILE PAGE (Fixed)
 	
 	- Fix Logout button
 	
@@ -72,8 +73,8 @@ APP.JS
 CHAT
 	
 	//General
-		- FIX CSS OVERFLOW or wtvr it's called
-		- Styling
+		- FIX CSS OVERFLOW or wtvr it's called  fixed
+		- Styling   (fixed)
 		
 		- When not in channel, It shouldn't write.
 		

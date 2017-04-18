@@ -1,0 +1,163 @@
+Acceptance test for #14
+https://github.com/ivanb7/soen341group3/issues/14
+
+Given: User enters this link: https://soen341group3.herokuapp.com/
+1. a panel named " Login via" appears to the screen
+2. the user clicks on the green button "github" where he could login with his github account
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #15
+https://github.com/ivanb7/soen341group3/issues/15
+
+Given: TA is on the dashboard
+1.the TA can click on a repository 
+2. it displays the profile activity(number of commits, graphs etc)
+
+Test Verified by the team [x]
+Test Verfied by the client []
+--------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #16
+https://github.com/ivanb7/soen341group3/issues/16
+
+Given: User is on the dashboard
+1. the user can see his github username and name. Also, he can see his profile picture.
+2. the user can click on "view Github profile" button where it redirects to his github account
+
+Test Verified by the team [x]
+Test Verfied by the client []
+-----------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #17
+https://github.com/ivanb7/soen341group3/issues/17
+
+Given: User is on the dashboard
+1. the user can see all the repositories that he/she had worked on
+2. the user can click on "view details" of a repository and it displays all the participation of each member 
+in terms of:(number of commits, number of additions and deletions lines, and a graph representation)
+
+Test Verified by the team [x]
+Test Verfied by the client []
+------------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #18
+https://github.com/ivanb7/soen341group3/issues/18
+
+Given: User is on the Chat page
+1. the user has a list of channels they're apart of in a channels box
+2. the user selects the channel to chat with and a previous history of the chat is shown
+3. the user writes a message in the text box and clicks the send button
+4. the user sends the message and the message appears in the chat box in real time
+5. the user clicks on the create a channel button and is navigated to a page to create a new channel
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #19
+https://github.com/ivanb7/soen341group3/issues/19
+
+Given: User is on the channels page
+1. the user clicks the create a new channels button
+2. the user names the channel and a box with the channel and channel functions appear
+3. the user clicks view channel 
+4. a box with channel information is displayed
+5. the user can search for a specific person and add them to the channel
+6. the users that are a part of the channel will be able to view the messages in the channel
+7. the user has the ability to leave the channel by pressing the leave channel button
+8. the creator of the channel has the ability to delete the channel if they are the creator by pressing the delete button
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #22
+https://github.com/ivanb7/soen341group3/issues/22
+
+Given: User is on the class page
+1. the user clicks on the button "create class"
+2. the small box panel appears
+3. the user fill his class ( title and description)
+4. the user clicks on the create button
+5. user has the ability to delete the class by clicking on "red x button" 
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #26
+https://github.com/ivanb7/soen341group3/issues/26
+
+Given: User is on the class page
+1. the user clicks on the "view" button of a specific class
+2.  it displays a page where you can find class members,class forum, groups 
+3.  the user clicks on the button create a post
+4.  a small panel appears
+5. the user fill the title and the comment of the post
+6. the user clicks on the Post button 
+7. the title of the post appears on the class forum page and the user can click on it to see the comment he posted
+8. with the close button, the user can click on it if he don't want to post
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------\
+Acceptance test for #27
+https://github.com/ivanb7/soen341group3/issues/27
+
+Given: User is on the groups 
+1. the user clicks on the button "view" and it goes on a specific group page
+2. the user clicks on the "choose File" button 
+3. a file explorer box appears where you can select the document you want to upload 
+4. the document is uploaded in the "Uploaded files" box 
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #28
+https://github.com/ivanb7/soen341group3/issues/28
+
+Given: User is on the group forum box
+1. the user clicks on a specific post 
+2. a response timeline box appears
+3. the user can comment on this particular post by filling the blank box  
+4. the user clicks on the submit button to post a comment
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #34
+https://github.com/ivanb7/soen341group3/issues/34
+
+Given: User is in a specific class page 
+1. on the class members box, the user clicks on the add user button 
+2. a small panel appears
+3. the user can search for a classmate and can add him with green + button
+4. the user can click on the remove button to delete a team member
+
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #35
+https://github.com/ivanb7/soen341group3/issues/35
+
+Given: User is on class page
+1. the user can search for the class he wants to join
+2. if the class exists, a box with the name of the class appears and if it doesn't exist it will display
+small box "no result found"
+3.once the user found the class, he can click on the join button and he will be added to the class
+
+Test Verified by the team [x]
+Test Verfied by the client []
+---------------------------------------------------------------------------------------------------------------------------------------
+Acceptance test for #37
+https://github.com/ivanb7/soen341group3/issues/37
+
+Given: the user is on his specific class 
+1.on the groups box, the user clicks on the create Group button 
+2. a big panel appears
+3. the user fill the name of the group and add the others classmates to the group
+4. the user clicks on the create button and it displays on the groups box
+5. the user clicks on the name of the group that he created and it redirects to the group page
+6. the user clicks on the create post button where he can create a post and it will display on the group forum
+
+Test Verified by the team [x]
+Test Verfied by the client []
+----------------------------------------------------------------------------------------------------------------------------------------
+
