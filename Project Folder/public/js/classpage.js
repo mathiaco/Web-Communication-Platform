@@ -391,12 +391,14 @@ var postsRef = firebase.database().ref("classes/" + classID + "/posts/");
 firebase.database().ref("classes/" + classID).once("value").then(function (snapshot) {
   $("#classTitle").text(snapshot.val().title);
   taID = snapshot.val().ta;
-  $("#ta").append(
-    "<a href= 'profile/id/" + taID + "'>" +
-    taID + "</a>"
-  );
-  initializePage();
-  initializeGroup();
+  firebase.database().ref("users/" + taID).once("value").then(function (childSnapshot) {
+    var taName = childSnapshot.val().username;
+    $("#ta").append(
+      "<a href= 'profile/id/" + taID + "' style='color:#FFFFFF !important;text-decoration:none;'>" +
+      taName + "</a>"
+    );
+    initializePage();
+    initializeGroup();
+  });
 });
-
 //initializeClassList(); Do we need this?
